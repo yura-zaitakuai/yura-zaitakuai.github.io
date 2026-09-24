@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゆらのスレッズ収益化レシピ｜ゆらAI在宅</title>
+<meta name="description" content="スレッズ×楽天アフィリエイトで使うプロフィール＆アイコン作成とスレッド作成の2つのプロンプトを、図解つきでまとめました。">
+<meta property="og:title" content="ゆらのスレッズ収益化レシピ｜ゆらAI在宅">
+<meta property="og:description" content="動画で使った2つのプロンプトを、コピーしてすぐ使えるようにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yura-zaitakuai.github.io/threads-recipe/img/yura_chibi_05_family.webp">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF;
+  --paper:#FFFFFF;
+  --ink:#4A3426;
+  --muted:#8A7163;
+  --cocoa:#B07A63;
+  --cocoa-deep:#8E5A45;
+  --cocoa-ink:#FFFFFF;
+  --sage:#C6A15B;
+  --sage-soft:#F7EEE8;
+  --band:#E9D5CA;
+  --rule:#EFE3DA;
+  --rule-strong:#E0CBBE;
+  --box:#FFFCFA;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;padding:0 16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto;padding-block:44px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+
+/* 表紙 */
+.cover{position:relative;border:1px solid var(--sage);outline:1px solid var(--rule-strong);outline-offset:5px;border-radius:4px;padding:28px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:end;background:radial-gradient(120% 90% at 85% 10%,#F6E9DE 0%,#FFFFFF 62%)}
+.cover>*{grid-column:1}
+.cover .chibi-hero{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(110px,24vw,170px)}
+@media (max-width:560px){.cover{grid-template-columns:1fr}.cover .chibi-hero{grid-column:1;grid-row:auto;justify-self:end;width:120px;margin-top:-8px}}
+.cover .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.cover h1{font-size:clamp(28px,6vw,44px);letter-spacing:.02em;color:var(--ink)}
+.cover h1 .grad{background:linear-gradient(180deg,#C99A83 0%,#9A624C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover h1 small{display:block;font-size:.5em;letter-spacing:.08em;color:var(--cocoa);margin-bottom:6px}
+.cover .lead{max-width:34em;color:var(--muted)}
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+.index a{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:var(--ink);border:1px solid var(--rule-strong);border-radius:999px;padding:9px 18px;background:#FFFFFF}
+.index a:hover{border-color:var(--cocoa)}
+.index a:focus-visible{outline:3px solid var(--cocoa);outline-offset:2px}
+.index b{font-family:var(--display);color:var(--cocoa);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+
+/* ひとこと */
+.note{display:grid;grid-template-columns:4px 1fr;gap:16px}
+.note::before{content:"";background:var(--sage)}
+.note p+p{margin-top:8px}
+.note .who{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* 全体図 */
+.section-label{font-size:12.5px;letter-spacing:.2em;color:var(--sage);font-weight:700}
+.overview{display:flex;flex-direction:column;gap:12px}
+.overview h2{font-size:22px}
+.fig{border:1px solid var(--rule-strong);background:var(--paper);padding:14px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:540px}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figure{margin:0}
+svg .bx{fill:var(--box);stroke:var(--rule-strong);stroke-width:1.2}
+svg .bx-on{fill:var(--sage-soft);stroke:var(--sage);stroke-width:1.6}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:700}
+svg .s{fill:var(--muted);font-family:var(--body);font-size:12.5px}
+svg .n{fill:var(--cocoa);font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.08em}
+svg .ar{stroke:var(--cocoa);stroke-width:1.6;fill:none}
+svg .arh{fill:var(--cocoa)}
+svg .pill{fill:var(--cocoa)}
+svg .pt{fill:var(--cocoa-ink);font-family:var(--body);font-size:12px;font-weight:700}
+
+/* レシピカード */
+.recipe{background:var(--paper);border:1px solid var(--rule-strong);border-radius:4px;position:relative;overflow:hidden}
+.recipe-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px clamp(18px,4vw,34px);background:linear-gradient(90deg,#EBD8CD,#F4E7DF);border-bottom:1px solid var(--sage)}
+.recipe-head .chibi-side{width:clamp(76px,16vw,110px);margin-block:-6px -18px}
+@media (max-width:480px){.recipe-head{grid-template-columns:auto 1fr}.recipe-head .chibi-side{display:none}}
+.num{font-family:var(--display);color:var(--cocoa-deep);text-align:center;line-height:1.1;border-right:1px solid var(--sage);padding-right:18px}
+.num span{display:block;font-size:11px;letter-spacing:.2em}
+.num strong{display:block;font-size:40px}
+.recipe-head h2{font-size:clamp(21px,4vw,27px)}
+.recipe-head .when{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage);letter-spacing:.06em}
+.recipe-body{padding:24px clamp(18px,4vw,34px) 28px;display:flex;flex-direction:column;gap:24px}
+.block{display:flex;flex-direction:column;gap:12px}
+.block+.block{border-top:1px dashed var(--rule-strong);padding-top:22px}
+h3{font-size:17px;letter-spacing:.06em;display:flex;gap:10px;align-items:baseline}
+h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--sage)}
+.ingredients li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule-strong);padding-block:6px}
+.ingredients li span:last-child{color:var(--muted);font-size:14px;text-align:right}
+.method{counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.method li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.method li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--cocoa);font-size:17px;line-height:1.9}
+.why{color:var(--muted);font-size:14.5px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.checks li::before{content:"";width:16px;height:16px;border:1.5px solid var(--cocoa);border-radius:3px;margin-top:7px}
+.caution{background:var(--sage-soft);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.caution strong{font-family:var(--display);font-size:16px}
+.caution li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.caution li::before{content:"―";color:var(--sage);font-weight:700}
+
+/* プロンプト枠 */
+.prompt{border:1.5px solid var(--rule-strong);border-radius:4px;background:var(--box)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 8px 14px;border-bottom:1.5px solid var(--rule-strong);background:#FBF3EE}
+.prompt-head span{font-size:13px;font-weight:700;letter-spacing:.06em}
+.copy{appearance:none;border:0;border-radius:999px;background:linear-gradient(180deg,#BE8B73,#9E6650);color:var(--cocoa-ink);font:700 14px var(--body);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{filter:brightness(1.08)}
+.copy:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.prompt pre{margin:0;padding:16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.85 var(--body);color:var(--ink)}
+.prompt pre:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.toast{font-size:13px;color:var(--cocoa);font-weight:700;min-height:1.2em}
+.small{font-size:13px;color:var(--muted)}
+
+/* 今日これだけ・おわりに */
+.today{border:1px solid var(--sage);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:12px 18px;background:radial-gradient(100% 120% at 100% 100%,#F6E9DE 0%,#FFFFFF 60%)}
+.today>*{grid-column:1}.today .chibi-side{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(90px,18vw,130px)}
+@media (max-width:560px){.today{grid-template-columns:1fr}.today .chibi-side{grid-column:1;grid-row:auto;justify-self:end}}
+.today h2{font-size:22px}
+.closing{border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding-block:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.closing .chibi-family{align-self:center;width:min(360px,90%);margin-top:6px}
+.closing h2{font-size:20px}
+.chibi-hero,.chibi-side,.chibi-family{display:block;height:auto;max-width:100%}
+.channel{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--cocoa-ink);background:linear-gradient(180deg,#BE8B73,#9E6650);border-radius:999px;padding:14px 22px}
+.channel:hover{filter:brightness(1.06)}
+.channel:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.channel-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.06em}
+.channel-go{font-weight:700;font-size:14.5px;background:#FFFFFF;color:var(--cocoa-deep);border-radius:999px;padding:6px 16px}
+footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<main class="wrap">
+
+  <header class="cover">
+    <div class="meta"><span>ゆらAI在宅</span></div>
+    <h1><small>スレッズ×楽天アフィリエイト</small>ゆらの<span class="grad">収益化レシピ</span></h1>
+    <p class="lead">AIは、ゼロから勉強しなくて大丈夫。うまくいったレシピをもらって、その通りに使えばいいんです。動画で使った2つのプロンプトを、コピーしてすぐ使えるようにまとめました。</p>
+    <nav class="index" aria-label="このページのレシピ">
+      <a href="#r1"><b>RECIPE 01</b><span>プロフィールとアイコン</span></a>
+      <a href="#r2"><b>RECIPE 02</b><span>伸びるスレッド</span></a>
+    </nav>
+    <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
+  </header>
+
+  <section class="note" aria-label="ゆらからのひとこと">
+    <div>
+      <p class="who">ゆらより</p>
+      <p>動画を見てくださって、ありがとうございます。</p>
+      <p>ここにあるプロンプトは、どちらも「ChatGPTに貼り付けて、聞かれたことに答えるだけ」で使えるように作っています。AIに詳しくなくても大丈夫なので、まずは1回、動画を見ながら一緒に動かしてみてくださいね。</p>
+    </div>
+  </section>
+
+  <section class="overview" aria-labelledby="flow">
+    <p class="section-label">全体の流れ</p>
+    <h2 id="flow">4つのステップのどこで使うか</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 176" role="img" aria-label="ステップ1スレッズのアカウントを作る（レシピ01）、ステップ2伸びている投稿をリサーチ、ステップ3楽天アフィリエイトに登録、ステップ4AIで投稿を作る（レシピ02）">
+        <text class="s" x="6" y="18">色のついたステップで、このページのレシピを使います</text>
+        <rect class="bx-on" x="6" y="34" width="150" height="96" rx="3"/>
+        <text class="n" x="22" y="60">STEP 1</text>
+        <text class="t" x="22" y="86">スレッズの</text>
+        <text class="t" x="22" y="108">アカウントを作る</text>
+        <rect class="pill" x="30" y="142" width="102" height="24" rx="2"/>
+        <text class="pt" x="81" y="158" text-anchor="middle">RECIPE 01</text>
+        <path class="ar" d="M160 82 H176"/><path class="arh" d="M176 77 L185 82 L176 87 Z"/>
+        <rect class="bx" x="190" y="34" width="150" height="96" rx="3"/>
+        <text class="n" x="206" y="60">STEP 2</text>
+        <text class="t" x="206" y="86">伸びている投稿</text>
+        <text class="t" x="206" y="108">をリサーチ</text>
+        <path class="ar" d="M344 82 H360"/><path class="arh" d="M360 77 L369 82 L360 87 Z"/>
+        <rect class="bx" x="374" y="34" width="150" height="96" rx="3"/>
+        <text class="n" x="390" y="60">STEP 3</text>
+        <text class="t" x="390" y="86">楽天アフィリエイト</text>
+        <text class="t" x="390" y="108">に登録</text>
+        <path class="ar" d="M528 82 H544"/><path class="arh" d="M544 77 L553 82 L544 87 Z"/>
+        <rect class="bx-on" x="558" y="34" width="136" height="96" rx="3"/>
+        <text class="n" x="574" y="60">STEP 4</text>
+        <text class="t" x="574" y="86">AIで</text>
+        <text class="t" x="574" y="108">投稿を作る</text>
+        <rect class="pill" x="575" y="142" width="102" height="24" rx="2"/>
+        <text class="pt" x="626" y="158" text-anchor="middle">RECIPE 02</text>
+      </svg>
+    </figure>
+  </section>
+
+  <article class="recipe" id="r1" aria-labelledby="r1-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>01</strong></div>
+      <div>
+        <h2 id="r1-title">プロフィールとアイコンを作る</h2>
+        <span class="when">STEP 1　アカウントを作ったら</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="7つの質問に答える、プロフィールが3案できる、アイコンを作る、の3段階">
+          <rect class="bx" x="6" y="24" width="206" height="150" rx="3"/>
+          <text class="n" x="24" y="52">1　質問に答える</text>
+          <text class="t" x="24" y="80">7つの質問</text>
+          <text class="s" x="24" y="104">呼び名／子どもの年齢</text>
+          <text class="s" x="24" y="124">ジャンル／届けたい人</text>
+          <text class="s" x="24" y="144">経験・強み／雰囲気／リンク</text>
+          <path class="ar" d="M216 99 H234"/><path class="arh" d="M234 94 L243 99 L234 104 Z"/>
+          <rect class="bx-on" x="248" y="24" width="206" height="150" rx="3"/>
+          <text class="n" x="266" y="52">2　プロフィール3案</text>
+          <text class="t" x="266" y="80">名前欄＋自己紹介</text>
+          <text class="s" x="266" y="104">A 共感型</text>
+          <text class="s" x="266" y="124">B お得・便利型</text>
+          <text class="s" x="266" y="144">C 人柄型　＋ID候補</text>
+          <path class="ar" d="M458 99 H476"/><path class="arh" d="M476 94 L485 99 L476 104 Z"/>
+          <rect class="bx" x="490" y="24" width="204" height="150" rx="3"/>
+          <text class="n" x="508" y="52">3　アイコンを作る</text>
+          <text class="t" x="508" y="80">3タイプから選ぶ</text>
+          <text class="s" x="508" y="104">A イラストで作る</text>
+          <text class="s" x="508" y="124">B 写真をイラスト風に</text>
+          <text class="s" x="508" y="144">C 自分で撮るコツ</text>
+        </svg>
+        <figcaption>顔出しなしでも、イラストのアイコンまで作れます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>用意するもの</em></h3>
+        <ul class="ingredients">
+          <li><span>ChatGPT</span><span>無料版でOK</span></li>
+          <li><span>作ったばかりのスレッズのアカウント</span><span>STEP 1</span></li>
+          <li><span>アイコンに使う自分の写真</span><span>イラスト風にしたい人だけ</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3><em>作り方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、ChatGPTに貼り付けて送ります。</span></li>
+          <li><span>聞かれた7つの質問に答えます。答えにくいものは「おまかせ」で大丈夫です。</span></li>
+          <li><span>3つの案から気に入ったものを選んで、直したいところを伝えます。</span></li>
+          <li><span>そのままアイコン作りに進みます。</span></li>
+        </ol>
+        <p class="why">プロフィールは「誰が、誰のために、何を発信しているか」が一瞬で分かることが大事です。見に来てくれた人が「フォローしたら得しそう」と思えるかどうかで、フォローしてもらえるかが変わります。</p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 01｜プロフィール＆アイコン</span><button class="copy" id="copy-p1" type="button" data-target="text-p1">コピーする</button></div>
+          <pre id="text-p1" tabindex="0">あなたは、Threads（スレッズ）で「育児・暮らし・便利グッズ」ジャンルのアカウントを数多く伸ばしてきたSNSプロデューサーです。
+これから私と会話をしながら、スレッズの「プロフィール」と「アイコン画像」を一緒に作ってください。
+
+【目指す完成形】
+スレッズで伸びているママアカウントのプロフィールは、だいたい次の形になっています。
+
+■ 名前欄：「呼び名＋区切り記号＋何を発信しているアカウントか」
+　例）るりママ｜育児の気づき・便利グッズ
+　例）あず〻不器用なママでも整う暮らし
+
+■ 自己紹介（5〜6行）
+　1行目：何を発信しているか、ひと言で（または「1y👶×4y👦」のように家族構成）
+　2〜4行目：行頭に絵文字を1つ置いて、フォローした人が得られることを1行ずつ
+　5行目：自分の属性・経験・実績を「｜」で区切って並べる（例：2児ママ｜便利グッズ200点以上リサーチ｜ママ目線で厳選）
+　6行目：リンクへの誘導（例：紹介した便利グッズはここから👇）
+
+一目で「誰が、誰のために、何を発信しているアカウントか」が分かり、「フォローしたら自分にいいことがある」と思ってもらえることがゴールです。
+
+【STEP1：ヒアリング】
+まず、次の7つを番号つきで私に質問してください。答えにくいものは「おまかせ」「なし」でもOKだと添えてください。
+
+1. 呼び名（ニックネーム）
+2. お子さんの人数と年齢（出したくない場合は「なし」）
+3. 発信したいジャンル（例：育児グッズ／時短家事／暮らし・収納／100均／節約・お得情報）
+4. 誰に届けたいか（例：0〜2歳の子を育てているママ、共働きで時間がないママ）
+5. あなたの経験・強み（例：前職、資格、これまでに試したグッズの数、〇年続けていること）
+6. アカウントの雰囲気（例：やさしい、シンプル、明るい、ゆるい、きれいめ）
+7. プロフィールに貼りたいリンク（例：楽天ROOM／まだない）
+
+【STEP2：プロフィールを3案作る】
+答えがそろったら、切り口の違う3案を作ってください。
+　案A：共感型（「ママのしんどい」に寄り添う）
+　案B：お得・便利型（知れば得する情報がもらえる）
+　案C：人柄型（経験や強みで信頼してもらう）
+
+それぞれ、次の4点をセットで出してください。
+・名前欄
+・自己紹介（そのままコピーして貼れる形で）
+・ユーザーID（アカウント名）の候補を3つ（半角英数字と「_」「.」のみ。例：ruri_mom_happy、azu.kurashi）
+・この案の狙いを1行で
+
+出したあとに「どの案がいいですか？ 組み合わせたい部分や、直したい言葉があれば教えてください」と聞き、私の希望に合わせて整えてください。
+
+【プロフィール作成のルール】
+1. 自己紹介は150文字以内、名前欄は30文字以内を目安にする
+2. 「私は〜です」という自己紹介ではなく、「フォローした人が何を得られるか」を中心に書く
+3. 絵文字は各行の頭に1つ程度。多用しない
+4. 私の答えにない実績・数字・資格は絶対に作らない。盛らない
+5. 本名・住んでいる地域・勤務先・子どもの名前など、個人が特定できる情報は入れない
+6. 「必ず」「絶対」「治る」など、言い切りすぎる表現や効果を断定する表現は使わない
+7. 3案の言い回しがかぶらないようにする
+8. Amazonアソシエイトを使う場合は、Amazonのアソシエイトとして収入を得ていることが分かる一文を入れる必要があることを、最後に一言添える
+
+【STEP3：アイコンを作る】
+プロフィールが決まったら、「次はアイコンを作りましょう」と伝えて、次の3つを質問してください。
+
+1. アイコンのタイプはどれにしますか？
+　A：イラストで作る（顔出しなし・写真なしでOK）
+　B：自分の写真をもとにイラスト風にする（写真を送ってください）
+　C：自分で撮った写真を使う（撮り方のコツを教えます）
+2. 好きな色や雰囲気（例：ベージュ系でナチュラル、水色でさわやか、ピンクでやわらかい）
+3. 入れたい要素（例：子どもと一緒、キッチン、ベビーグッズ、スマホを持っている）
+
+■ AかBを選んだ場合
+次の条件でアイコン画像を1枚作ってください。
+・正方形（1:1）
+・丸く切り抜かれても、人物や主役が中央に収まる構図
+・背景はシンプルに。文字は入れない
+・スマホの小さい表示でもパッと何のアカウントか分かる、決めたプロフィールと雰囲気がそろった絵柄
+・子どもを入れる場合は、後ろ姿やシルエットなど、顔が分からない描き方にする
+・Bの場合は、送られた写真の雰囲気（髪型・服の色など）を残しつつ、本人と特定されすぎないやわらかいイラストにする
+
+作ったあとに「色・表情・ポーズ・背景など、変えたいところはありますか？」と聞き、私の希望に合わせて作り直してください。
+
+■ Cを選んだ場合
+画像は作らずに、スマホで自分で撮るときのコツを5つ以内で教えてください。
+（例：窓際の自然光で撮る／背景は白やベージュの壁／顔を出したくなければ横顔・後ろ姿・手元だけにする／丸く切り抜かれても中央に収まるように撮る）
+子どもが写る場合は、顔が分からない撮り方にするよう必ず伝えてください。
+
+【最後に】
+プロフィールとアイコンが決まったら、スレッズの「プロフィールを編集」から名前・自己紹介・リンク・写真を設定すれば完成だと伝えてください。
+
+準備ができたら、STEP1の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p1" aria-live="polite"></p>
+        <p class="small">アイコンの画像作成は、無料版のChatGPTだと1日に作れる枚数に上限があります。</p>
+      </div>
+
+      <div class="block">
+        <h3><em>できあがりチェック</em></h3>
+        <ul class="checks">
+          <li><span>名前欄で「何を発信しているアカウントか」が分かる</span></li>
+          <li><span>自己紹介に、本名・住んでいる地域・子どもの名前が入っていない</span></li>
+          <li><span>やっていない実績や数字が入っていない</span></li>
+          <li><span>スレッズの「プロフィールを編集」から、名前・自己紹介・写真を設定した</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="recipe" id="r2" aria-labelledby="r2-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>02</strong></div>
+      <div>
+        <h2 id="r2-title">伸びている投稿から、スレッドを作る</h2>
+        <span class="when">STEP 4　リサーチと楽天の登録が済んだら</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="804">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 256" role="img" aria-label="伸びている投稿のスクショを送る、伸びている理由の分析、3つの質問に答える、紹介できる商品の提案、楽天で検索して選ぶ、最初の投稿3案とコメント欄の投稿ができる">
+          <rect class="bx" x="6" y="14" width="214" height="96" rx="3"/>
+          <text class="n" x="22" y="40">1</text>
+          <text class="t" x="22" y="66">伸びている投稿の</text>
+          <text class="t" x="22" y="88">スクショを送る</text>
+          <path class="ar" d="M224 62 H233"/><path class="arh" d="M233 57 L242 62 L233 67 Z"/>
+          <rect class="bx" x="246" y="14" width="214" height="96" rx="3"/>
+          <text class="n" x="262" y="40">2</text>
+          <text class="t" x="262" y="66">なぜ伸びているかを</text>
+          <text class="t" x="262" y="88">分析してくれる</text>
+          <path class="ar" d="M464 62 H473"/><path class="arh" d="M473 57 L482 62 L473 67 Z"/>
+          <rect class="bx" x="486" y="14" width="208" height="96" rx="3"/>
+          <text class="n" x="502" y="40">3</text>
+          <text class="t" x="502" y="66">3つの質問に</text>
+          <text class="t" x="502" y="88">答える</text>
+          <path class="ar" d="M590 114 V128 H113 V134"/><path class="arh" d="M108 134 L113 143 L118 134 Z"/>
+          <rect class="bx" x="6" y="148" width="214" height="96" rx="3"/>
+          <text class="n" x="22" y="174">4</text>
+          <text class="t" x="22" y="200">商品を5つ</text>
+          <text class="t" x="22" y="222">提案してくれる</text>
+          <path class="ar" d="M224 196 H233"/><path class="arh" d="M233 191 L242 196 L233 201 Z"/>
+          <rect class="bx" x="246" y="148" width="214" height="96" rx="3"/>
+          <text class="n" x="262" y="174">5</text>
+          <text class="t" x="262" y="200">楽天で検索して</text>
+          <text class="t" x="262" y="222">商品を選ぶ</text>
+          <path class="ar" d="M464 196 H473"/><path class="arh" d="M473 191 L482 196 L473 201 Z"/>
+          <rect class="bx-on" x="486" y="148" width="208" height="96" rx="3"/>
+          <text class="n" x="502" y="174">6</text>
+          <text class="t" x="502" y="200">最初の投稿3案と</text>
+          <text class="t" x="502" y="222">コメント欄の投稿</text>
+        </svg>
+        <figcaption>紹介する商品が決まっていなくても、「提案して」と答えれば大丈夫です。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>用意するもの</em></h3>
+        <ul class="ingredients">
+          <li><span>伸びている投稿のスクショ</span><span>STEP 2で集めたもの</span></li>
+          <li><span>楽天アフィリエイトのアカウント</span><span>STEP 3</span></li>
+          <li><span>ChatGPT</span><span>無料版でOK</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3><em>作り方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、ChatGPTに貼り付けて送ります。</span></li>
+          <li><span>伸びている投稿のスクショを送ります。コメント欄も写っていると、より詳しく分析してくれます。</span></li>
+          <li><span>3つの質問（ジャンル／商品は決まっているか／読んでほしい人）に答えます。</span></li>
+          <li><span>提案された検索キーワードで、楽天アフィリエイトのページから商品を探します。選んだ商品のスクショを送って「こちらにします」と伝えます。</span></li>
+          <li><span>できた3案から、気に入ったものを「〇番がいいです」と伝えると、さらに整えてくれます。</span></li>
+          <li><span>最初の投稿を出して、コメント欄に続きをつなげ、いちばん最後に楽天のリンクを貼ります。</span></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02｜スレッド作成</span><button class="copy" id="copy-p2" type="button" data-target="text-p2">コピーする</button></div>
+          <pre id="text-p2" tabindex="0">あなたは、Threads（スレッズ）で楽天アフィリエイトの成果を出しているSNSマーケターです。
+フォロワーがゼロのアカウントでも「最初の1行」で手を止めさせ、リプ欄（返信欄）で商品を紹介して成約につなげる書き方を熟知しています。
+
+これから私が、Threadsで実際に伸びている投稿のスクリーンショットを送ります。
+その投稿が「なぜ伸びているのか」を分析し、同じ型を使って、別の商品を紹介するスレッドを作ってください。
+紹介する商品が決まっていない場合は、その型と相性のいい商品も提案してください。
+
+【このスレッドの設計思想】
+いきなり商品リンクを貼っても、知らない人からすすめられた商品は誰も買いません。
+そこで、次の順番で気持ちを動かします。
+
+1. 親投稿（1つ目の投稿）＝ 商品名を出さずに「え、なにそれ？」と思わせる
+2. リプ欄（自分で自分に返信していく）＝ 続きが気になった人にだけ、商品の中身を渡す
+3. リプ欄の最後 ＝ そこで初めてリンクを1本だけ置く
+
+【ステップ1：参考にする投稿を受け取る】
+まず私に、次のように聞いてください。
+
+「参考にしたい、伸びている投稿のスクリーンショットを送ってください。親投稿だけでなく、リプ欄やコメント欄も写っているとより正確に分析できます。複数枚でもOKです。」
+
+【ステップ2：なぜ伸びているかを分析する】
+スクショが届いたら、すぐに投稿を作らず、次の5つを短くまとめて私に見せてください。
+
+1. 1行目の型（誰に話しかけているか／どこに意外性があるか／何を伏せているか）
+2. 親投稿の構成と文字量
+3. 商品名を出しているタイミング（親投稿か、リプ欄か）
+4. 読んでいる人の悩み（コメント欄から読み取れる本音も含めて）
+5. この投稿の中で「他の商品にも使い回せる部分」はどこか
+
+スクショから読み取れなかったことは、推測で書かないでください。
+
+【ステップ3：私に確認する】
+分析を見せたあと、次の3つを私に質問してください。
+
+1. あなたのアカウントはどんなジャンルですか？（例：子育て、時短家事、節約、在宅ワーク　など）
+2. 紹介したい商品は決まっていますか？
+　・決まっている場合：商品名と、実際に使っていれば「いちばん助かっている場面」を一言で
+　・決まっていない場合：「提案して」とだけ答えてください
+3. 読んでほしい人はどんな人ですか？（例：未就学児を育てていて、朝の支度に追われているママ）
+
+【ステップ4：紹介できる商品を提案する】
+私が「提案して」と答えた場合は、分析した型と相性のいい商品を5つ提案してください。
+それぞれ、次の4点をセットで出してください。
+
+- 商品の種類（例：「子どもが自分で着替えられる〇〇」のように、何の悩みを解決するものか分かる書き方で）
+- 楽天市場で探すときの検索キーワード
+- なぜこの型と相性がいいのか（1行）
+- 親投稿の1行目のイメージ（1行）
+
+提案は「商品の種類」と「検索キーワード」で出してください。
+特定の商品名・ブランド名・価格・在庫・ランキングは、実在を確認できないので書かないでください。
+提案を出したら「どれにしますか？　楽天で実際に選んだ商品名も教えてください」と私に聞いてください。
+
+【ステップ5：スレッドを作る】
+商品が決まったら、参考投稿と同じ型で、以下の構成のスレッドを作ってください。
+
+■ 親投稿（3案出す）
+- 参考投稿の1行目の「型」を使う。ただし、参考投稿の文章・言い回しはそのまま使わない（真似するのは構成と型だけ）
+- 商品名は出さない。リンクも貼らない
+- 1行目は、次の3条件を満たす「思わず手が止まる一文」にする
+　・誰かに話しかけている
+　・ちょっと意外性がある
+　・最後まで読まないと答えがわからない
+- 2行目以降で、その商品を使う前にどれだけ困っていたかを、生活の風景が浮かぶ具体的な描写で書く
+- 最後は、リプ欄への視線を促す一言で締める
+- 3案はそれぞれ切り口を変える（①失敗・後悔から入る　②家族や他人のセリフから入る　③常識をひっくり返す）
+
+■ リプ①（親投稿への1つ目の返信）
+- ここで初めて、何の商品なのかを明かす
+- 何がどう変わったのかを、具体的な場面で3つ書く
+
+■ リプ②
+- 正直なデメリット・向いていない人を1〜2個書く
+- そのうえで「それでも選んでいる理由」を書く。良いことだけ書かない
+
+■ リプ③（リンクを貼る投稿）
+- 「どこで買えるの？」と聞かれた前提の入り方にする
+- 商品リンクを貼る位置を［ここに楽天アフィリエイトのリンクを貼る］と明記する
+- 投稿の見えるところに必ず #PR を入れる
+
+【出力時の絶対ルール】
+
+1. 1投稿は500文字以内にする。読みやすいところで改行し、1行を長くしすぎない
+2. 「【まとめ】」「タイトル：」のような見出しは投稿本文に絶対に入れない。そのまま貼れる状態で出す
+3. 絵文字は多用しない。1投稿あたり0〜2個までにする
+4. リンクを貼るのはリプ③の1か所だけ。親投稿・リプ①・リプ②には絶対にリンクを貼らない
+5. リンクを貼る投稿には必ず #PR を入れる（ステマ規制で、広告と分からない見せ方は法律で禁止されています）
+6. 価格・ポイント倍率・セール情報は変動するので、具体的な金額や「今だけ半額」などは書かない
+7. 健康・美容系の商品でも「治る」「痩せる」など、効果を断定する表現は使わない
+8. 私が使ったことのない商品の場合は、使用体験を作らず「気になっている」「レビューを見て買おうか迷っている」というスタンスで書く
+9. 出力の最後に「この中で気に入った親投稿の番号を教えてください。その案に合わせてリプ欄を整えます」と一言添える
+
+準備ができたら、ステップ1の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p2" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <div class="caution">
+          <strong>投稿する前に、ここだけは確認してください</strong>
+          <ul class="checks-plain">
+            <li><span>AIが作った文章は100%正しいわけではありません。参考にした投稿とまるっきり同じになっていないか、必ず自分の目で確認してください。</span></li>
+            <li><span>きれいすぎる言い回しは、自分の言葉に直しましょう。違和感があるところも、そのまま出さずに直してくださいね。</span></li>
+            <li><span>リンクを貼る投稿には、必ず「#PR」を入れます。紹介して報酬をもらう投稿は広告になるためです。</span></li>
+            <li><span>リンクを貼っていいのは自分の投稿だけです。他の人の投稿のコメント欄には貼らないでください。</span></li>
+            <li><span>楽天アフィリエイトの「サイト情報」に、スレッズのアカウントを登録しておきましょう。登録していないアカウントからの成果は、無効になることがあります。</span></li>
+            <li><span>使ったことのない商品は、「使ってよかった」とは書かずに「気になっている」という書き方にします。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="today" aria-labelledby="today">
+    <p class="section-label">今日これだけは</p>
+    <h2 id="today">動画を見終わったら、ここまでやってみよう</h2>
+    <ul class="checks">
+      <li><span>スレッズのアプリを入れて、アカウントを作る</span></li>
+      <li><span>RECIPE 01で、プロフィールとアイコンを設定する</span></li>
+      <li><span>楽天アフィリエイトにログインして、サイト情報にスレッズを登録する</span></li>
+    </ul>
+    <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    <p class="why">投稿は明日からでも大丈夫です。「あとでやろう」にすると、そのまま手が止まりやすいので、準備だけは今日のうちに済ませておきましょう。</p>
+  </section>
+
+  <section class="closing" aria-labelledby="bye">
+    <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
+    <p>このチャンネルでは、2児ママの私がやってきた在宅副業や、AIを使って稼げる副業の最新情報をお届けしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
+    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
+      <span class="channel-name">ゆらAI在宅</span>
+      <span class="channel-go">YouTubeチャンネルを見る</span>
+    </a>
+    <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
+  </section>
+
+  <footer>YURA AI ZAITAKU</footer>
+</main>
+
+<script>
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-target');
+      var pre=document.getElementById(id);
+      var toast=document.getElementById(id.replace('text','toast'));
+      var text=pre.textContent;
+      function ok(){btn.textContent='コピーしました';toast.textContent='ChatGPTに貼り付けて送ってください。';setTimeout(function(){btn.textContent='コピーする';},2200);}
+      function ng(){selectText(pre);toast.textContent='自動でコピーできなかったので、選択した文字をコピーしてください。';}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,ng);}else{ng();}
+      }catch(e){ng();}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
