@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゆらの穴場副業レシピ｜ゆらAI在宅</title>
+<meta name="description" content="公式LINEの返信・AI記事のリライト・Canvaのデザイン・楽天ROOMの紹介文、AIで作る4つのプロンプトを図解つきでまとめました。">
+<meta property="og:title" content="ゆらの穴場副業レシピ｜ゆらAI在宅">
+<meta property="og:description" content="動画で使った4つのプロンプトを、コピーしてすぐ使えるようにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yura-zaitakuai.github.io/anaba-recipe/img/yura_chibi_05_family.webp">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF;
+  --paper:#FFFFFF;
+  --ink:#4A3426;
+  --muted:#8A7163;
+  --cocoa:#B07A63;
+  --cocoa-deep:#8E5A45;
+  --cocoa-ink:#FFFFFF;
+  --sage:#C6A15B;
+  --sage-soft:#F7EEE8;
+  --band:#E9D5CA;
+  --rule:#EFE3DA;
+  --rule-strong:#E0CBBE;
+  --box:#FFFCFA;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;padding:0 16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto;padding-block:44px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+
+/* 表紙 */
+.cover{position:relative;border:1px solid var(--sage);outline:1px solid var(--rule-strong);outline-offset:5px;border-radius:4px;padding:28px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:end;background:radial-gradient(120% 90% at 85% 10%,#F6E9DE 0%,#FFFFFF 62%)}
+.cover>*{grid-column:1}
+.cover .chibi-hero{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(110px,24vw,170px)}
+@media (max-width:560px){.cover{grid-template-columns:1fr}.cover .chibi-hero{grid-column:1;grid-row:auto;justify-self:end;width:120px;margin-top:-8px}}
+.cover .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.cover h1{font-size:clamp(28px,6vw,44px);letter-spacing:.02em;color:var(--ink)}
+.cover h1 .grad{background:linear-gradient(180deg,#C99A83 0%,#9A624C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover h1 small{display:block;font-size:.5em;letter-spacing:.08em;color:var(--cocoa);margin-bottom:6px}
+.cover .lead{max-width:34em;color:var(--muted)}
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+.index a{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:var(--ink);border:1px solid var(--rule-strong);border-radius:999px;padding:9px 18px;background:#FFFFFF}
+.index a:hover{border-color:var(--cocoa)}
+.index a:focus-visible{outline:3px solid var(--cocoa);outline-offset:2px}
+.index b{font-family:var(--display);color:var(--cocoa);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+
+/* ひとこと */
+.note{display:grid;grid-template-columns:4px 1fr;gap:16px}
+.note::before{content:"";background:var(--sage)}
+.note p+p{margin-top:8px}
+.note .who{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* 全体図 */
+.section-label{font-size:12.5px;letter-spacing:.2em;color:var(--sage);font-weight:700}
+.overview{display:flex;flex-direction:column;gap:12px}
+.overview h2{font-size:22px}
+.fig{border:1px solid var(--rule-strong);background:var(--paper);padding:14px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:540px}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figure{margin:0}
+svg .bx{fill:var(--box);stroke:var(--rule-strong);stroke-width:1.2}
+svg .bx-on{fill:var(--sage-soft);stroke:var(--sage);stroke-width:1.6}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:700}
+svg .s{fill:var(--muted);font-family:var(--body);font-size:12.5px}
+svg .n{fill:var(--cocoa);font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.08em}
+svg .ar{stroke:var(--cocoa);stroke-width:1.6;fill:none}
+svg .arh{fill:var(--cocoa)}
+svg .pill{fill:var(--cocoa)}
+svg .pt{fill:var(--cocoa-ink);font-family:var(--body);font-size:12px;font-weight:700}
+
+/* レシピカード */
+.recipe{background:var(--paper);border:1px solid var(--rule-strong);border-radius:4px;position:relative;overflow:hidden}
+.recipe-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px clamp(18px,4vw,34px);background:linear-gradient(90deg,#EBD8CD,#F4E7DF);border-bottom:1px solid var(--sage)}
+.recipe-head .chibi-side{width:clamp(76px,16vw,110px);margin-block:-6px -18px}
+@media (max-width:480px){.recipe-head{grid-template-columns:auto 1fr}.recipe-head .chibi-side{display:none}}
+.num{font-family:var(--display);color:var(--cocoa-deep);text-align:center;line-height:1.1;border-right:1px solid var(--sage);padding-right:18px}
+.num span{display:block;font-size:11px;letter-spacing:.2em}
+.num strong{display:block;font-size:40px}
+.recipe-head h2{font-size:clamp(21px,4vw,27px)}
+.recipe-head .when{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage);letter-spacing:.06em}
+.recipe-body{padding:24px clamp(18px,4vw,34px) 28px;display:flex;flex-direction:column;gap:24px}
+.block{display:flex;flex-direction:column;gap:12px}
+.block+.block{border-top:1px dashed var(--rule-strong);padding-top:22px}
+h3{font-size:17px;letter-spacing:.06em;display:flex;gap:10px;align-items:baseline}
+h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--sage)}
+.ingredients li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule-strong);padding-block:6px}
+.ingredients li span:last-child{color:var(--muted);font-size:14px;text-align:right}
+.method{counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.method li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.method li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--cocoa);font-size:17px;line-height:1.9}
+.why{color:var(--muted);font-size:14.5px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.checks li::before{content:"";width:16px;height:16px;border:1.5px solid var(--cocoa);border-radius:3px;margin-top:7px}
+.caution{background:var(--sage-soft);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.caution strong{font-family:var(--display);font-size:16px}
+.caution li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.caution li::before{content:"―";color:var(--sage);font-weight:700}
+
+/* プロンプト枠 */
+.prompt{border:1.5px solid var(--rule-strong);border-radius:4px;background:var(--box)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 8px 14px;border-bottom:1.5px solid var(--rule-strong);background:#FBF3EE}
+.prompt-head span{font-size:13px;font-weight:700;letter-spacing:.06em}
+.copy{appearance:none;border:0;border-radius:999px;background:linear-gradient(180deg,#BE8B73,#9E6650);color:var(--cocoa-ink);font:700 14px var(--body);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{filter:brightness(1.08)}
+.copy:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.prompt pre{margin:0;padding:16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.85 var(--body);color:var(--ink)}
+.prompt pre:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.toast{font-size:13px;color:var(--cocoa);font-weight:700;min-height:1.2em}
+.small{font-size:13px;color:var(--muted)}
+
+/* 今日これだけ・おわりに */
+.today{border:1px solid var(--sage);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:12px 18px;background:radial-gradient(100% 120% at 100% 100%,#F6E9DE 0%,#FFFFFF 60%)}
+.today>*{grid-column:1}.today .chibi-side{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(90px,18vw,130px)}
+@media (max-width:560px){.today{grid-template-columns:1fr}.today .chibi-side{grid-column:1;grid-row:auto;justify-self:end}}
+.today h2{font-size:22px}
+.closing{border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding-block:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.closing .chibi-family{align-self:center;width:min(360px,90%);margin-top:6px}
+.closing h2{font-size:20px}
+.chibi-hero,.chibi-side,.chibi-family{display:block;height:auto;max-width:100%}
+.channel{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--cocoa-ink);background:linear-gradient(180deg,#BE8B73,#9E6650);border-radius:999px;padding:14px 22px}
+.channel:hover{filter:brightness(1.06)}
+.channel:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.channel-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.04em;line-height:1.5;flex:1 1 16em}
+.channel-name small{font-size:14px;letter-spacing:0}
+.channel-go{font-weight:700;font-size:14.5px;background:#FFFFFF;color:var(--cocoa-deep);border-radius:999px;padding:6px 16px}
+footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.fig figcaption a,.checks a{color:var(--cocoa-deep);font-weight:700}
+</style>
+
+<main class="wrap">
+
+  <header class="cover">
+    <div class="meta"><span>ゆらAI在宅</span></div>
+    <h1><small>AIでズルいくらいラクになる</small>ゆらの<span class="grad">穴場副業レシピ</span></h1>
+    <p class="lead">動画で紹介した穴場の在宅副業のうち、AIを使った4つのプロンプトを、コピーしてすぐ使えるようにまとめました。どれもChatGPTの無料版で使えます。</p>
+    <nav class="index" aria-label="このページのレシピ">
+      <a href="#r1"><b>RECIPE 01</b><span>公式LINEの返信</span></a>
+      <a href="#r2"><b>RECIPE 02</b><span>AI記事のリライト</span></a>
+      <a href="#r3"><b>RECIPE 03</b><span>Canvaのデザイン</span></a>
+      <a href="#r4"><b>RECIPE 04</b><span>楽天ROOMの紹介文</span></a>
+    </nav>
+    <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
+  </header>
+
+  <section class="note" aria-label="ゆらからのひとこと">
+    <div>
+      <p class="who">ゆらより</p>
+      <p>動画を見てくださって、ありがとうございます。コメントまでしてくれて、本当にうれしいです。</p>
+      <p>ここにあるプロンプトは、どれも「ChatGPTに貼り付けて、聞かれたことに答えるだけ」で使えるように作っています。AIが出したものは、最後に必ず自分の目で確認して、自分の言葉に直してから使ってくださいね。</p>
+    </div>
+  </section>
+
+  <section class="overview" aria-labelledby="flow">
+    <p class="section-label">全体の地図</p>
+    <h2 id="flow">5つの穴場副業と、このページのレシピ</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 250" role="img" aria-label="人から仕事を受ける働き方：公式LINEの返信サポート（レシピ01）、AI記事のリライトサポート（レシピ02）、SNSデザインサポート（レシピ03）。置いておくほど稼いでくれる働き方：楽天ROOM（レシピ04）、スレッズアフィリエイト（前回のレシピ）">
+        <text class="n" x="6" y="18">お店・会社から仕事を受ける（やった分だけ報酬）</text>
+        <rect class="bx-on" x="6" y="30" width="214" height="84" rx="3"/>
+        <text class="n" x="22" y="54">1</text>
+        <text class="t" x="22" y="80">公式LINEの</text>
+        <text class="t" x="22" y="100">返信サポート</text>
+        <rect class="pill" x="128" y="42" width="80" height="22" rx="2"/>
+        <text class="pt" x="168" y="57" text-anchor="middle">RECIPE 01</text>
+        <rect class="bx-on" x="243" y="30" width="214" height="84" rx="3"/>
+        <text class="n" x="259" y="54">2</text>
+        <text class="t" x="259" y="80">AI記事の</text>
+        <text class="t" x="259" y="100">リライトサポート</text>
+        <rect class="pill" x="365" y="42" width="80" height="22" rx="2"/>
+        <text class="pt" x="405" y="57" text-anchor="middle">RECIPE 02</text>
+        <rect class="bx-on" x="480" y="30" width="214" height="84" rx="3"/>
+        <text class="n" x="496" y="54">3</text>
+        <text class="t" x="496" y="80">SNSデザイン</text>
+        <text class="t" x="496" y="100">サポート</text>
+        <rect class="pill" x="602" y="42" width="80" height="22" rx="2"/>
+        <text class="pt" x="642" y="57" text-anchor="middle">RECIPE 03</text>
+        <text class="s" x="6" y="134">1でためたクラウドワークスの評価が、2・3の応募でもそのまま使えます</text>
+        <text class="n" x="6" y="164">置いておくほど、自分の代わりに稼いでくれる</text>
+        <rect class="bx-on" x="6" y="176" width="332" height="66" rx="3"/>
+        <text class="n" x="22" y="200">4</text>
+        <text class="t" x="22" y="224">楽天ROOM</text>
+        <rect class="pill" x="246" y="188" width="80" height="22" rx="2"/>
+        <text class="pt" x="286" y="203" text-anchor="middle">RECIPE 04</text>
+        <path class="ar" d="M342 209 H352"/><path class="arh" d="M352 204 L360 209 L352 214 Z"/>
+        <path class="ar" d="M358 209 H348"/><path class="arh" d="M348 204 L340 209 L348 214 Z"/>
+        <rect class="bx" x="362" y="176" width="332" height="66" rx="3"/>
+        <text class="n" x="378" y="200">5</text>
+        <text class="t" x="378" y="224">スレッズアフィリエイト</text>
+        <text class="s" x="560" y="224">前回のレシピへ</text>
+      </svg>
+      <figcaption>4と5は同じ楽天の商品を紹介するので、1回の商品探しで両方に置けます。5のプロンプトは<a href="https://yura-zaitakuai.github.io/threads-recipe/" target="_blank" rel="noopener">スレッズ収益化レシピ</a>にあります。</figcaption>
+    </figure>
+  </section>
+
+  <!-- RECIPE 01 -->
+  <article class="recipe" id="r1" aria-labelledby="r1-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>01</strong></div>
+      <div>
+        <h2 id="r1-title">公式LINEの返信文を作る</h2>
+        <span class="when">穴場1　公式LINEの返信サポート</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="マニュアルと過去の返信を貼る、ChatGPTが要点と口調を整理する、お客さんのメッセージを貼ると返信文ができる。マニュアルにないことは担当者に確認する形になる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　貼る</text>
+          <text class="t" x="24" y="80">お店のマニュアル</text>
+          <text class="s" x="24" y="104">＋お店が過去に送った</text>
+          <text class="s" x="24" y="124">返信を3〜5通</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　整理してくれる</text>
+          <text class="t" x="266" y="80">よくある質問と答え</text>
+          <text class="s" x="266" y="104">確認が必要なこと</text>
+          <text class="s" x="266" y="124">お店の口調のくせ</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　返信文ができる</text>
+          <text class="t" x="508" y="80">メッセージを貼るだけ</text>
+          <text class="s" x="508" y="104">書いてないことは</text>
+          <text class="s" x="508" y="124">「確認してご連絡します」</text>
+        </svg>
+        <figcaption>過去の返信を一緒に貼ると、お店の口調まで真似してくれます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>用意するもの</em></h3>
+        <ul class="ingredients">
+          <li><span>ChatGPT</span><span>無料版でOK</span></li>
+          <li><span>お店からもらった対応マニュアル</span><span>練習用のサンプルもあります</span></li>
+          <li><span>お店が過去に送った返信</span><span>あれば3〜5通</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、ChatGPTの新しいチャットに貼り付けて送ります。</span></li>
+          <li><span>聞かれたら、お店のマニュアルと、過去の返信を貼ります。まずは練習用のサンプルマニュアルで試してもOKです。</span></li>
+          <li><span>「準備ができました」と出たら、お客さんから届いたメッセージを貼ります。</span></li>
+          <li><span>出てきた返信文を一度読んで、おかしいところを直してから送ります。</span></li>
+        </ol>
+        <p class="why">AIは、知らないことでもそれっぽく答えてしまうことがあります。このプロンプトは「マニュアルに書いていないことは答えない」ように作ってあるので、勝手に約束してしまう心配が減ります。</p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 01｜LINE返信</span><button class="copy" id="copy-p1" type="button" data-target="text-p1">コピーする</button></div>
+          <pre id="text-p1" tabindex="0">あなたは、個人のお店（美容院・サロン・習い事の教室など）で、公式LINEのお客さま対応を担当しているスタッフです。
+これから私が、お店から渡された「対応マニュアル」と、お店がこれまでに実際に送った返信の例を貼ります。
+その内容だけを根拠にして、お客さまへの返信文を作ってください。
+
+【ステップ1：マニュアルを受け取る】
+まず私に、次のように聞いてください。
+「お店の対応マニュアルを貼ってください。お店が過去に実際に送った返信の例（3〜5通）があれば、一緒に貼ってください。口調をそろえます。」
+
+【ステップ2：整理して見せる】
+マニュアルを受け取ったら、返信を作る前に、次の3つを短くまとめて見せてください。
+1. お店の基本情報（営業時間・定休日・住所・駐車場・支払い方法など、マニュアルにあるもの）
+2. よくある質問と、その答え方
+3. 担当者に確認が必要なこと（マニュアルに「確認する」と書いてあるもの）
+
+過去の返信の例があれば、口調のくせ（敬語のていねいさ、絵文字を使うか、呼びかけ方、締めのひとこと）を3行でまとめてください。
+最後に「準備ができました。お客さまからのメッセージを貼ってください」と伝えてください。
+
+【ステップ3：返信文を作る】
+お客さまのメッセージが届いたら、次のルールで返信文を作ってください。
+
+1. マニュアルに書いてあることだけで答える。書いていないこと（空き状況の確定、料金の例外、体や効果に関わる質問など）は推測で答えず、「確認いたしまして、改めてご連絡いたします」という形にする
+2. 確認が必要なときは、返信文のあとに「――」で区切って、担当者に確認することを1行で書く
+3. 口調は、過去の返信の例に合わせる。例がないときは、ていねいでやわらかい敬語にする
+4. LINEで読みやすいように、1通は3〜5行にする。1行を長くしすぎない
+5. 最初にお礼か受け止めのひとこと、最後に次にしてほしいこと（ご来店をお待ちしています、など）が分かるひとことを入れる
+6. お客さまが書いた日時・名前・メニューは、書き換えずに正確に使う
+7. 返信文は、そのままコピーして送れる形で出す。「返信文：」のような見出しは付けない
+8. 怒っている・困っているメッセージには、言い訳をせず、まずお詫びと受け止めを伝える。返金・無料対応など、お店が判断することは約束せず、担当者に確認する形にする
+
+準備ができたら、ステップ1の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p1" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>練習用｜サンプルマニュアル（美容院）</span><button class="copy" id="copy-p1s" type="button" data-target="text-p1s">コピーする</button></div>
+          <pre id="text-p1s" tabindex="0">【ヘアサロン ことり　公式LINE 対応マニュアル】
+
+■ 基本情報
+・営業時間：10:00〜19:00（最終受付18:00）
+・定休日：毎週火曜日
+・駐車場：店舗の前に2台分あり（満車の場合は近くのコインパーキングをご案内）
+・お支払い：現金、クレジットカード、QRコード決済
+
+■ ご予約の希望が届いたとき
+「ご希望の日時を承りました。空き状況を確認し、30分以内に確定のご連絡をいたします」と返信する。
+予約表を確認して、空いていれば確定、埋まっていれば前後の空いている時間を2つご案内する。
+
+■ 予約の変更・キャンセル
+前日までは無料で変更・キャンセルできる。当日のキャンセルは担当者に確認する。
+
+■ メニューと料金
+・カット 4,400円
+・カット＋カラー 9,900円
+・カット＋パーマ 11,000円
+上記以外のメニューや、髪の長さによる料金の違いは担当者に確認する。
+
+■ 担当者に確認すること
+・当日のキャンセル
+・クレーム、仕上がりへのご不満
+・マニュアルにない質問すべて
+
+■ 返信の口調
+ていねいな敬語。絵文字は最後に1つまで。お客さまの名前が分かるときは「〇〇様」と呼ぶ。</pre>
+        </div>
+        <p class="toast" id="toast-p1s" aria-live="polite"></p>
+        <p class="small">試しに「来週の土曜日の14時って空いていますか？」（マニュアルにある内容）と、「子どもを連れて行っても大丈夫ですか？」（マニュアルにない内容）を送ってみてください。2つ目は、ちゃんと「確認してご連絡します」と返してくれます。</p>
+      </div>
+
+      <div class="block">
+        <h3><em>送る前のチェック</em></h3>
+        <ul class="checks">
+          <li><span>日時・名前・メニューが、お客さまのメッセージと合っている</span></li>
+          <li><span>マニュアルにないことを、勝手に約束していない</span></li>
+          <li><span>確認が必要なものは、担当者に確認してから返している</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 02 -->
+  <article class="recipe" id="r2" aria-labelledby="r2-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>02</strong></div>
+      <div>
+        <h2 id="r2-title">AIが書いた記事の、直すところを見つける</h2>
+        <span class="when">穴場2　AI記事のリライトサポート</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="804">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="AIが書いた記事を貼る、ChatGPTが直したほうがいいところを理由と直し方の案つきで出す、自分で選んで直し、声に出して読んで仕上げる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　貼る</text>
+          <text class="t" x="24" y="80">AIが書いた記事</text>
+          <text class="s" x="24" y="104">＋依頼主からの</text>
+          <text class="s" x="24" y="124">ルール（あれば）</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　見つけてくれる</text>
+          <text class="t" x="266" y="80">直すところと理由</text>
+          <text class="s" x="266" y="104">直し方の案</text>
+          <text class="s" x="266" y="124">確認が必要な事実</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　自分で仕上げる</text>
+          <text class="t" x="508" y="80">案を選んで直す</text>
+          <text class="s" x="508" y="104">声に出して読んで</text>
+          <text class="s" x="508" y="124">引っかかる所を直す</text>
+        </svg>
+        <figcaption>AIに任せるのは「直すところ探し」まで。どう直すかを決めるのは自分です。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>用意するもの</em></h3>
+        <ul class="ingredients">
+          <li><span>ChatGPT</span><span>無料版でOK</span></li>
+          <li><span>直したい記事</span><span>練習用のサンプル記事もあります</span></li>
+          <li><span>依頼主からのルール</span><span>文字数・口調・NGワードなど、あれば</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、ChatGPTの新しいチャットに貼り付けて送ります。</span></li>
+          <li><span>聞かれたら、直したい記事と、依頼主からのルールを貼ります。まずは練習用のサンプル記事で試してもOKです。</span></li>
+          <li><span>出てきた「直すところ」を1つずつ見て、納得したものだけ直します。</span></li>
+          <li><span>直し終わったら、記事を声に出して読みます。言いにくいところ、つっかえるところを自分の話し言葉に近づけます。</span></li>
+          <li><span>数字・料金・お店の情報など、事実が書いてあるところは、依頼主の資料と見比べてから納品します。</span></li>
+        </ol>
+        <p class="why">AIは、間違ったことでも自信満々に書いてしまうことがあります。このプロンプトは、事実かどうか分からないところを「確認が必要」として分けて出すように作ってあります。</p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02｜AI記事リライト</span><button class="copy" id="copy-p2" type="button" data-target="text-p2">コピーする</button></div>
+          <pre id="text-p2" tabindex="0">あなたは、Webメディアの記事を読みやすく整える編集者です。
+これから私が、AIで書かれた記事を貼ります。記事をまるごと書き直すのではなく、「人が読んで引っかかるところ」を見つけて、直し方を提案してください。直すかどうかは私が決めます。
+
+【ステップ1：記事を受け取る】
+まず私に、次のように聞いてください。
+「直したい記事を貼ってください。依頼主からのルール（文字数、口調、使ってはいけない言葉、読んでほしい人など）があれば、一緒に貼ってください。」
+
+【ステップ2：直すところを出す】
+記事を受け取ったら、最初に記事の内容を2行でまとめてください。
+そのあと、直したほうがいいところを、記事の上から順に、最大10個まで出してください。それぞれ、次の4点をセットにします。
+・場所（記事の中の文をそのまま引用する）
+・種類（次のA〜Eのどれか）
+　A：同じ言い回し・同じ語尾のくり返し
+　B：話が急に飛んでいる、つながりが分かりにくい
+　C：言い方が硬い・回りくどい（話しかけるような言い方にできる）
+　D：中身がなく、どの記事にも書けそうな文
+　E：事実かどうか確認が必要（数字・料金・日付・効果・お店の情報など）
+・なぜ直したほうがいいのか（1行）
+・直し方の案（そのまま使える文。Eだけは案を作らず「何を確認すればいいか」を書く）
+
+【ステップ3：まとめ】
+最後に、次の2つを短く書いてください。
+1. この記事で一番直したほうがいいところ（1つ）
+2. 声に出して読むときに、特に気をつけて聞いたほうがいい段落
+
+【必ず守ること】
+・記事にない新しい情報や数字を足さない
+・依頼主のルールがあるときは、それを一番優先する
+・「〜することが大切です」「いかがでしたか」のような決まり文句を、直し方の案に使わない
+・事実の正しさは判断しない。分からないものはEとして、確認するよう伝える
+
+準備ができたら、ステップ1の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p2" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>練習用｜AIが書いたブログ記事（美容院）</span><button class="copy" id="copy-p2s" type="button" data-target="text-p2s">コピーする</button></div>
+          <pre id="text-p2s" tabindex="0">【ヘアサロン ことり　ブログ】秋のヘアケアで美しい髪を手に入れる方法
+
+秋は髪にとって非常に重要な季節です。夏の紫外線によるダメージが蓄積しているため、適切なケアを行うことが大切です。
+
+まず、シャンプーの選び方について解説します。髪のダメージを軽減するためには、自分の髪質に合ったシャンプーを選ぶことが大切です。また、洗う際はゴシゴシこすらず、指の腹で優しく洗うことが大切です。
+
+さらに、トリートメントは週に2〜3回行うことで、髪の内部まで栄養を届けることが可能となります。当店のトリートメントを使用すれば、必ずツヤのある髪を実現することができます。
+
+カラーの色持ちを良くするためには、ドライヤーの使い方も重要です。
+
+当店では、お客様一人ひとりに寄り添った施術を提供しております。定休日は毎週月曜日となっておりますので、ご来店の際はご注意ください。
+
+いかがでしたか？秋のヘアケアを取り入れて、美しい髪を手に入れましょう。</pre>
+        </div>
+        <p class="toast" id="toast-p2s" aria-live="polite"></p>
+        <p class="small">「〜することが大切です」が3回続くところ、ドライヤーの話が急に出てくるところ、「必ずツヤのある髪を」という言い切り、定休日（RECIPE 01のサンプルマニュアルでは火曜日）などが見つかるか、試してみてください。</p>
+      </div>
+
+      <div class="block">
+        <h3><em>納品する前のチェック</em></h3>
+        <ul class="checks">
+          <li><span>AIが出した文を、読まずにそのまま使っていない</span></li>
+          <li><span>数字・料金・日付・お店の情報を、依頼主の資料と見比べた</span></li>
+          <li><span>声に出して読んで、つっかえるところがない</span></li>
+          <li><span>依頼主のルール（文字数・口調・NGワード）を守っている</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 03 -->
+  <article class="recipe" id="r3" aria-labelledby="r3-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>03</strong></div>
+      <div>
+        <h2 id="r3-title">ChatGPTとCanvaで、インスタの投稿画像を作る</h2>
+        <span class="when">穴場3　SNSデザインサポート</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 200" role="img" aria-label="Canvaにログイン、ChatGPTの設定のアプリとコネクタからCanvaを接続、指示文を送ると3パターンできる、Canvaで開いて直してダウンロード">
+          <rect class="bx" x="6" y="24" width="160" height="150" rx="3"/>
+          <text class="n" x="22" y="52">1　準備</text>
+          <text class="t" x="22" y="80">Canvaに</text>
+          <text class="t" x="22" y="102">ログイン</text>
+          <text class="s" x="22" y="128">先にやると</text>
+          <text class="s" x="22" y="148">つなぐのが一瞬</text>
+          <path class="ar" d="M170 99 H178"/><path class="arh" d="M178 94 L186 99 L178 104 Z"/>
+          <rect class="bx" x="190" y="24" width="160" height="150" rx="3"/>
+          <text class="n" x="206" y="52">2　つなぐ</text>
+          <text class="t" x="206" y="80">ChatGPTの設定</text>
+          <text class="s" x="206" y="104">アプリとコネクタ</text>
+          <text class="s" x="206" y="124">→ Canva</text>
+          <text class="s" x="206" y="144">→ 接続</text>
+          <path class="ar" d="M354 99 H362"/><path class="arh" d="M362 94 L370 99 L362 104 Z"/>
+          <rect class="bx-on" x="374" y="24" width="160" height="150" rx="3"/>
+          <text class="n" x="390" y="52">3　指示する</text>
+          <text class="t" x="390" y="80">指示文を送る</text>
+          <text class="s" x="390" y="104">3パターン</text>
+          <text class="s" x="390" y="124">できあがる</text>
+          <path class="ar" d="M538 99 H546"/><path class="arh" d="M546 94 L554 99 L546 104 Z"/>
+          <rect class="bx" x="558" y="24" width="136" height="150" rx="3"/>
+          <text class="n" x="574" y="52">4　仕上げ</text>
+          <text class="t" x="574" y="80">Canvaで開く</text>
+          <text class="s" x="574" y="104">文字・色・写真</text>
+          <text class="s" x="574" y="124">を直して</text>
+          <text class="s" x="574" y="144">ダウンロード</text>
+        </svg>
+        <figcaption>AIが8割、自分が2割。ChatGPTもCanvaも無料プランでできます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>用意するもの</em></h3>
+        <ul class="ingredients">
+          <li><span>ChatGPT</span><span>無料版でOK</span></li>
+          <li><span>Canvaのアカウント</span><span>無料版でOK</span></li>
+          <li><span>お客さんからの見本の画像</span><span>あれば</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3><em>指示を出すときの4つのコツ</em></h3>
+        <ol class="method">
+          <li><span>最初に「Canvaで」と書く。ChatGPTが、Canvaを使うんだと分かってくれます。</span></li>
+          <li><span>色・雰囲気・文字の大きさを具体的に書く。「おしゃれに」だけだと、思っていたのと違うものが出やすくなります。</span></li>
+          <li><span>何パターン作ってほしいか、数を書く。</span></li>
+          <li><span>パターンごとに方向性を分ける。「1つ目はナチュラル、2つ目は高級感」のように分けると、選びやすくなります。</span></li>
+        </ol>
+        <p class="why">もう一段上のコツは、お客さんからもらった見本の画像を一緒に送って「この画像の雰囲気に近づけて」と足すことです。イメージのずれが減るので、修正のやり取りも少なくて済みます。</p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 03｜Canvaの指示文（穴うめ式）</span><button class="copy" id="copy-p3" type="button" data-target="text-p3">コピーする</button></div>
+          <pre id="text-p3" tabindex="0">Canvaで、次の内容の【インスタの投稿画像（正方形）／ストーリーズ（縦長）／A4のチラシ】を作ってください。
+
+・お店・サービス：【例：美容院】
+・何のお知らせか：【例：オープン1周年キャンペーン】
+・見出し（大きく入れる文字）：【例：1周年ありがとうございます】
+・入れる内容：【例：カット20％オフ・期間限定】
+・色：【例：くすみピンクとベージュ】
+・入れたい写真やイラスト：【例：はさみのイラスト／あとで店内の写真に入れ替える】
+・パターン数：3パターン
+・方向性：1つ目は【ナチュラル】、2つ目は【高級感】、3つ目は【ポップ】な雰囲気
+
+【見本の画像があるとき】
+添付した画像の雰囲気に近づけてください。文字や写真はそのまま使わず、配置・色の使い方・文字の大きさのバランスを参考にしてください。
+
+【守ってほしいこと】
+・スマホで見ても読めるように、見出しは大きく、文字は詰め込みすぎない
+・私が書いていない料金・期間・店名は入れない
+・文字の誤字がないか、最後に一覧にして見せてください</pre>
+        </div>
+        <p class="toast" id="toast-p3" aria-live="polite"></p>
+        <p class="small">【　】の中を、受けた案件の内容に合わせて書きかえて使います。</p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>具体例｜動画で使った指示文（美容院の1周年キャンペーン）</span><button class="copy" id="copy-p3e" type="button" data-target="text-p3e">コピーする</button></div>
+          <pre id="text-p3e" tabindex="0">Canvaで、次の内容のインスタの投稿画像（正方形）を作ってください。
+
+・お店・サービス：美容院「ヘアサロン ことり」
+・何のお知らせか：オープン1周年キャンペーン
+・見出し（大きく入れる文字）：1周年ありがとうございます
+・入れる内容：カット20％オフ・期間限定
+・色：くすみピンクとベージュ
+・入れたい写真やイラスト：はさみのイラスト（あとで店内の写真に入れ替える）
+・パターン数：3パターン
+・方向性：1つ目はナチュラル、2つ目は高級感、3つ目はポップな雰囲気
+
+【守ってほしいこと】
+・スマホで見ても読めるように、見出しは大きく、文字は詰め込みすぎない
+・私が書いていない料金・期間・店名は入れない
+・文字の誤字がないか、最後に一覧にして見せてください</pre>
+        </div>
+        <p class="toast" id="toast-p3e" aria-live="polite"></p>
+        <p class="small">動画ではこの指示文をそのまま送っています。まずはこれで試してみて、慣れたら上のテンプレートを案件に合わせて書きかえてください。</p>
+      </div>
+
+      <div class="block">
+        <h3><em>直してほしいときの言い方</em></h3>
+        <ul class="ingredients">
+          <li><span>2つ目のデザインで、見出しをもっと大きくしてください</span><span>サイズ</span></li>
+          <li><span>全体をもう少し明るい色にしてください</span><span>色</span></li>
+          <li><span>文字の量を半分にして、すっきりさせてください</span><span>情報量</span></li>
+          <li><span>同じデザインで、ストーリーズ用の縦長も作ってください</span><span>サイズ違い</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="caution">
+          <strong>仕上げと応募のポイント</strong>
+          <ul class="checks-plain">
+            <li><span>気になるところは、デザインを選んで「Canvaで開く」から直します。ダウンロードは右上の「共有」→「ダウンロード」。画像ならPNG、印刷するチラシなら「PDF（印刷）」を選びます。</span></li>
+            <li><span>作ったデザインは全部取っておきましょう。応募するときのポートフォリオ（作品集）になります。</span></li>
+            <li><span>ClaudeでもCanvaとつなげられますが、デザインはChatGPTのほうが思った通りに仕上がりやすいので、ゆらはChatGPTをおすすめしています。Claudeは文章づくりが得意なので、文章を作るときに使い分けるのがおすすめです。</span></li>
+            <li><span>プレミアムの素材（王冠マークのついたもの）を使うには、Canvaの有料プランが必要です。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 04 -->
+  <article class="recipe" id="r4" aria-labelledby="r4-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>04</strong></div>
+      <div>
+        <h2 id="r4-title">商品のスクショから、楽天ROOMの紹介文を作る</h2>
+        <span class="when">穴場4　楽天ROOM</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="804">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="商品ページのスクショを送る、気になったポイントを2つか3つ打つ、紹介文3パターンとハッシュタグができる、自分の言葉を1行足して投稿する">
+          <rect class="bx" x="6" y="24" width="160" height="140" rx="3"/>
+          <text class="n" x="22" y="52">1</text>
+          <text class="t" x="22" y="80">商品ページの</text>
+          <text class="t" x="22" y="102">スクショを送る</text>
+          <path class="ar" d="M170 94 H178"/><path class="arh" d="M178 89 L186 94 L178 99 Z"/>
+          <rect class="bx" x="190" y="24" width="160" height="140" rx="3"/>
+          <text class="n" x="206" y="52">2</text>
+          <text class="t" x="206" y="80">気になった</text>
+          <text class="t" x="206" y="102">ポイントを2〜3個</text>
+          <text class="s" x="206" y="128">思いついた順でOK</text>
+          <path class="ar" d="M354 94 H362"/><path class="arh" d="M362 89 L370 94 L362 99 Z"/>
+          <rect class="bx-on" x="374" y="24" width="160" height="140" rx="3"/>
+          <text class="n" x="390" y="52">3</text>
+          <text class="t" x="390" y="80">紹介文3パターン</text>
+          <text class="t" x="390" y="102">＋ハッシュタグ</text>
+          <path class="ar" d="M538 94 H546"/><path class="arh" d="M546 89 L554 94 L546 99 Z"/>
+          <rect class="bx" x="558" y="24" width="136" height="140" rx="3"/>
+          <text class="n" x="574" y="52">4</text>
+          <text class="t" x="574" y="80">自分の言葉を</text>
+          <text class="t" x="574" y="102">1行足して投稿</text>
+        </svg>
+        <figcaption>商品の説明を自分で打たなくても、スクショから読み取ってくれます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>用意するもの</em></h3>
+        <ul class="ingredients">
+          <li><span>ChatGPT</span><span>無料版でOK</span></li>
+          <li><span>紹介したい商品のページのスクショ</span><span>楽天ROOMの投稿画面や楽天市場の商品ページ</span></li>
+          <li><span>楽天ROOMのアプリ</span><span>いつもの楽天IDでログイン</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、ChatGPTに貼り付けて送ります。1回貼れば、同じチャットで何回でも使えます。</span></li>
+          <li><span>商品ページのスクショを1枚送ります。</span></li>
+          <li><span>気になったポイントを2〜3個と、使ったことがあるかどうかを打ちます。（例：首まわりがやわらかい、丸洗いできる、まだ使っていない）</span></li>
+          <li><span>3つの紹介文から一番しっくりくるものを選んで、楽天ROOMに貼ります。</span></li>
+          <li><span>最後に、自分の言葉を1行だけ足して、ハッシュタグを入れて投稿します。</span></li>
+        </ol>
+        <p class="why">最後の1行があるかないかで、「この人はちゃんと選んでいるんだな」と伝わり、売れ方が変わってきます。使ったことがあれば使ってみてどうだったか、まだなら、なぜ気になったのかを書きましょう。</p>
+      </div>
+
+      <div class="block">
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 04｜楽天ROOM紹介文</span><button class="copy" id="copy-p4" type="button" data-target="text-p4">コピーする</button></div>
+          <pre id="text-p4" tabindex="0">あなたは、楽天ROOMで「思わず商品ページを開きたくなる紹介文」を書くのが得意な、子育て中のママです。
+これから私が、紹介したい商品のページのスクリーンショットを送ります。
+そこから商品の特徴を読み取り、楽天ROOMにそのまま貼れる紹介文とハッシュタグを作ってください。
+
+【ステップ1：スクショと気になったポイントを受け取る】
+まず私に、次のように聞いてください。
+「紹介したい商品のページのスクリーンショットを1枚送ってください。そのあとに、①気になったポイントを思いついた順に2〜3個、②使ったことがあるか（ある／まだない）を教えてください。」
+
+【ステップ2：商品を読み取る】
+スクショが届いたら、商品名（短く言いかえたもの）と、スクショから読み取れる特徴を3つまで、短く書き出してください。
+スクショから読み取れないこと（サイズ・素材・対象年齢など）は、推測で書かないでください。
+
+【ステップ3：紹介文を3パターン作る】
+次の3つの切り口で、紹介文を1つずつ作ってください。
+①お悩み解決型：「〇〇で困っていた」から入って、この商品でどう変わるかを書く
+②使う場面型：使っている場面が目に浮かぶように書く
+③迷っている人向け：「買おうか迷っている人へ」と、選ぶ決め手を書く
+
+紹介文のルール
+1. 1つ100〜180文字くらい。スマホで読みやすいところで改行する
+2. 絵文字は2〜4個まで。行の頭か終わりに置く
+3. 私が伝えた「気になったポイント」を必ず入れる
+4. 私が「まだない」と答えたときは、使った感想を作らない。「気になっている」「レビューを見て買おうか迷っている」という書き方にする
+5. 価格・ポイント倍率・セール・在庫は変わるので書かない
+6. 「絶対」「必ず」「治る」「痩せる」など、言い切りすぎる表現や、効果を決めつける表現は使わない
+7. 3つの言い回しがかぶらないようにする
+
+【ステップ4：ハッシュタグを作る】
+紹介文のあとに、ハッシュタグを8〜10個まとめて出してください。
+商品の種類／使う場面／解決できる悩み／届けたい人、の4つの方向から、楽天ROOMで検索されやすい一般的な言葉を選んでください。
+
+【最後に】
+出力の最後に、次のひとことを必ず添えてください。
+「一番しっくりくるものを選んで、最後に自分の言葉を1行だけ足してから投稿してくださいね（使ったことがあれば実際どうだったか、まだなら気になった理由）。」
+
+2回目からは、スクショと気になったポイントを送るだけで、ステップ2から始めてください。
+
+準備ができたら、ステップ1の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p4" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <div class="caution">
+          <strong>投稿する前に、ここだけは確認してください</strong>
+          <ul class="checks-plain">
+            <li><span>楽天ROOMは、プログラムなどを使って機械的に投稿することを利用規約で禁止しています。自動で投稿するツールは使わず、AIに手伝ってもらうのは下書きまでにしましょう。</span></li>
+            <li><span>短い時間に大量に投稿したり、いいねを押し続けたりするのも、機械的な動きと判断されることがあります。</span></li>
+            <li><span>使ったことのない商品に「使ってよかった」とは書かないでください。</span></li>
+            <li><span>最初の数ヶ月は、報酬が数百円〜数千円のことも多いです。置いた商品はずっと残るので、1日5分でも続けて増やしていきましょう。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="today" aria-labelledby="today">
+    <p class="section-label">今日これだけは</p>
+    <h2 id="today">5つの中から、まず1つだけ選んでみよう</h2>
+    <ul class="checks">
+      <li><span>スレッズから始める人は、<a href="https://yura-zaitakuai.github.io/threads-recipe/" target="_blank" rel="noopener">スレッズ収益化レシピ</a>でアカウントを作る</span></li>
+      <li><span>楽天ROOMのアプリを入れて、気になる商品を1つ置いてみる（RECIPE 04）</span></li>
+      <li><span>クラウドワークスに登録して、「LINE 返信」「LINE カスタマーサポート」で検索してみる</span></li>
+      <li><span>練習用のサンプルマニュアルで、RECIPE 01を1回動かしてみる</span></li>
+    </ul>
+    <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    <p class="why">全部を一度に始めると、どれも中途半端になりやすいです。1つ目で最初の報酬が出たら、次を足していけば大丈夫です。</p>
+  </section>
+
+  <section class="closing" aria-labelledby="bye">
+    <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
+    <p>このチャンネルでは、2児ママの私が実際にやっているAIの在宅副業を、画面ごとお見せしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
+    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
+      <span class="channel-name">ゆら<small>【在宅ワーク・AI副業でマイホームを目指す2児ママ】</small></span>
+      <span class="channel-go">YouTubeチャンネルを見る</span>
+    </a>
+    <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
+  </section>
+
+  <footer>YURA AI ZAITAKU</footer>
+</main>
+
+<script>
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-target');
+      var pre=document.getElementById(id);
+      var toast=document.getElementById(id.replace('text','toast'));
+      var text=pre.textContent;
+      function ok(){btn.textContent='コピーしました';toast.textContent='ChatGPTに貼り付けて送ってください。';setTimeout(function(){btn.textContent='コピーする';},2200);}
+      function ng(){selectText(pre);toast.textContent='自動でコピーできなかったので、選択した文字をコピーしてください。';}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,ng);}else{ng();}
+      }catch(e){ng();}
+    });
+  });
+})();
+</script>
+</body>
+</html>
