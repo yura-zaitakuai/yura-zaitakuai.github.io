@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゆらのnote販売レシピ｜ゆらAI在宅</title>
+<meta name="description" content="Claudeで有料noteを作って販売するまでの指示文を、テーマ決めから装飾・販売の準備まで、図解つきの9つのレシピにまとめました。">
+<meta property="og:title" content="ゆらのnote販売レシピ｜ゆらAI在宅">
+<meta property="og:description" content="動画で使った指示文を、上から順にコピーして使えるようにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yura-zaitakuai.github.io/note-recipe/img/yura_chibi_05_family.webp">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF;
+  --paper:#FFFFFF;
+  --ink:#4A3426;
+  --muted:#8A7163;
+  --cocoa:#B07A63;
+  --cocoa-deep:#8E5A45;
+  --cocoa-ink:#FFFFFF;
+  --sage:#C6A15B;
+  --sage-soft:#F7EEE8;
+  --band:#E9D5CA;
+  --rule:#EFE3DA;
+  --rule-strong:#E0CBBE;
+  --box:#FFFCFA;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;padding:0 16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto;padding-block:44px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+
+/* 表紙 */
+.cover{position:relative;border:1px solid var(--sage);outline:1px solid var(--rule-strong);outline-offset:5px;border-radius:4px;padding:28px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:end;background:radial-gradient(120% 90% at 85% 10%,#F6E9DE 0%,#FFFFFF 62%)}
+.cover>*{grid-column:1}
+.cover .chibi-hero{grid-column:2;grid-row:1 / span 3;align-self:end;width:clamp(110px,24vw,170px)}
+.cover .index{grid-column:1 / -1}
+@media (max-width:560px){.cover{grid-template-columns:1fr}.cover .chibi-hero{grid-column:1;grid-row:auto;justify-self:end;width:120px;margin-top:-8px}}
+.cover .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.cover h1{font-size:clamp(28px,6vw,44px);letter-spacing:.02em;color:var(--ink)}
+.cover h1 .grad{background:linear-gradient(180deg,#C99A83 0%,#9A624C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover h1 small{display:block;font-size:.5em;letter-spacing:.08em;color:var(--cocoa);margin-bottom:6px}
+.cover .lead{max-width:34em;color:var(--muted)}
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+.index a{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:var(--ink);border:1px solid var(--rule-strong);border-radius:999px;padding:9px 18px;background:#FFFFFF}
+.index a:hover{border-color:var(--cocoa)}
+.index a:focus-visible{outline:3px solid var(--cocoa);outline-offset:2px}
+.index b{font-family:var(--display);color:var(--cocoa);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.index a.is-done{background:var(--sage-soft);border-color:var(--sage)}
+.index a.is-done span::after{content:"　済";color:var(--sage);font-weight:700;font-size:13px}
+
+/* ひとこと */
+.note{display:grid;grid-template-columns:4px 1fr;gap:16px}
+.note::before{content:"";background:var(--sage)}
+.note p+p{margin-top:8px}
+.note .who{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* 全体図 */
+.section-label{font-size:12.5px;letter-spacing:.2em;color:var(--sage);font-weight:700}
+.overview{display:flex;flex-direction:column;gap:12px}
+.overview h2{font-size:22px}
+.fig{border:1px solid var(--rule-strong);background:var(--paper);padding:14px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:540px}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figure{margin:0}
+svg .bx{fill:var(--box);stroke:var(--rule-strong);stroke-width:1.2}
+svg .bx-on{fill:var(--sage-soft);stroke:var(--sage);stroke-width:1.6}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:700}
+svg .s{fill:var(--muted);font-family:var(--body);font-size:12.5px}
+svg .n{fill:var(--cocoa);font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.08em}
+svg .ar{stroke:var(--cocoa);stroke-width:1.6;fill:none}
+svg .arh{fill:var(--cocoa)}
+svg .pill{fill:var(--cocoa)}
+svg .pt{fill:var(--cocoa-ink);font-family:var(--body);font-size:12px;font-weight:700}
+
+/* 準備 */
+.prep{border:1px solid var(--rule-strong);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:flex;flex-direction:column;gap:14px;background:var(--box)}
+.prep h2{font-size:20px}
+
+/* レシピカード */
+.recipe{background:var(--paper);border:1px solid var(--rule-strong);border-radius:4px;position:relative;overflow:hidden}
+.recipe-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px clamp(18px,4vw,34px);background:linear-gradient(90deg,#EBD8CD,#F4E7DF);border-bottom:1px solid var(--sage)}
+.recipe-head .chibi-side{width:clamp(76px,16vw,110px);margin-block:-6px -18px}
+@media (max-width:480px){.recipe-head{grid-template-columns:auto 1fr}.recipe-head .chibi-side{display:none}}
+.num{font-family:var(--display);color:var(--cocoa-deep);text-align:center;line-height:1.1;border-right:1px solid var(--sage);padding-right:18px}
+.num span{display:block;font-size:11px;letter-spacing:.2em}
+.num strong{display:block;font-size:40px}
+.recipe-head h2{font-size:clamp(21px,4vw,27px)}
+.recipe-head .when{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage);letter-spacing:.06em}
+.recipe-body{padding:24px clamp(18px,4vw,34px) 28px;display:flex;flex-direction:column;gap:24px}
+.block{display:flex;flex-direction:column;gap:12px}
+.block+.block{border-top:1px dashed var(--rule-strong);padding-top:22px}
+h3{font-size:17px;letter-spacing:.06em;display:flex;gap:10px;align-items:baseline}
+h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--sage)}
+.ingredients li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule-strong);padding-block:6px}
+.ingredients li span:last-child{color:var(--muted);font-size:14px;text-align:right}
+.method{counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.method li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.method li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--cocoa);font-size:17px;line-height:1.9}
+.why{color:var(--muted);font-size:14.5px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.checks li::before{content:"";width:16px;height:16px;border:1.5px solid var(--cocoa);border-radius:3px;margin-top:7px}
+.caution{background:var(--sage-soft);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.caution strong{font-family:var(--display);font-size:16px}
+.caution li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.caution li::before{content:"―";color:var(--sage);font-weight:700}
+
+/* プロンプト枠 */
+.prompt{border:1.5px solid var(--rule-strong);border-radius:4px;background:var(--box)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 8px 14px;border-bottom:1.5px solid var(--rule-strong);background:#FBF3EE}
+.prompt-head span{font-size:13px;font-weight:700;letter-spacing:.06em}
+.copy{appearance:none;border:0;border-radius:999px;background:linear-gradient(180deg,#BE8B73,#9E6650);color:var(--cocoa-ink);font:700 14px var(--body);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{filter:brightness(1.08)}
+.copy:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.prompt pre{margin:0;padding:16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.85 var(--body);color:var(--ink)}
+.prompt pre:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.toast{font-size:13px;color:var(--cocoa);font-weight:700;min-height:1.2em}
+.small{font-size:13px;color:var(--muted)}
+.where{display:inline-block;align-self:flex-start;font-size:12.5px;font-weight:700;letter-spacing:.04em;border:1px solid var(--sage);color:var(--cocoa-deep);border-radius:999px;padding:2px 12px;background:#FFFFFF}
+.where.new{background:var(--cocoa);border-color:var(--cocoa);color:var(--cocoa-ink)}
+
+/* できたチェック */
+.done{display:flex;align-items:center;gap:10px;align-self:flex-start;cursor:pointer;font-weight:700;font-size:14.5px;border:1.5px solid var(--cocoa);border-radius:999px;padding:8px 20px 8px 14px;color:var(--cocoa-deep);background:#FFFFFF}
+.done input{width:18px;height:18px;accent-color:#9E6650;margin:0}
+.done:has(input:checked){background:var(--sage-soft);border-color:var(--sage)}
+.done:has(input:focus-visible){outline:3px solid var(--sage);outline-offset:2px}
+
+/* 今日これだけ・おわりに */
+.today{border:1px solid var(--sage);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:12px 18px;background:radial-gradient(100% 120% at 100% 100%,#F6E9DE 0%,#FFFFFF 60%)}
+.today>*{grid-column:1}.today .chibi-side{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(90px,18vw,130px)}
+@media (max-width:560px){.today{grid-template-columns:1fr}.today .chibi-side{grid-column:1;grid-row:auto;justify-self:end}}
+.today h2{font-size:22px}
+.closing{border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding-block:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.closing .chibi-family{align-self:center;width:min(360px,90%);margin-top:6px}
+.closing h2{font-size:20px}
+.chibi-hero,.chibi-side,.chibi-family{display:block;height:auto;max-width:100%}
+.channel{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--cocoa-ink);background:linear-gradient(180deg,#BE8B73,#9E6650);border-radius:999px;padding:14px 22px}
+.channel:hover{filter:brightness(1.06)}
+.channel:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.channel-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.04em;line-height:1.5;flex:1 1 16em}
+.channel-name small{font-size:14px;letter-spacing:0}
+.channel-go{font-weight:700;font-size:14.5px;background:#FFFFFF;color:var(--cocoa-deep);border-radius:999px;padding:6px 16px}
+footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.fig figcaption a,.checks a{color:var(--cocoa-deep);font-weight:700}
+</style>
+
+<main class="wrap">
+
+  <header class="cover">
+    <div class="meta"><span>ゆらAI在宅</span></div>
+    <h1><small>Claudeに貼っていくだけで1本目が書ける</small>ゆらの<span class="grad">note販売レシピ</span></h1>
+    <p class="lead">動画と同じ順番で、指示文（プロンプト）を9つのレシピにまとめました。上から順にコピーして、Claudeに貼って、聞かれたことに答えていくだけです。Claudeは無料版で使えます。</p>
+    <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
+    <nav class="index" aria-label="このページのレシピ">
+      <a href="#r1" data-key="r1"><b>RECIPE 01</b><span>プロフィール</span></a>
+      <a href="#r2" data-key="r2"><b>RECIPE 02</b><span>テーマ決め</span></a>
+      <a href="#r3" data-key="r3"><b>RECIPE 03</b><span>キャラ設定</span></a>
+      <a href="#r4" data-key="r4"><b>RECIPE 04</b><span>材料集め</span></a>
+      <a href="#r5" data-key="r5"><b>RECIPE 05</b><span>記事を書く</span></a>
+      <a href="#r6" data-key="r6"><b>RECIPE 06</b><span>仕上げ</span></a>
+      <a href="#r7" data-key="r7"><b>RECIPE 07</b><span>画像と装飾</span></a>
+      <a href="#r8" data-key="r8"><b>RECIPE 08</b><span>販売の準備</span></a>
+      <a href="#r9" data-key="r9"><b>RECIPE 09</b><span>数字を見て直す</span></a>
+    </nav>
+  </header>
+
+  <section class="note" aria-label="ゆらからのひとこと">
+    <div>
+      <p class="who">ゆらより</p>
+      <p>動画を見てくださって、ありがとうございます。コメントまでしてくれて、本当にうれしいです。</p>
+      <p>このページは、動画を横で流しながら、そのまま手を動かせるワークシートにしました。1つ終わるごとに「ここまでできた」にチェックを入れていくと、どこまで進んだかが分かります。</p>
+      <p>指示文1本で、売れるnoteはできません。差がつくのは、RECIPE 02の「市場を実際の数字で測る」と、RECIPE 03の「自分の文体を数字で測る」です。ここを飛ばすと、どこにでもある一般論の記事になってしまいます。</p>
+      <p>AIが書いてくれた文章は、最後に必ず自分の目で読んで、自分の体験と言葉を足してから出してくださいね。</p>
+    </div>
+  </section>
+
+  <section class="overview" aria-labelledby="flow">
+    <p class="section-label">全体の地図</p>
+    <h2 id="flow">noteを1本、書いて販売して、育てるまでの9ステップ</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 262" role="img" aria-label="書く前の準備：レシピ01プロフィール、02テーマ決め、03キャラ設定、04材料集め。書いて売って直す：05記事を書く、06仕上げ、07画像と装飾、08販売の準備、09数字を見て直す">
+        <text class="n" x="6" y="18">書く前の準備（売れるかどうかは、ここでほぼ決まります）</text>
+        <rect class="bx" x="6" y="30" width="156" height="84" rx="3"/>
+        <text class="n" x="20" y="54">01</text>
+        <text class="t" x="20" y="80">プロフィール</text>
+        <text class="s" x="20" y="100">名前と自己紹介</text>
+        <path class="ar" d="M165 72 H170"/><path class="arh" d="M170 67 L178 72 L170 77 Z"/>
+        <rect class="bx-on" x="180" y="30" width="156" height="84" rx="3"/>
+        <text class="n" x="194" y="54">02</text>
+        <text class="t" x="194" y="80">テーマ決め</text>
+        <text class="s" x="194" y="100">売れる題材を探す</text>
+        <path class="ar" d="M339 72 H344"/><path class="arh" d="M344 67 L352 72 L344 77 Z"/>
+        <rect class="bx" x="354" y="30" width="156" height="84" rx="3"/>
+        <text class="n" x="368" y="54">03</text>
+        <text class="t" x="368" y="80">キャラ設定</text>
+        <text class="s" x="368" y="100">誰が書くかを決める</text>
+        <path class="ar" d="M513 72 H518"/><path class="arh" d="M518 67 L526 72 L518 77 Z"/>
+        <rect class="bx" x="528" y="30" width="156" height="84" rx="3"/>
+        <text class="n" x="542" y="54">04</text>
+        <text class="t" x="542" y="80">材料集め</text>
+        <text class="s" x="542" y="100">数字と出典を集める</text>
+
+        <text class="n" x="6" y="152">書いて、整えて、売って、数字を見て直す</text>
+        <rect class="bx-on" x="6" y="164" width="126" height="84" rx="3"/>
+        <text class="n" x="18" y="188">05</text>
+        <text class="t" x="18" y="214">記事を書く</text>
+        <text class="s" x="18" y="234">有料から書く</text>
+        <path class="ar" d="M133 206 H136"/><path class="arh" d="M136 201 L143 206 L136 211 Z"/>
+        <rect class="bx" x="144" y="164" width="126" height="84" rx="3"/>
+        <text class="n" x="156" y="188">06</text>
+        <text class="t" x="156" y="214">仕上げ</text>
+        <text class="s" x="156" y="234">ダメ出し・校正</text>
+        <path class="ar" d="M271 206 H274"/><path class="arh" d="M274 201 L281 206 L274 211 Z"/>
+        <rect class="bx" x="282" y="164" width="126" height="84" rx="3"/>
+        <text class="n" x="294" y="188">07</text>
+        <text class="t" x="294" y="214">画像と装飾</text>
+        <text class="s" x="294" y="234">見た目を整える</text>
+        <path class="ar" d="M409 206 H412"/><path class="arh" d="M412 201 L419 206 L412 211 Z"/>
+        <rect class="bx" x="420" y="164" width="126" height="84" rx="3"/>
+        <text class="n" x="432" y="188">08</text>
+        <text class="t" x="432" y="214">販売の準備</text>
+        <text class="s" x="432" y="234">題名と値段</text>
+        <path class="ar" d="M547 206 H550"/><path class="arh" d="M550 201 L557 206 L550 211 Z"/>
+        <rect class="bx" x="558" y="164" width="126" height="84" rx="3"/>
+        <text class="n" x="570" y="188">09</text>
+        <text class="t" x="570" y="214">数字で直す</text>
+        <text class="s" x="570" y="234">毎朝の記録</text>
+      </svg>
+      <figcaption>02から08までは、ずっと同じチャットで続けて送ります。前に答えたことをClaudeが覚えているので、同じ説明を何回もしなくて済みます。01と09だけ、別のチャットで送ります。</figcaption>
+    </figure>
+  </section>
+
+  <section class="prep" aria-labelledby="prep">
+    <p class="section-label">はじめる前に</p>
+    <h2 id="prep">用意するのは、この2つだけ</h2>
+    <ul class="ingredients">
+      <li><span>Claude（クロード）</span><span>Googleアカウントで登録・無料版でOK</span></li>
+      <li><span>note（ノート）</span><span>Googleアカウントかメールアドレスで登録・無料</span></li>
+    </ul>
+    <ul class="checks">
+      <li><span>Claudeにログインして、文字を打ち込む画面が出ている</span></li>
+      <li><span>noteに登録して、届いたメールで認証を済ませた（認証しないと記事を書き始められません）</span></li>
+    </ul>
+    <p class="why">答えるときは、Claudeの入力らんにあるマイクのボタンを使って、声で入れるのがおすすめです。打つより早いですし、考えこまずに話せます。</p>
+  </section>
+
+  <!-- RECIPE 01 -->
+  <article class="recipe" id="r1" aria-labelledby="r1-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>01</strong></div>
+      <div>
+        <h2 id="r1-title">noteの名前と自己紹介を作る</h2>
+        <span class="when">準備1　プロフィール</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="4つの質問に答える、名前と自己紹介の案が3つずつ出てくる、noteに貼る。アイコンはChatGPTで作る">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　答える</text>
+          <text class="t" x="24" y="80">4つの質問に答える</text>
+          <text class="s" x="24" y="104">今の生活・経験・</text>
+          <text class="s" x="24" y="124">書きたいこと</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　案が出る</text>
+          <text class="t" x="266" y="80">名前と自己紹介</text>
+          <text class="s" x="266" y="104">3つずつ出てくるので</text>
+          <text class="s" x="266" y="124">しっくりくるものを選ぶ</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　noteに貼る</text>
+          <text class="t" x="508" y="80">プロフィール完成</text>
+          <text class="s" x="508" y="104">アイコンの指示文は</text>
+          <text class="s" x="508" y="124">ChatGPTに貼って画像に</text>
+        </svg>
+        <figcaption>名前もIDも自己紹介も、あとから何回でも変えられます。ここは10分で終わらせて大丈夫です。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、Claudeの新しいチャットに貼り付けて送ります。</span></li>
+          <li><span>質問が1つずつ来るので、4つ答えます。</span></li>
+          <li><span>名前と自己紹介の案から1つずつ選んで、noteの右上のアイコン→自分の名前→「設定」に貼ります。</span></li>
+          <li><span>アイコン用の指示文は、ChatGPTに貼ると画像にしてくれます。</span></li>
+        </ol>
+        <p class="why">noteは、記事の中身だけではなく「この人から買いたい」で売れる場所です。名前の後ろに「何を発信している人か」が入っているだけで、通りすがりの人にも伝わります。</p>
+      </div>
+
+      <div class="block">
+        <span class="where new">新しいチャットで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 01｜プロフィール</span><button class="copy" type="button" data-target="text-p1">コピーする</button></div>
+          <pre id="text-p1" tabindex="0">あなたは、noteのプロフィール作りを手伝う編集者です。
+これから私に質問をして、noteの「名前」と「自己紹介文」を作ってください。
+
+【進め方】
+次の4つを、1つずつ順番に質問してください。一度に全部聞かないでください。
+質問には毎回、答え方の例を3つ添えてください。
+
+1. 今の生活や立場（例：2児のママ、パート勤務、会社員など）
+2. これまでの経験で、人より少し詳しいこと・長く続けてきたこと
+3. noteで、どんな人に向けて、何を書いていきたいか（まだ決まっていなければ「未定」でOK）
+4. 使いたい名前（ニックネーム）と、顔や本名を出すかどうか
+
+【出すもの】
+4つの答えがそろったら、次の3つを出してください。
+
+1. 名前の案を3つ
+　「ニックネーム＠何を発信している人か」の形にする。ひと目で読める短さにする
+2. 自己紹介文の案を3つ
+　それぞれ140文字以内。「どんな人か」と「何を発信しているか」が1〜2行で伝わるものにする
+　3つのうち1つは、前と今の変化（〇〇だった私が、いま〇〇）が分かる形にする
+　それぞれの最後に（〇文字）と文字数を書く
+3. アイコン画像を作るための指示文を1つ
+　ChatGPTにそのまま貼れる形にする。顔を出さない場合は、人柄が伝わるやさしい雰囲気のイラストにする
+
+【守ること】
+・私が言っていない実績・金額・人数・資格を足さない
+・「誰でも」「絶対」「必ず稼げる」のような言い切りは使わない
+・3の答えが「未定」のときは、1と2の答えから、書けそうな方向を仮で入れる。仮で入れたところは（仮）と書く
+
+準備ができたら、1つ目の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p1" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r1">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 02 -->
+  <article class="recipe" id="r2" aria-labelledby="r2-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>02</strong></div>
+      <div>
+        <h2 id="r2-title">売れるテーマを、自分の「当たり前」から探す</h2>
+        <span class="when">準備2　テーマ決め</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="804">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="6つの質問に答える、テーマ候補が10本と一押しが出る、noteの検索結果を貼って数字で確かめる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　答える</text>
+          <text class="t" x="24" y="80">6つの質問に答える</text>
+          <text class="s" x="24" y="104">仕事・生活・よく聞かれる</text>
+          <text class="s" x="24" y="124">こと。声で入れてOK</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　候補が出る</text>
+          <text class="t" x="266" y="80">テーマ候補が10本</text>
+          <text class="s" x="266" y="104">買われる理由と</text>
+          <text class="s" x="266" y="124">一押しの1本つき</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　数字で確かめる</text>
+          <text class="t" x="508" y="80">検索結果を貼って測る</text>
+          <text class="s" x="508" y="104">値段とスキの数を</text>
+          <text class="s" x="508" y="124">Claudeが表にしてくれる</text>
+        </svg>
+        <figcaption>「私に書けることなんてない」と思っていても大丈夫です。自分では当たり前すぎて気づいていないことを、Claudeが掘り出してくれます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>Claudeで新しいチャットを開いて、下の「テーマ出し」を貼って送ります。ここから先は、RECIPE 08までずっとこのチャットを使います。</span></li>
+          <li><span>質問が6つ来るので、1つずつ答えます。きれいにまとめなくて大丈夫です。思いついた順に話してください。</span></li>
+          <li><span>テーマ候補が10本と、一押しが出てきます。</span></li>
+          <li><span>気になったテーマのキーワードを、noteの検索まどに入れて、「記事」にしぼります。出てきた検索結果の画面を、まるごと選んでコピーします（パソコンなら Ctrl＋A → Ctrl＋C）。スマホの人は、検索結果のスクリーンショットを2〜3枚撮ります。</span></li>
+          <li><span>「市場を実際の数字で測る」の【　】を書きかえて、コピーした検索結果を貼って送ります。スクリーンショットの人は、画像を一緒に送ります。</span></li>
+          <li><span>最後に「読者とゴールを決める」を送って、記事の一行コンセプトを決めます。</span></li>
+        </ol>
+        <p class="why">同じテーマの有料記事がたくさん出てきても、落ちこまなくて大丈夫です。それは「そのテーマにお金を払う人がいる」という証拠です。逆に、誰も書いていないテーマは、買う人がいないだけのことが多いです。</p>
+      </div>
+
+      <div class="block">
+        <span class="where new">新しいチャットで送る（ここから08まで同じチャット）</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02-A｜テーマ出し</span><button class="copy" type="button" data-target="text-p2a">コピーする</button></div>
+          <pre id="text-p2a" tabindex="0">あなたは、noteの有料記事をたくさん世に出してきた編集者です。
+これから私と一緒に、有料のnote記事を1本作って、販売の準備までを進めます。
+最初に、この会話全体で守るルールを伝えます。この先ずっと守ってください。
+
+【この会話の共通ルール】
+・実績・金額・人数・体験談は、私が伝えたものだけを使う。推測で埋めたり、作ったりしない
+・私に聞かないと書けないことは、勝手に埋めずに質問する
+・専門用語を使うときは、最初に出てきたところで一言の説明をつける
+・ほかの人の文章をそのまま使わない
+・私が「OK」と言うまで、次の作業に進まない
+
+【今回やること：テーマ決め】
+私が当たり前にやっていることの中から、「それができなくて困っている人がいて、お金を払ってでも知りたい」と思われるテーマを探してください。
+
+【ステップ1：私のことを聞く】
+次の6つを、1つずつ順番に質問してください。一度に全部聞かないでください。
+質問には毎回、答え方の例を3つ添えてください。
+
+1. これまでの仕事や経歴
+2. 今の生活（家族、1日の流れ、自分のために使える時間）
+3. 人からよく聞かれること・頼まれること
+4. 時間やお金をかけてきたこと（趣味・勉強・習いごとなど）
+5. 以前は困っていたけれど、今は自分なりに解決できていること
+6. 毎日、当たり前にやっている工夫や習慣
+
+【ステップ2：テーマ候補を10本出す】
+6つの答えがそろったら、テーマの候補を10本出してください。
+1本ごとに、次の5つを書いてください。
+
+・仮タイトル（「〜の手順」「〜のコツ」「〜のルール」のように、解決策を表す言葉で終わらせる）
+・想定読者（どんな状況の人か、1文で）
+・その読者が困っていること（1文で）
+・私がそれを語れる理由（私の答えのどこから出てきたか）
+・お金を払ってでも知りたい理由（1文で）
+
+【候補を選ぶときの基準】
+・人がnoteにお金を払うのは「自分の悩みを解決できそう」と感じたとき。「つらかった」「大変だった」だけで終わる日記のようなテーマは出さない
+・調べればすぐ出てくる一般論ではなく、私の経験が入るテーマにする
+・10本のうち半分以上は、別々の悩みを扱う
+・私に経験がまったくないテーマは出さない
+・中身が想像できない題（例：〇〇のコツ5選）だけを並べない
+
+【ステップ3：一押しを選ぶ】
+最後に、編集者として「1本目に書くならこれ」を1つ選び、理由を3行で書いてください。
+そのあとに、noteで同じテーマの記事を探すための検索キーワードを2〜3個出してください。
+
+準備ができたら、1つ目の質問から始めてください。</pre>
+        </div>
+        <p class="toast" id="toast-p2a" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02-B｜市場を実際の数字で測る</span><button class="copy" type="button" data-target="text-p2b" data-toast="【　】を書きかえて、検索結果を貼ってから、同じチャットで送ってください。">コピーする</button></div>
+          <pre id="text-p2b" tabindex="0">テーマ出し、ありがとうございます。【　】番が気になっています。
+このテーマの記事が、本当に読まれているか、買われているかを、推測ではなく実際の数字で確かめたいです。
+
+noteで「【検索したキーワード】」と検索した結果を、下に貼ります（スクリーンショットで送る場合もあります）。
+タイトル・値段・スキの数が入っています。
+
+【検索結果】
+（ここに、検索結果の画面をまるごと貼る）
+
+【測ること】
+1. 記事ごとに、タイトル・値段（無料は0円）・スキの数を表に整理する。同じ記事が重なっていたら1つにまとめる
+2. スキの数の「中央値」（小さい順に並べたときの、まん中の値）を出す
+　平均は使わない。1本の大当たりで数字がはね上がるのを防ぐため
+3. タイトルによく出てくる言葉ごとに、その言葉を含む記事のスキの中央値を出して、全体の中央値の何倍かを出す
+　その言葉を含む記事が5本より少ないときは、倍率を出さずに「本数が足りない」と書く
+4. 有料の記事について、値段の帯ごとの本数と、スキの中央値を出す
+5. 公開日が読み取れるときは、上のほうに出ている記事が、何日以内に出たものかを出す
+
+【出し方】
+・数字は表で出す
+・「この言葉を入れている記事は伸びている」と「この言葉を入れたから伸びた」は別のこと。ここで分かるのは前のほうだけなので、分けて書く
+・私が貼った内容から読み取れないことは、推測せずに「測っていない」と書く
+・件数が少ないときは「この件数では判断できない」と正直に言って、あと何を貼ればいいかを教える
+
+【最後に答えてほしいこと】
+1. このテーマにお金を払う人がいると言えそうか（上の数字だけを根拠にする）
+2. 似た記事と比べて、私の記事はどこで違いを出せそうか（私が答えた経験の中から）
+3. 1本目の値段の目安（測った値段のまん中か、少し安め）
+
+【このあとの追加】
+・私が別のキーワードの検索結果を追加で貼ったら、同じ表に足して、数字を出し直してください
+・私が、売れている記事の「無料で読める部分」を貼ったら、その文字数・見出しの数・画像の数を数えて、まん中の値を出してください
+
+ここで出た数字は、このテーマだけのものです。別のテーマには使い回さないでください。
+「伸びそう」「売れそう」という感覚だけの判断はしないでください。</pre>
+        </div>
+        <p class="toast" id="toast-p2b" aria-live="polite"></p>
+        <p class="small">キーワードを変えて2〜3回くり返すと、数字が安定します。ここで測った値段は、RECIPE 08で値段を決めるときにもう一度使います。</p>
+        <p class="why">ここがいちばん差の出るところです。同じ言葉でも、テーマが変わると「入れている記事のほうが伸びている」「入れていない記事のほうが伸びている」が逆になることがあります。だから毎回、自分のテーマで測ります。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02-C｜読者とゴールを決める</span><button class="copy" type="button" data-target="text-p2c" data-toast="【　】の中を書きかえてから、同じチャットで送ってください。">コピーする</button></div>
+          <pre id="text-p2c" tabindex="0">テーマは【　】番でいきます。
+書き始める前に、この記事の設計を固めたいです。
+
+【書き手】（私のこと。足りなければ、ここまでの答えから補ってください）
+・名前（ペンネーム）：【　】
+・今の状況・肩書き：【　】
+・確認できている実績（数字で）：【　】（なければ「なし」）
+
+【この記事の読者】
+・誰に読んでほしいか：【　】
+・その人が今つまずいていること：【　】
+・読み終わったあとに思ってほしいこと：【　】
+
+【この記事のゴール】
+・読んだあとにしてほしいこと：【　】（例：この有料記事を買う／別の記事も読む／フォローする）
+
+この3つと、さきほど測った数字をふまえて、記事の一行コンセプトを3案出してください。
+「誰に、何を言って、どう動いてもらう記事か」が、1文で分かる形にしてください。
+
+【守ること】
+・書いていない実績を足さない。実績が「なし」のときは、実績にたよらないコンセプトにする
+・空いている【　】があれば、勝手に埋めずに、先に私に質問する
+・まだ本文は書かない</pre>
+        </div>
+        <p class="toast" id="toast-p2c" aria-live="polite"></p>
+        <p class="small">【　】がうまく埋まらないときは、空けたまま送って大丈夫です。Claudeが質問してくれます。</p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r2">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 03 -->
+  <article class="recipe" id="r3" aria-labelledby="r3-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>03</strong></div>
+      <div>
+        <h2 id="r3-title">書き手のキャラを決める</h2>
+        <span class="when">準備3　キャラ設定</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="6つの質問に答える、キャラ設定シートと見本の文が出る、一度作ればずっと使い回せる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　答える</text>
+          <text class="t" x="24" y="80">6つの質問に答える</text>
+          <text class="s" x="24" y="104">話し方・口ぐせ・</text>
+          <text class="s" x="24" y="124">使いたくない言葉</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　シートが出る</text>
+          <text class="t" x="266" y="80">キャラ設定シート</text>
+          <text class="s" x="266" y="104">見本の文を読んで</text>
+          <text class="s" x="266" y="124">自分っぽいか確かめる</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　使い回す</text>
+          <text class="t" x="508" y="80">一度作ればずっと使える</text>
+          <text class="s" x="508" y="104">2本目からは</text>
+          <text class="s" x="508" y="124">シートを貼るだけ</text>
+        </svg>
+        <figcaption>できあがったキャラ設定シートは、メモアプリなどにコピーして取っておきましょう。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>「キャラ設定」の【　】に、選んだ一行コンセプトの番号を入れて、同じチャットで送ります。</span></li>
+          <li><span>質問が1つずつ来るので答えます。ふだん友だちに送っているLINEの文を、そのまま貼るのがいちばん早いです。</span></li>
+          <li><span>キャラ設定シートと見本の文が出たら、声に出して読みます。「私はこんな言い方しないな」というところは、そのまま伝えて直してもらいます。</span></li>
+          <li><span>これまでに自分で書いた文章（noteやブログ、SNSの投稿など）がある人は、「文体を数字で測る」に貼って送ります。まだない人は、飛ばして大丈夫です。</span></li>
+        </ol>
+        <p class="why">ここを飛ばしてAIに書いてもらうと、ていねいだけれど、誰が書いても同じ文章になります。noteは「何を言うか」と同じくらい「誰が言うか」で読まれるので、先に自分のことを伝えておきます。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 03｜キャラ設定</span><button class="copy" type="button" data-target="text-p3" data-toast="【　】にコンセプトの番号を入れてから、同じチャットで送ってください。">コピーする</button></div>
+          <pre id="text-p3" tabindex="0">一行コンセプトは【　】番の案でいきます。この先は、このコンセプトを前提に進めてください。
+
+次に、この記事の「書き手のキャラ設定」を作ります。
+私に質問をして、キャラ設定シートにまとめてください。
+
+【進め方】
+次の6つを、1つずつ順番に質問してください。一度に全部聞かないでください。
+テーマ決めですでに答えた内容は、聞き直さずにそのまま使い、足りないところだけ聞いてください。
+
+1. 経歴と、今の仕事・生活
+2. どんな人に向けて書きたいか（昔の自分、同じ立場の人など）
+3. ふだんの話し方（友だちに送るLINEの文を、2〜3個そのまま貼ってもらう）
+4. よく使う言い回し・口ぐせ
+5. 絶対に使わない言葉、自分が言われるといやな表現
+6. 性格（例：心配性、せっかち、こつこつ型など）
+
+【出すもの】
+6つの答えがそろったら、次の2つを出してください。
+
+1. キャラ設定シート
+　・書き手のプロフィール（3行）
+　・届けたい読者
+　・話し方の特徴（語尾、文の長さ、やわらかさ）
+　・使う言い回しの例（5つ）
+　・使わない言葉（5つ）
+　・性格と、文章ににじませたい人柄
+2. このキャラで書いた見本の文（3行）
+
+最後に「この話し方で合っていますか？」と確認してください。
+私がOKと言ったら、この先の文章はすべて、このキャラ設定で書いてください。
+
+【守ること】
+・私が言っていない経歴や実績を足さない
+・口調を大げさに作りこみすぎない。私が実際に話す言い方に寄せる</pre>
+        </div>
+        <p class="toast" id="toast-p3" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る（自分の文章がある人だけ）</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 03-B｜文体を数字で測る</span><button class="copy" type="button" data-target="text-p3b" data-toast="自分の文章を貼ってから、同じチャットで送ってください。">コピーする</button></div>
+          <pre id="text-p3b" tabindex="0">私がこれまでに書いた文章を貼ります。
+ここから私の文体を、感覚ではなく数字で測ってください。
+「やわらかい感じ」のような、感覚の言葉でまとめないでください。
+
+【私の文章】（noteやブログの記事、SNSの投稿など。合わせて1000字以上あると正確になります）
+（ここに貼る）
+
+【測ること】
+・1文あたりの文字数（まん中の値）
+・1段落あたりの文字数（まん中の値）
+・段落と段落の間に、空行がある割合
+・見出しの数と、何文字に1つ入っているか
+・太字や「」などの強調が読み取れるときは、どのくらいの割合で、どんなときに使っているか
+・引用の形を使っているときは、何回、どんなときに使っているか
+・語尾と口ぐせの出てくる回数（1000字あたり何回か）。多い順に10個
+
+【出し方】
+・数字を表で出す
+・そのうえで「この書き手の文章ルール」として、箇条書きにまとめる
+・貼った文章から読み取れないもの（太字や引用など）は、推測せずに「測っていない」と書く
+・文章が1000字より少ないときは、「量が少ないので目安」と書く
+・さきほどのキャラ設定シートと食いちがうところがあれば、実際の文章のほうを正として、シートを直す
+
+この先の執筆では、この文章ルールの数字に従ってください。</pre>
+        </div>
+        <p class="toast" id="toast-p3b" aria-live="polite"></p>
+        <p class="why">「私らしい文章」は、感覚で伝えてもAIには伝わりません。1段落が何文字か、どの語尾を何回使うか、まで数字にしておくと、書いてもらった文章がぐっと自分に近づきます。</p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r3">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 04 -->
+  <article class="recipe" id="r4" aria-labelledby="r4-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>04</strong></div>
+      <div>
+        <h2 id="r4-title">記事の材料を集める</h2>
+        <span class="when">準備4　リサーチ</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="804">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="調べる計画が出る、チェックをつけながら調べてくれる、出典つきのレポートができる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　計画</text>
+          <text class="t" x="24" y="80">調べる計画が出る</text>
+          <text class="s" x="24" y="104">ずれていたら</text>
+          <text class="s" x="24" y="124">調べる前にここで直す</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　調べる</text>
+          <text class="t" x="266" y="80">Claudeが調べてくれる</text>
+          <text class="s" x="266" y="104">進み具合を</text>
+          <text class="s" x="266" y="124">チェックで報告してくれる</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　レポート</text>
+          <text class="t" x="508" y="80">材料がまとまる</text>
+          <text class="s" x="508" y="104">数字のすぐ横に</text>
+          <text class="s" x="508" y="124">出どころのリンクつき</text>
+        </svg>
+        <figcaption>自分でやると半日かかる調べものが、数分で終わります。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、同じチャットで送ります。</span></li>
+          <li><span>「何を・どの順番で調べるか」の計画が出ます。よければ「OKです」、ちがうところがあれば「〇〇も調べてください」と伝えます。</span></li>
+          <li><span>調べ終わると「レポートにまとめてよろしいですか？」と聞かれるので、「お願いします」と返します。</span></li>
+          <li><span>レポートに出てきた数字は、横のリンクを開いて、本当に書いてあるかを自分の目で確かめます。</span></li>
+        </ol>
+        <p class="why">「これをやったら食費が下がりました」より、「月1万円下がりました。平均と比べるとこのくらいです」のほうが、お金を払う価値のある記事に見えます。自分の体験に、数字と比べる相手を足すのがこのステップです。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 04｜材料集め</span><button class="copy" type="button" data-target="text-p4">コピーする</button></div>
+          <pre id="text-p4" tabindex="0">次に、記事の材料を集めます。
+決まったテーマについて、ウェブ検索を使って調べてください。
+
+【進め方】
+1. いきなり調べ始めず、最初に「何を・どの順番で調べるか」の計画をチェックリストの形で出して、私の確認を待つ
+2. 私がOKと言ったら調べ始める。1つ終わるごとにチェックをつけて、進み具合を報告する
+3. 全部終わったら「レポートにまとめてよろしいですか？」と確認してから、レポートを出す
+
+【調べること】
+・このテーマで悩んでいる人が、実際にどんな言葉で、何に困っているか
+・記事に使える数字やデータ（国や自治体、企業の調査など）
+・同じテーマの記事でよく書かれていること
+・それと比べて、私の経験で違いを出せる切り口
+
+【守ること】
+・数字や事実には、その場ですぐ横に出どころのURLをつける
+・出どころが確認できない情報は、必ず「未確認」と書く。それらしい数字を作らない
+・ウェブ検索が使えないときは、調べたふりをせず「検索できません」と伝える
+・調べている途中で分からないことが出たら、勝手に決めずに私に聞く
+
+【レポートの形】
+1. 読者の悩み（どんな場面で、どう困っているか）
+2. 記事に使える数字・データ（1つずつ出どころのURLつき）
+3. ほかの記事との違いを出せる切り口（3つまで）
+4. 記事に入れないほうがいい情報（未確認のもの）</pre>
+        </div>
+        <p class="toast" id="toast-p4" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r4">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 05 -->
+  <article class="recipe" id="r5" aria-labelledby="r5-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>05</strong></div>
+      <div>
+        <h2 id="r5-title">目次から順番に、記事を書く</h2>
+        <span class="when">本番1　記事を書く</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="体験メモを書いて目次を作る、有料パートを1章ずつ書く、無料パートを書いて1本にまとめる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　目次</text>
+          <text class="t" x="24" y="80">体験メモ→目次</text>
+          <text class="s" x="24" y="104">本文の前に</text>
+          <text class="s" x="24" y="124">方向をここで確かめる</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx-on" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　有料パート</text>
+          <text class="t" x="266" y="80">売る中身を先に書く</text>
+          <text class="s" x="266" y="104">1章ずつ読んで</text>
+          <text class="s" x="266" y="124">確認しながら進める</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　無料パート</text>
+          <text class="t" x="508" y="80">入口を書いて1本に</text>
+          <text class="s" x="508" y="104">続きが読みたくなる</text>
+          <text class="s" x="508" y="124">ように書いてまとめる</text>
+        </svg>
+        <figcaption>無料パートは、有料パートを買ってもらうための営業係です。売るものが先にないと営業できないので、有料パートから書きます。目次は「6つの教育」（目的・信用・問題・手段・投資・行動）の流れで組みます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>「目次と有料パート」の【体験メモ】に、記事に入れたい自分の体験を、思いつくだけ書きます。「何があったか」と「そのときどう思ったか」をセットにします。</span></li>
+          <li><span>同じチャットで送ると、まず目次だけが出てきます。「ここから有料」の位置と理由も見て、よければ「この目次でOKです」と返します。</span></li>
+          <li><span>有料パートが1章ずつ出てきます。1章ごとに読んで、直したいところは文をコピーして「ここをこう変えて」と伝えます。</span></li>
+          <li><span>有料パートが全部書けたら、「無料パート」→「1本にまとめる」の順に送ります。</span></li>
+        </ol>
+        <p class="why">ここでいちばん大事なのは体験メモです。やり方の説明はAIがさらっと書けますが、「私はこうだった」「そのときこう思った」は、あなたにしか書けません。ここが入るだけで、ほかの記事と差がつきます。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 05-A｜目次と有料パート</span><button class="copy" type="button" data-target="text-p5a" data-toast="【体験メモ】を書きこんでから、同じチャットで送ってください。">コピーする</button></div>
+          <pre id="text-p5a" tabindex="0">材料がそろったので、記事を書いていきます。
+ここまでに決めた一行コンセプト・市場を測った数字・キャラ設定（文章ルール）・リサーチのレポートを使ってください。
+まず、記事に入れたい私の体験メモを書きます。
+
+【体験メモ】（何があったか＋そのときどう思ったか）
+・
+・
+・
+・
+・
+
+【ステップ1：目次だけを出す】
+本文は書かずに、先に目次（章立て）だけを出してください。
+章立ては、次の「6つの教育」の流れに沿わせてください。
+
+1. 目的の教育（読んだ先の未来を見せる）
+　①数字としての実績　②うまくいかなかった経験　③日常の中の理想の未来
+2. 信用の教育（「この人の話なら聞きたい」と思ってもらう）
+　①過去のストーリー（いちばん苦しかったころから今まで）　②実績と証拠　③なぜこれを伝えたいのか
+3. 問題の教育（本人が気づいていない原因を伝える）
+　①読者がつまずいている本当の原因　②それは本人のせいではなく、よくある思いこみや世の中の常識のせいだと伝える　③そのままにしたときに起きること
+4. 手段の教育（解決策を示す）
+　①解決策の提示　②ほかのやり方ではうまくいかなかった理由　③私のエピソード　④私以外の人のエピソード
+5. 投資の教育（時間やお金をかける意味を伝える）
+　①やらないことで失うもの　②かけてよかった体験　③ケチって損をした体験
+6. 行動の教育（今日動く理由を伝える）
+　①私が早く動いてよかった経験　②早く動く人を肯定する　③先のばしにして失うもの
+
+【目次のルール】
+・見出しは6〜8個まで
+・章ごとに、どの教育のどの要素を担当するかを書く
+・有料パートの中心は「4. 手段の教育」にする。読んだ人が自分の手で再現できる手順を、ここにしっかり置く
+・各要素に使う材料は、体験メモとリサーチのレポートにあるものだけ。材料がない要素は、作らずに「材料なし」と書いて、私に質問するか、その要素を外す
+・章ごとに「ここで読者が得られること」を1行と、文字数の目安を書く
+・文字数の合計は、市場を測ったときに出た数字があれば、それを基準にする。なければ5000字前後にする
+・「ここから有料」にする位置と、そこで区切る理由を書く
+・見出しだけを上から読んで、話の筋が通り、一行コンセプトから外れていないようにする
+
+私が「この目次でOK」と言うまで、本文は書かないでください。
+
+【ステップ2：有料パートを1章ずつ書く】
+OKが出たら、無料パートではなく、有料パートから先に書いてください。
+1章書くごとに止まって、私の確認を待ってください。
+章ごとに、どの教育のパートかを見出しの横に（　）で添えてください。この（　）は、あとで消します。
+
+【書き方のルール】
+・キャラ設定の話し方で書く。文章ルール（文体を測った数字）があるときは、段落の長さや語尾の回数をその数字に合わせる。ないときは、1文60字以内、1段落3行以内にする
+・手順は、読んだ人が自分の手でそのまま再現できる細かさで書く（実際の操作と、迷ったときの決め方まで）
+・形容詞でまとめない。「しんどかった」ではなく「夜中2時まで作業して、次の日6時に起きる生活」のように、何があったかを書く
+・数字を入れる。使うのは、私が伝えた数字と、リサーチのレポートにある数字だけ
+・読者を責めない。「あなたのせいではない」と伝えてから、原因を思いこみや常識のほうに置く。不安をあおりすぎない
+・読者への問いかけは、記事全体で2回まで
+・同じ主張を、言い方を変えてくり返さない
+
+【書かないこと】
+・気持ちの説明。「悲しかった」「うれしかった」と書かずに、何があったかだけを書いて、読んだ人に思い浮かべてもらう
+・「つまり〇〇ということです」のような解説。読めば分かることは書かない
+・一般論。私が体験していないことを、私の体験として書かない
+・作った体験・数字・事例。材料がないところは［要確認：〇〇］と書いて空けておく
+・「〜と言われています」のような、根拠をぼかした言い方
+
+章の終わりごとに、私に確認が必要なことを箇条書きで出してください。</pre>
+        </div>
+        <p class="toast" id="toast-p5a" aria-live="polite"></p>
+        <p class="small">体験メモの例：「夕方5時から寝かしつけまでが毎日ばたばたで、夕飯を作りながら泣きそうになっていた」「日曜の夜に3品だけ作り置きするようにしたら、平日の夕飯が30分で終わるようになって、子どもと座って食べられた」</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 05-B｜無料パート</span><button class="copy" type="button" data-target="text-p5b">コピーする</button></div>
+          <pre id="text-p5b" tabindex="0">有料パートができたので、次に無料パートを書いてください。
+無料パートの役目は、読んだ人に「続きは、お金を払ってでも読みたい」と思ってもらうことです。
+
+【書き方】
+・最初の3行で、この記事を読むと何が得られるかが分かるようにする
+・目次で決めた、無料パートの章（目的の教育・信用の教育・問題の教育）に沿って書く
+・「読んだ先の未来 → 私も同じだった（体験メモから） → うまくいかない本当の原因 → この記事で分かること」の順で書く
+・有料パートで分かることを、箇条書きで見せる。ただし、答えそのものはここでは書かない
+・最後に、有料パートへつなぐ1〜2文を入れる
+・キャラ設定の話し方で、1文60字以内、1段落3行以内
+
+【守ること】
+・有料パートに書いていないことを約束しない
+・「誰でも」「必ず」「絶対」のような言い切りで期待を上げすぎない
+・私の体験として書くのは、体験メモにあることだけ
+
+書けたら、私の確認を待ってください。</pre>
+        </div>
+        <p class="toast" id="toast-p5b" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 05-C｜1本にまとめる</span><button class="copy" type="button" data-target="text-p5c">コピーする</button></div>
+          <pre id="text-p5c" tabindex="0">無料パートと有料パートを、1本の記事にまとめて出してください。
+
+・内容は変えない。つなぎ目の不自然なところだけ整える
+・見出しの横に添えた（〇〇の教育）は、すべて消す
+・有料にする位置に【ここから有料エリア】と1行入れる
+・途中で止めずに、最初から最後まで通して出す
+・最後に、全体の文字数と、本文に残っている［要確認］の一覧を書く</pre>
+        </div>
+        <p class="toast" id="toast-p5c" aria-live="polite"></p>
+        <p class="small">［要確認］が残っていたら、そこは自分の言葉で埋めるところです。Claudeに「〇〇は、こうでした」と伝えれば、文章にしてくれます。</p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r5">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 06 -->
+  <article class="recipe" id="r6" aria-labelledby="r6-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>06</strong></div>
+      <div>
+        <h2 id="r6-title">読者の目でダメ出しして、AIっぽさを消す</h2>
+        <span class="when">本番2　仕上げ</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="読者の目でダメ出し、誤字と表記を直す、AIっぽさを消す">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　ダメ出し</text>
+          <text class="t" x="24" y="80">読者の目で読み直す</text>
+          <text class="s" x="24" y="104">合格か不合格か</text>
+          <text class="s" x="24" y="124">直し方つきで出てくる</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　校正</text>
+          <text class="t" x="266" y="80">誤字と表記を直す</text>
+          <text class="s" x="266" y="104">内容には</text>
+          <text class="s" x="266" y="124">手を入れない</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　リライト</text>
+          <text class="t" x="508" y="80">AIっぽさを消す</text>
+          <text class="s" x="508" y="104">人が書いた文章の</text>
+          <text class="s" x="508" y="124">リズムに近づける</text>
+        </svg>
+        <figcaption>書いた直後のAIは、自分の文章にあまいです。役わりを「読者の味方」に切りかえてから読み直してもらいます。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>「読者目線のダメ出し」を同じチャットで送ります。合格か不合格かと、直すところが出てきます。</span></li>
+          <li><span>納得した指摘だけ「直してください」と伝えます。全部を受け入れなくて大丈夫です。</span></li>
+          <li><span>合格になったら「校正とAIっぽさ消し」を送ります。</span></li>
+          <li><span>出てきた全文を、声に出して読みます。つっかえるところ、自分が言わない言い方は、その場で伝えて直してもらいます。</span></li>
+        </ol>
+        <p class="why">AIが書いたままの文章だと分かると、なかなか買ってもらえません。最後に声に出して読むひと手間が、いちばん効きます。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 06-A｜読者目線のダメ出し</span><button class="copy" type="button" data-target="text-p6a">コピーする</button></div>
+          <pre id="text-p6a" tabindex="0">ここからは役わりを変えます。
+あなたは書き手の味方ではなく、「お金を払ってこの記事を読む読者」の味方です。
+さきほどまとめた記事を最初から読んで、合格か不合格かを判定してください。
+
+【NGリスト】（1つでも当てはまれば不合格）
+・最初の3行で、読者にとっての得が分からない
+・手順を読んでも、読者が自分で再現できない
+・書き手の自分語りだけで、読者がやることが書かれていない
+・根拠のない言い切りがある
+・同じ主張が、形を変えて2回以上出てくる
+・専門用語が、説明なしで出てくる
+・無料パートで約束したことが、有料パートに書かれていない
+
+【出すもの】
+・判定（合格／不合格）
+・不合格なら、当てはまるところを1つずつ、次の3点セットで出す
+　1. 該当する文の引用
+　2. 何がダメか
+　3. どう直すか（そのまま使える文で）
+
+【守ること】
+・褒めて終わらない
+・「もっと具体的に」のような、直し方のない指摘をしない
+・直すために新しい体験や数字が必要なときは、作らずに私に質問する
+
+最後に「どの指摘を直しますか？」と聞いてください。
+私が選んだところだけを直して、もう一度判定してください。</pre>
+        </div>
+        <p class="toast" id="toast-p6a" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 06-B｜校正とAIっぽさ消し</span><button class="copy" type="button" data-target="text-p6b">コピーする</button></div>
+          <pre id="text-p6b" tabindex="0">合格した記事を、2段階で仕上げてください。
+どちらの段階でも、内容・主張・数字は変えないでください。
+
+【1段階目：校正】表記だけを直す
+・変換ミス、送りがなの誤り
+・助詞の重なり（「〜のの」「〜をを」）
+・同じ言葉の表記ゆれ（例：ユーザー／ユーザ、行う／おこなう）
+・数字の単位やけたの食いちがい
+・本文の中で、前と後ろで食いちがっている記述（見つけたら直さずに、私に知らせる）
+
+【2段階目：AIっぽさを消す】
+消すもの
+・「〜することができます」→「〜できます」
+・「重要です」「ポイントです」のような、中身のない強調
+・「いかがでしたか」「まとめると」のような、決まり文句のつなぎ
+・全部の段落が同じ長さで並んでいる状態
+・「まず・次に・最後に」の機械的な3点セット
+・接続詞の使いすぎ（そして、さらに、また）
+
+足すもの
+・長い文と短い文を混ぜて、リズムをつける
+・ぼかさずに言い切る（「〜かもしれません」を減らす）
+・ふんわりした言葉を、具体的な物の名前に置きかえる
+・書き手のひとりごとを1か所だけ入れる（体験メモにある範囲で。例：これ、最初はぜんぜんうまくいきませんでした）
+
+【出すもの】
+・仕上げたあとの全文（【ここから有料エリア】の行は残す）
+・直したところの一覧（直す前 → 直したあと）
+
+【やらないこと】
+・専門用語の説明を消す
+・口調を大げさにキャラ付けする
+・長く見えても、私の言い回しを勝手にけずる</pre>
+        </div>
+        <p class="toast" id="toast-p6b" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r6">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 07 -->
+  <article class="recipe" id="r7" aria-labelledby="r7-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>07</strong></div>
+      <div>
+        <h2 id="r7-title">画像を作って、読みやすく整える</h2>
+        <span class="when">本番3　画像と装飾</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="804">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="Claudeが画像の指示文を作る、ChatGPTに貼って画像にする、見出しと太字を整えた全文が出る">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　Claude</text>
+          <text class="t" x="24" y="80">画像の指示文を作る</text>
+          <text class="s" x="24" y="104">見出し画像1枚と</text>
+          <text class="s" x="24" y="124">本文の図を3枚まで</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　ChatGPT</text>
+          <text class="t" x="266" y="80">貼って画像にする</text>
+          <text class="s" x="266" y="104">指示文を1つずつ</text>
+          <text class="s" x="266" y="124">貼るだけ</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　Claude</text>
+          <text class="t" x="508" y="80">見出しと太字を整える</text>
+          <text class="s" x="508" y="104">スマホで読みやすい</text>
+          <text class="s" x="508" y="124">形の全文が出てくる</text>
+        </svg>
+        <figcaption>文章はClaude、画像はChatGPT。得意なほうに任せると、仕上がりが安定します。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>「画像の指示文」を同じチャットで送ります。見出し画像1枚と、本文に入れる図（3枚まで）の指示文が出てきます。</span></li>
+          <li><span>出てきた指示文を1つずつコピーして、ChatGPTに貼ります。できた画像は保存しておきます。</span></li>
+          <li><span>Claudeのチャットに戻って「装飾を一気につける」を送ります。見出し・太字・箇条書きがついた全文が出てきます。</span></li>
+          <li><span>出てきた本文をなぞって選んでコピーし、noteの本文に貼ります。</span></li>
+        </ol>
+        <p class="why">見出しや太字を1つずつ手でつけていくと、1〜2時間かかります。ここもAIに任せて、浮いた時間は、文章を読み直すほうに使いましょう。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 07-A｜画像の指示文</span><button class="copy" type="button" data-target="text-p7a">コピーする</button></div>
+          <pre id="text-p7a" tabindex="0">仕上がった記事に入れる画像を決めて、画像を作るための指示文を書いてください。
+画像はChatGPTで作るので、指示文はChatGPTにそのまま貼れる形にしてください。
+
+【出すもの】
+1. 見出し画像（記事のいちばん上に出る画像）を1枚
+　横長（横1280×縦670ピクセルの比率）にする
+2. 本文の中に入れる図を、最大3枚
+　それぞれ、どの見出しの下に入れるかも書く
+
+画像ごとに、次の3つをセットで出してください。
+・役わり（本文のどの一文を補うための画像か、1行で）
+・入れる位置
+・ChatGPT用の指示文（1つずつ、別々にコピーできるように分けて書く）
+
+【指示文に入れること】
+・色や雰囲気は、記事の読者とキャラ設定に合わせる。全部の画像で、色と絵のタッチをそろえる
+・スマホの小さい画面でも、何の絵かが分かるシンプルさにする
+・画像の中に文字は入れない（文字なしで伝わる絵にする）
+
+【やらないこと】
+・実在の人物、会社のロゴ、商品のパッケージを描かせる指示を出さない
+・飾りだけで、何も伝えていない画像を足さない
+・本文に書いていない内容を、画像で付け足さない</pre>
+        </div>
+        <p class="toast" id="toast-p7a" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 07-B｜装飾を一気につける</span><button class="copy" type="button" data-target="text-p7b">コピーする</button></div>
+          <pre id="text-p7b" tabindex="0">仕上がった記事を、noteにそのまま貼れるように、見出しや太字などの装飾をつけた状態で、全文を出してください。
+文章そのものは変えないでください。変えるのは見た目だけです。
+
+【出し方】
+・見出し・太字・箇条書き・引用・区切り線を、実際に装飾された見た目で表示する（記号のままの文字や、コードの枠の中に入れた形では出さない）
+・使う装飾は、noteにあるものだけにする：大見出し／小見出し／太字／箇条書き／番号つきリスト／引用／区切り線
+・表、文字の色、文字の大きさの変更、絵文字の飾りは使わない
+・記事の本文だけを、最初から最後まで続けて出す。前置きやあいさつは本文の前に入れない
+・本文が終わったら区切り線を入れて、そのあとに補足を書く
+
+【ルール】
+・見出しは、大見出しと小見出しの2段階まで
+・太字は、1つの見出しの中で2か所まで。読者に持ち帰ってほしい一文だけに使う
+・3つ以上の並びは、箇条書きにする
+・引用の形は、読者に刺さる一文だけに使う
+・区切り線は、話が大きく変わるところだけに入れる
+・スマホで見たときに、3行以上の文字のかたまりが続かないように改行する
+・画像を入れる位置に【画像：〇〇】と1行入れる
+・【ここから有料エリア】の行は、そのまま残す
+
+【やらないこと】
+・太字・記号・絵文字を、飾りとして使う
+・意味のない空行を増やして、長く見せる
+・文章を足したり、けずったりする
+
+補足には、見出しだけを上から順に並べた一覧を出してください。</pre>
+        </div>
+        <p class="toast" id="toast-p7b" aria-live="polite"></p>
+        <p class="small">出てきた本文は、最初から最後までをマウスでなぞって選んで、コピーします。そのままnoteの本文に貼ると、見出しや太字がついた状態で入ります。</p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r7">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 08 -->
+  <article class="recipe" id="r8" aria-labelledby="r8-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>08</strong></div>
+      <div>
+        <h2 id="r8-title">タイトルと値段を決めて、販売する</h2>
+        <span class="when">本番4　販売の準備</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="タイトルと値段の案が出る、noteに貼って有料ラインを引く、自分の目で確認して公開する">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　決める</text>
+          <text class="t" x="24" y="80">タイトルと値段</text>
+          <text class="s" x="24" y="104">3つの案から選ぶ</text>
+          <text class="s" x="24" y="124">ハッシュタグも出てくる</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　貼る</text>
+          <text class="t" x="266" y="80">noteに貼る</text>
+          <text class="s" x="266" y="104">画像を入れて</text>
+          <text class="s" x="266" y="124">有料ラインを引く</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　公開</text>
+          <text class="t" x="508" y="80">自分の目で確認する</text>
+          <text class="s" x="508" y="104">公開ボタンは</text>
+          <text class="s" x="508" y="124">自分で押す</text>
+        </svg>
+        <figcaption>タイトルは、読まれるかどうかを決めるいちばんの入口です。3つの案をもとに、Claudeと何回かやり取りして決めましょう。</figcaption>
+      </figure>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 08｜販売の準備</span><button class="copy" type="button" data-target="text-p8">コピーする</button></div>
+          <pre id="text-p8" tabindex="0">最後に、この記事を公開できる状態にまとめてください。
+公開は私が自分でやります。
+
+【出すもの】
+1. タイトルを3案（それぞれ30字以内。ねらいを1行ずつ添える）
+2. ハッシュタグを5つ
+3. 値段の案と、その理由
+　テーマ決めのときに私がnoteで見てきた値段をもとにする。私が伝えていない相場の数字は作らない
+　1本目として、少し安めに出す場合の案も1つ添える
+4. 公開前のチェックリスト（下の5つを、記事を読み直したうえで、1つずつ「OK」か「要確認」で答える）
+　・［要確認］の印が、本文に残っていないか
+　・数字と固有名詞が、私の伝えた内容やリサーチのレポートと合っているか
+　・【画像：〇〇】の位置が、すべて決まっているか
+　・最初の3行で、得られるものが伝わるか
+　・無料パートだけを読んで、「続きが気になる」状態になっているか
+
+【守ること】
+・タイトルで、本文に書いていない内容を約束しない
+・「誰でも」「絶対」「必ず」のような言い切りをタイトルに使わない
+・「要確認」になった項目は、どこをどう直せばいいかも書く</pre>
+        </div>
+        <p class="toast" id="toast-p8" aria-live="polite"></p>
+      </div>
+
+      <div class="block">
+        <h3><em>noteに出すまでの流れ</em></h3>
+        <ol class="method">
+          <li><span>noteの右上の「投稿」から、新しい記事を開きます。</span></li>
+          <li><span>タイトルのらんに、選んだタイトルを入れます。</span></li>
+          <li><span>RECIPE 07で整えた本文をコピーして、本文のらんに貼ります。見出しや太字がうまく反映されていないところは、文字を選ぶと出てくるメニューから手で直します。</span></li>
+          <li><span>【画像：〇〇】のところに、ChatGPTで作った画像を入れて、目印の行を消します。</span></li>
+          <li><span>【ここから有料エリア】の行を消します。この位置は、次の公開の画面で使います。</span></li>
+          <li><span>右上の「公開に進む」を押して、「有料」を選び、値段を入れます。有料エリアのラインを、さっきの位置に合わせます。1本目は100〜300円くらいの、手に取りやすい値段から始めるのがおすすめです。値段はあとから上げられます。</span></li>
+          <li><span>ハッシュタグを入れて、もう一度上から下まで自分の目で読んでから、公開します。</span></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3><em>公開する前のチェック</em></h3>
+        <ul class="checks">
+          <li><span>数字のリンク先を開いて、本当にその数字が書いてあるか確かめた</span></li>
+          <li><span>やっていないことを「やった」と書いていない</span></li>
+          <li><span>声に出して読んで、自分が言わない言い方が残っていない</span></li>
+          <li><span>スマホで見て、文字のかたまりが続いていない</span></li>
+          <li><span>無料パートの最後で、続きが読みたくなる</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="caution">
+          <strong>出したあとに、知っておいてほしい3つのこと</strong>
+          <ul class="checks-plain">
+            <li><span>出してすぐに、次々と売れるものではありません。noteは、記事を増やして自分のお店の棚を育てていく場所です。無料の記事も出しながら、「この人の話なら聞きたい」を先に積み上げていきましょう。</span></li>
+            <li><span>AIが書いた文章を、読まずにそのまま出さないでください。自分の体験を足して、言い回しを自分の言葉に直すところまでがセットです。</span></li>
+            <li><span>完ぺきにしてから出そうとすると、いつまでも出せなくなります。noteは公開したあとでも何回でも直せるので、8割のできで、まず出しましょう。</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r8">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 09 -->
+  <article class="recipe" id="r9" aria-labelledby="r9-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>09</strong></div>
+      <div>
+        <h2 id="r9-title">公開したあと、数字を記録して直す</h2>
+        <span class="when">公開後　数字を見て直す</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="917">
+    </div>
+    <div class="recipe-body">
+      <figure class="fig">
+        <svg viewBox="0 0 700 190" role="img" aria-label="毎朝、前の日までの数字を送る、Claudeが表にして前の日と比べる、直すところが1つ分かる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　送る</text>
+          <text class="t" x="24" y="80">毎朝、数字を送る</text>
+          <text class="s" x="24" y="104">noteのダッシュボードの</text>
+          <text class="s" x="24" y="124">前の日までの数字</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　表になる</text>
+          <text class="t" x="266" y="80">前の日と比べてくれる</text>
+          <text class="s" x="266" y="104">開かれた割合と</text>
+          <text class="s" x="266" y="124">スキの割合が出る</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx-on" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　直す</text>
+          <text class="t" x="508" y="80">直すところが分かる</text>
+          <text class="s" x="508" y="104">タイトルか、中身か、</text>
+          <text class="s" x="508" y="124">まだ判断できないか</text>
+        </svg>
+        <figcaption>noteは、公開してからが育てる時間です。数字を見れば、次にどこを直せばいいかが分かります。</figcaption>
+      </figure>
+
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>記事を公開したら、Claudeで新しいチャットを開いて、下の指示文の【　】を書きかえて送ります。このチャットは、数字の記録用にずっと使います。</span></li>
+          <li><span>次の日の朝から、noteのダッシュボードを開いて、前の日までの数字をそのチャットに送ります。画面をコピーして貼っても、スクリーンショットでも大丈夫です。</span></li>
+          <li><span>その日にやったこと（SNSでお知らせした、タイトルを変えた、何もしていない、など）も一言添えます。</span></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <span class="where new">新しいチャットで送る（数字の記録用）</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 09｜数字の記録と判定</span><button class="copy" type="button" data-target="text-p9" data-toast="【　】の中を書きかえてから、新しいチャットで送ってください。">コピーする</button></div>
+          <pre id="text-p9" tabindex="0">あなたは、noteの数字を一緒に見てくれる記録係です。
+公開した記事の数字を毎日記録して、何が効いているかを判定したいです。
+これから毎朝、このチャットに、前の日までの数字を送ります。
+
+【記事の情報】
+・タイトル：【　】
+・値段：【　】円
+・公開した日：【　】
+
+【私が毎朝送る数字】
+・インプレッション（note内で表示された回数）
+・ページビュー（記事が開かれた回数）
+・スキ（そのうち、知り合いが押してくれた数が分かれば、それも）
+・コメント
+・売上（売れた本数と金額）
+・流入元の内訳（どこから見に来たか。分かるときだけ）
+・その日にやったこと（例：SNSでお知らせした／タイトルを変えた／ほかの人の記事にスキをした／何もしていない）
+
+【数字を読むときの注意】
+・ダッシュボードの上に並ぶ数字は、アカウント全体の合計。記事ごとの数字は、その下の一覧で見る
+・当日の数字は、まだ確定していない。前の日までの数字が毎朝確定するので、毎朝、前の日の数字を読む
+・自分が見た分も数えられる。外す仕組みはない
+・期間の設定は、毎日同じにする。変えると数字が変わる
+私が送った数字が、この注意に合っていなさそうなときは、判定の前に確認してください。
+
+【判定のしかた】
+・インプレッションに対するページビューの割合を見る。表示されているのに開かれていないなら、タイトルか見出し画像の問題
+・ページビューに対するスキの割合を見る。開いた人が最後まで読んで、反応したかが分かる
+・ページビューに対する売れた本数の割合を見る。読まれているのに買われていないなら、無料パートの問題
+・スキは、知り合いが押した分と、それ以外の人が押した分を分けて見る
+
+【出し方】
+・毎日の数字と、前の日との差を、表で出す。これまでの分も続けて1つの表にする
+・何かをやった日と、何もしなかった日を分けて比べる
+・日数や件数が少ないうちは「まだ判断できない」と書く。むりに結論を出さない
+・直したほうがいいところが見えたら、次にやることを1つだけ提案する
+
+準備ができたら「1日目の数字を送ってください」と伝えてください。</pre>
+        </div>
+        <p class="toast" id="toast-p9" aria-live="polite"></p>
+        <p class="small">スキを押してくれた人は、記事のスキの一覧から見られます。知り合いの分を分けておくと、記事そのものの力が見えやすくなります。</p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r9">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- 困ったとき -->
+  <section class="prep" aria-labelledby="help">
+    <p class="section-label">困ったときは</p>
+    <h2 id="help">途中で止まっても、あわてなくて大丈夫です</h2>
+    <ul class="ingredients">
+      <li><span>返事が途中で止まった</span><span>「続きをお願いします」と送る</span></li>
+      <li><span>画面が固まった・文字が消えた</span><span>ページを読みこみ直して「今どこまで進んでいますか？」と聞く</span></li>
+      <li><span>思っていたのとちがう</span><span>ちがうところをコピーして「ここをこうしてほしい」と伝える</span></li>
+      <li><span>「上限に達しました」と出た</span><span>無料版は数時間たつとまた使えます。続きはそのあとで</span></li>
+    </ul>
+    <p class="why">チャットが長くなって動きが重くなったときは、下の指示文を送ると、ここまでの内容をメモにまとめてくれます。そのメモを新しいチャットの最初に貼ってから、続きのレシピを送ってください。</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>おまけ｜新しいチャットに引きつぐメモ</span><button class="copy" type="button" data-target="text-px">コピーする</button></div>
+      <pre id="text-px" tabindex="0">ここまでの内容を、新しいチャットにそのまま貼って続きができるように、引きつぎメモにまとめてください。
+
+・この会話の共通ルール
+・決まったテーマと、想定読者
+・キャラ設定シート（全文）
+・リサーチのレポート（出どころのURLつきで全文）
+・私の体験メモ（全文）
+・記事の今の状態（いちばん新しい全文）
+・どこまで終わっていて、次に何をするか
+
+要約しすぎず、あとで使う文章は省略しないでください。
+最初に「これは引きつぎメモです。内容を読みこんで、共通ルールを守って続きを手伝ってください」と1行入れてください。</pre>
+    </div>
+    <p class="toast" id="toast-px" aria-live="polite"></p>
+  </section>
+
+  <section class="today" aria-labelledby="today">
+    <p class="section-label">今日これだけは</p>
+    <h2 id="today">まずはテーマを1つ、見つけるところまで</h2>
+    <ul class="checks">
+      <li><span>Claudeとnoteに登録する</span></li>
+      <li><span>RECIPE 02の「テーマ出し」を貼って、6つの質問に答える</span></li>
+      <li><span>気になったテーマをnoteで検索して、値段とスキの数を見てみる</span></li>
+    </ul>
+    <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    <p class="why">6つの質問に答えるだけなら、10分くらいで終わります。「私にも書けることがあったんだ」と分かるだけで、次に進みやすくなります。</p>
+  </section>
+
+  <section class="closing" aria-labelledby="bye">
+    <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
+    <p>このチャンネルでは、2児ママの私が実際にやっているAIの在宅副業を、画面ごとお見せしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
+    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
+      <span class="channel-name">ゆら<small>【在宅ワーク・AI副業でマイホームを目指す2児ママ】</small></span>
+      <span class="channel-go">YouTubeチャンネルを見る</span>
+    </a>
+    <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
+  </section>
+
+  <footer>YURA AI ZAITAKU</footer>
+</main>
+
+<script>
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-target');
+      var pre=document.getElementById(id);
+      var toast=document.getElementById(id.replace('text','toast'));
+      var msg=btn.getAttribute('data-toast')||'Claudeに貼り付けて送ってください。';
+      var text=pre.textContent;
+      function ok(){btn.textContent='コピーしました';toast.textContent=msg;setTimeout(function(){btn.textContent='コピーする';},2200);}
+      function ng(){selectText(pre);toast.textContent='自動でコピーできなかったので、選択した文字をコピーしてください。';}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,ng);}else{ng();}
+      }catch(e){ng();}
+    });
+  });
+
+  /* 「ここまでできた」のチェックを、このブラウザに覚えておく */
+  var KEY='yura-note-recipe-done';
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function paint(){
+    document.querySelectorAll('.index a[data-key]').forEach(function(a){
+      a.classList.toggle('is-done',!!state[a.getAttribute('data-key')]);
+    });
+  }
+  document.querySelectorAll('.done input').forEach(function(cb){
+    var k=cb.getAttribute('data-key');
+    cb.checked=!!state[k];
+    cb.addEventListener('change',function(){
+      state[k]=cb.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+      paint();
+    });
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
