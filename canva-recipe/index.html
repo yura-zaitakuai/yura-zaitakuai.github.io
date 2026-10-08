@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゆらのCanvaテンプレ販売レシピ｜ゆらAI在宅</title>
+<meta name="description" content="CanvaとAIでインスタ投稿のテンプレートを作って販売するまでの指示文を、5つのレシピにまとめました。">
+<meta property="og:title" content="ゆらのCanvaテンプレ販売レシピ｜ゆらAI在宅">
+<meta property="og:description" content="動画で使った指示文を、上から順にコピーして使えるようにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yura-zaitakuai.github.io/canva-recipe/img/yura_chibi_05_family.webp">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF;
+  --paper:#FFFFFF;
+  --ink:#4A3426;
+  --muted:#8A7163;
+  --cocoa:#B07A63;
+  --cocoa-deep:#8E5A45;
+  --cocoa-ink:#FFFFFF;
+  --sage:#C6A15B;
+  --sage-soft:#F7EEE8;
+  --band:#E9D5CA;
+  --rule:#EFE3DA;
+  --rule-strong:#E0CBBE;
+  --box:#FFFCFA;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;padding:0 16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto;padding-block:44px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+
+/* 表紙 */
+.cover{position:relative;border:1px solid var(--sage);outline:1px solid var(--rule-strong);outline-offset:5px;border-radius:4px;padding:28px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:end;background:radial-gradient(120% 90% at 85% 10%,#F6E9DE 0%,#FFFFFF 62%)}
+.cover>*{grid-column:1}
+.cover .chibi-hero{grid-column:2;grid-row:1 / span 3;align-self:end;width:clamp(110px,24vw,170px)}
+.cover .index{grid-column:1 / -1}
+@media (max-width:560px){.cover{grid-template-columns:1fr}.cover .chibi-hero{grid-column:1;grid-row:auto;justify-self:end;width:120px;margin-top:-8px}}
+.cover .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.cover h1{font-size:clamp(28px,6vw,44px);letter-spacing:.02em;color:var(--ink)}
+.cover h1 .grad{background:linear-gradient(180deg,#C99A83 0%,#9A624C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover h1 small{display:block;font-size:.5em;letter-spacing:.08em;color:var(--cocoa);margin-bottom:6px}
+.cover .lead{max-width:34em;color:var(--muted)}
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+.index a{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:var(--ink);border:1px solid var(--rule-strong);border-radius:999px;padding:9px 18px;background:#FFFFFF}
+.index a:hover{border-color:var(--cocoa)}
+.index a:focus-visible{outline:3px solid var(--cocoa);outline-offset:2px}
+.index b{font-family:var(--display);color:var(--cocoa);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.index a.is-done{background:var(--sage-soft);border-color:var(--sage)}
+.index a.is-done span::after{content:"　済";color:var(--sage);font-weight:700;font-size:13px}
+
+/* ひとこと */
+.note{display:grid;grid-template-columns:4px 1fr;gap:16px}
+.note::before{content:"";background:var(--sage)}
+.note p+p{margin-top:8px}
+.note .who{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* 全体図 */
+.section-label{font-size:12.5px;letter-spacing:.2em;color:var(--sage);font-weight:700}
+.overview{display:flex;flex-direction:column;gap:12px}
+.overview h2{font-size:22px}
+.fig{border:1px solid var(--rule-strong);background:var(--paper);padding:14px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:540px}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figure{margin:0}
+svg .bx{fill:var(--box);stroke:var(--rule-strong);stroke-width:1.2}
+svg .bx-on{fill:var(--sage-soft);stroke:var(--sage);stroke-width:1.6}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:700}
+svg .s{fill:var(--muted);font-family:var(--body);font-size:12.5px}
+svg .n{fill:var(--cocoa);font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.08em}
+svg .ar{stroke:var(--cocoa);stroke-width:1.6;fill:none}
+svg .arh{fill:var(--cocoa)}
+svg .pill{fill:var(--cocoa)}
+svg .pt{fill:var(--cocoa-ink);font-family:var(--body);font-size:12px;font-weight:700}
+
+/* 準備 */
+.prep{border:1px solid var(--rule-strong);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:flex;flex-direction:column;gap:14px;background:var(--box)}
+.prep h2{font-size:20px}
+
+/* レシピカード */
+.recipe{background:var(--paper);border:1px solid var(--rule-strong);border-radius:4px;position:relative;overflow:hidden}
+.recipe-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px clamp(18px,4vw,34px);background:linear-gradient(90deg,#EBD8CD,#F4E7DF);border-bottom:1px solid var(--sage)}
+.recipe-head .chibi-side{width:clamp(76px,16vw,110px);margin-block:-6px -18px}
+@media (max-width:480px){.recipe-head{grid-template-columns:auto 1fr}.recipe-head .chibi-side{display:none}}
+.num{font-family:var(--display);color:var(--cocoa-deep);text-align:center;line-height:1.1;border-right:1px solid var(--sage);padding-right:18px}
+.num span{display:block;font-size:11px;letter-spacing:.2em}
+.num strong{display:block;font-size:40px}
+.recipe-head h2{font-size:clamp(21px,4vw,27px)}
+.recipe-head .when{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage);letter-spacing:.06em}
+.recipe-body{padding:24px clamp(18px,4vw,34px) 28px;display:flex;flex-direction:column;gap:24px}
+.block{display:flex;flex-direction:column;gap:12px}
+.block+.block{border-top:1px dashed var(--rule-strong);padding-top:22px}
+h3{font-size:17px;letter-spacing:.06em;display:flex;gap:10px;align-items:baseline}
+h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--sage)}
+.ingredients li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule-strong);padding-block:6px}
+.ingredients li span:last-child{color:var(--muted);font-size:14px;text-align:right}
+.method{counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.method li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.method li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--cocoa);font-size:17px;line-height:1.9}
+.why{color:var(--muted);font-size:14.5px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.checks li::before{content:"";width:16px;height:16px;border:1.5px solid var(--cocoa);border-radius:3px;margin-top:7px}
+.caution{background:var(--sage-soft);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.caution strong{font-family:var(--display);font-size:16px}
+.caution li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.caution li::before{content:"―";color:var(--sage);font-weight:700}
+
+/* プロンプト枠 */
+.prompt{border:1.5px solid var(--rule-strong);border-radius:4px;background:var(--box)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 8px 14px;border-bottom:1.5px solid var(--rule-strong);background:#FBF3EE}
+.prompt-head span{font-size:13px;font-weight:700;letter-spacing:.06em}
+.copy{appearance:none;border:0;border-radius:999px;background:linear-gradient(180deg,#BE8B73,#9E6650);color:var(--cocoa-ink);font:700 14px var(--body);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{filter:brightness(1.08)}
+.copy:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.prompt pre{margin:0;padding:16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.85 var(--body);color:var(--ink)}
+.prompt pre:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.toast{font-size:13px;color:var(--cocoa);font-weight:700;min-height:1.2em}
+.small{font-size:13px;color:var(--muted)}
+.where{display:inline-block;align-self:flex-start;font-size:12.5px;font-weight:700;letter-spacing:.04em;border:1px solid var(--sage);color:var(--cocoa-deep);border-radius:999px;padding:2px 12px;background:#FFFFFF}
+.where.new{background:var(--cocoa);border-color:var(--cocoa);color:var(--cocoa-ink)}
+
+/* できたチェック */
+.done{display:flex;align-items:center;gap:10px;align-self:flex-start;cursor:pointer;font-weight:700;font-size:14.5px;border:1.5px solid var(--cocoa);border-radius:999px;padding:8px 20px 8px 14px;color:var(--cocoa-deep);background:#FFFFFF}
+.done input{width:18px;height:18px;accent-color:#9E6650;margin:0}
+.done:has(input:checked){background:var(--sage-soft);border-color:var(--sage)}
+.done:has(input:focus-visible){outline:3px solid var(--sage);outline-offset:2px}
+
+/* 今日これだけ・おわりに */
+.today{border:1px solid var(--sage);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:12px 18px;background:radial-gradient(100% 120% at 100% 100%,#F6E9DE 0%,#FFFFFF 60%)}
+.today>*{grid-column:1}.today .chibi-side{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(90px,18vw,130px)}
+@media (max-width:560px){.today{grid-template-columns:1fr}.today .chibi-side{grid-column:1;grid-row:auto;justify-self:end}}
+.today h2{font-size:22px}
+.closing{border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding-block:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.closing .chibi-family{align-self:center;width:min(360px,90%);margin-top:6px}
+.closing h2{font-size:20px}
+.chibi-hero,.chibi-side,.chibi-family{display:block;height:auto;max-width:100%}
+.channel{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--cocoa-ink);background:linear-gradient(180deg,#BE8B73,#9E6650);border-radius:999px;padding:14px 22px}
+.channel:hover{filter:brightness(1.06)}
+.channel:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.channel-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.04em;line-height:1.5;flex:1 1 16em}
+.channel-name small{font-size:14px;letter-spacing:0}
+.channel-go{font-weight:700;font-size:14.5px;background:#FFFFFF;color:var(--cocoa-deep);border-radius:999px;padding:6px 16px}
+footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.fig figcaption a,.checks a{color:var(--cocoa-deep);font-weight:700}
+</style>
+
+<main class="wrap">
+
+  <header class="cover">
+    <div class="meta"><span>ゆらAI在宅</span></div>
+    <h1><small>ChatGPTに貼って、Canvaで仕上げるだけ</small>ゆらの<span class="grad">Canvaテンプレ販売レシピ</span></h1>
+    <p class="lead">動画と同じ順番で、指示文（プロンプト）を5つのレシピにまとめました。上から順にコピーして、ChatGPTに貼って送るだけです。ChatGPTもCanvaも、無料のまま使えます。</p>
+    <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
+    <nav class="index" aria-label="このページのレシピ">
+      <a href="#r1" data-key="r1"><b>RECIPE 01</b><span>好みを言葉にする</span></a>
+      <a href="#r2" data-key="r2"><b>RECIPE 02</b><span>表紙を作る</span></a>
+      <a href="#r3" data-key="r3"><b>RECIPE 03</b><span>残りのページ</span></a>
+      <a href="#r4" data-key="r4"><b>RECIPE 04</b><span>お渡しページ</span></a>
+      <a href="#r5" data-key="r5"><b>RECIPE 05</b><span>商品画像の土台</span></a>
+    </nav>
+  </header>
+
+  <section class="note" aria-label="ゆらからのひとこと">
+    <div>
+      <p class="who">ゆらより</p>
+      <p>動画を見てくださって、ありがとうございます。コメントまでしてくれて、本当にうれしいです。</p>
+      <p>このページは、動画を横で流しながら、そのまま手を動かせるワークシートにしました。1つ終わるごとに「ここまでできた」にチェックを入れていくと、どこまで進んだかが分かります。</p>
+      <p>いちばん大事なのは、RECIPE 01の「好みを言葉にする」です。ほかの方の作品をそのまま真似るのではなく、好きな雰囲気を言葉にしてから作ります。ここを飛ばさないでくださいね。</p>
+    </div>
+  </section>
+
+  <section class="overview" aria-labelledby="flow">
+    <p class="section-label">全体の地図</p>
+    <h2 id="flow">テンプレートを作って、渡す準備をするまでの流れ</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 120" role="img" aria-label="レシピ01好みを言葉にする、02表紙を作る、03ページを増やす、Canvaで編集できる形にする、04と05で渡す準備をする">
+        <rect class="bx" x="6" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="18" y="42">01</text>
+        <text class="t" x="18" y="68">好みを言葉に</text>
+        <text class="s" x="18" y="88">参考を2〜3枚</text>
+        <path class="ar" d="M133 60 H136"/><path class="arh" d="M136 55 L143 60 L136 65 Z"/>
+        <rect class="bx" x="144" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="156" y="42">02</text>
+        <text class="t" x="156" y="68">表紙を作る</text>
+        <text class="s" x="156" y="88">最初の1枚</text>
+        <path class="ar" d="M271 60 H274"/><path class="arh" d="M274 55 L281 60 L274 65 Z"/>
+        <rect class="bx-on" x="282" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="294" y="42">03</text>
+        <text class="t" x="294" y="68">ページを増やす</text>
+        <text class="s" x="294" y="88">AIにおまかせ</text>
+        <path class="ar" d="M409 60 H412"/><path class="arh" d="M412 55 L419 60 L412 65 Z"/>
+        <rect class="bx-on" x="420" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="432" y="42">Canva</text>
+        <text class="t" x="432" y="68">編集できる形に</text>
+        <text class="s" x="432" y="88">マジックレイヤー</text>
+        <path class="ar" d="M547 60 H550"/><path class="arh" d="M550 55 L557 60 L550 65 Z"/>
+        <rect class="bx" x="558" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="570" y="42">04・05</text>
+        <text class="t" x="570" y="68">渡す準備</text>
+        <text class="s" x="570" y="88">PDFと商品画像</text>
+      </svg>
+      <figcaption>01から05までは、ChatGPTの同じチャットで続けて送ります。前に決めたデザインのルールを覚えていてくれるので、説明し直さなくて済みます。</figcaption>
+    </figure>
+  </section>
+
+  <section class="prep" aria-labelledby="prep">
+    <p class="section-label">はじめる前に</p>
+    <h2 id="prep">用意するのは、この2つだけ</h2>
+    <ul class="ingredients">
+      <li><span>ChatGPT（チャットジーピーティー）</span><span>Googleアカウントで登録・無料版でOK</span></li>
+      <li><span>Canva（キャンバ）</span><span>Googleアカウントで登録・無料プランでOK</span></li>
+    </ul>
+    <ul class="checks">
+      <li><span>ChatGPTにログインして、文字を打ちこむ画面が出ている</span></li>
+      <li><span>Canvaにログインして、ホーム画面が出ている</span></li>
+    </ul>
+    <p class="why">ChatGPTの無料版は、1日に作れる画像の枚数に上限があります。上限になったら、続きは次の日で大丈夫です。直したいところは、1回の指示にまとめて伝えると枚数を節約できます。</p>
+  </section>
+
+  <!-- RECIPE 01 -->
+  <article class="recipe" id="r1" aria-labelledby="r1-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>01</strong></div>
+      <div>
+        <h2 id="r1-title">好きな雰囲気を、AIに言葉にしてもらう</h2>
+        <span class="when">ステップ1　雰囲気を決める</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>Pinterestなどで「インスタ 投稿 デザイン ナチュラル」のように、好みの雰囲気の言葉で検索します。</span></li>
+          <li><span>「いいな」と思うデザインを2〜3枚、スクリーンショットで撮ります。</span></li>
+          <li><span>下の「コピーする」を押して、ChatGPTの新しいチャットに貼り、スクリーンショットを一緒に入れて送ります。</span></li>
+          <li><span>色・余白・飾り・イラストのタッチが言葉で返ってきます。これが、このあと全部のページで使うデザインのルールになります。</span></li>
+        </ol>
+        <p class="why">参考の画像は、ほかの方が作った作品です。そのまま真似して作るためではなく、自分の好みを言葉にするためだけに使います。複数枚の共通点を言葉にしてから作るので、特定の1枚に似にくくなります。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">新しいチャットで、スクリーンショットと一緒に送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 01｜好みを言葉にする</span><button class="copy" type="button" data-target="text-p1">コピーする</button></div>
+          <pre id="text-p1" tabindex="0">添付した画像は、私が「この雰囲気が好き」と思ったデザインの参考です。
+真似をしたいのではなく、好みを言葉にしたいです。
+複数の画像に共通する点を、次の項目で書き出してください。
+
+・配色（背景／メイン／文字／アクセントを色コードで）
+・余白の取り方、角の丸み、線の太さ
+・飾りのモチーフ（植物、リボン、マスキングテープなど）
+・イラストのタッチ（水彩、線画、フラットなど）
+・全体の印象を表す言葉を3つ
+
+特定の1枚にしかない特徴は入れないでください。</pre>
+        </div>
+        <p class="toast" id="toast-p1" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r1">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 02 -->
+  <article class="recipe" id="r2" aria-labelledby="r2-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>02</strong></div>
+      <div>
+        <h2 id="r2-title">最初の1枚、表紙を作る</h2>
+        <span class="when">ステップ2　表紙</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、RECIPE 01と同じチャットで送ります。</span></li>
+          <li><span>1分ほどで表紙の画像ができます。</span></li>
+          <li><span>色やイラストを変えたいときは「もう少し色をうすく」「イラストを花に」のように、そのまま言葉で伝えます。</span></li>
+          <li><span>できた画像は、右上のボタンからダウンロードしておきます。</span></li>
+        </ol>
+        <p class="why">文字が「タイトルが入ります」になっているのは、わざとです。テンプレートは、買った人が自分の言葉に打ちかえて使うものなので、「ここに文字を入れてくださいね」と分かる形にしておきます。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02｜表紙を作る</span><button class="copy" type="button" data-target="text-p2">コピーする</button></div>
+          <pre id="text-p2" tabindex="0">上で書き出したデザインルールだけを使って、Instagram投稿テンプレートの
+「表紙ページ」を画像で1枚作ってください。参考画像の構図は使わないでください。
+
+・サイズ：縦長4:5
+・中央に大きく「タイトルが入ります」
+・その上に小さく「サブタイトルが入ります」
+・下に帯で「ここにメインメッセージを入力」
+・挿絵は下側に1〜2点。人物は入れない
+・文字は日本語で、読みやすい丸ゴシック系</pre>
+        </div>
+        <p class="toast" id="toast-p2" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r2">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 03 -->
+  <article class="recipe" id="r3" aria-labelledby="r3-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>03</strong></div>
+      <div>
+        <h2 id="r3-title">表紙をもとに、残りのページを作ってもらう</h2>
+        <span class="when">ステップ3　ページを増やす</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、同じチャットに貼ります。</span></li>
+          <li><span>{ここを入れ替える} のところを、作りたいページの種類に書きかえて送ります。</span></li>
+          <li><span>できた画像を確認します。文字が1文字おかしい、数字がずれている、というところがあれば「ここの文字を直して」と伝えます。</span></li>
+          <li><span>ダウンロードしたら、ページの種類を入れかえて、同じことをくり返します。</span></li>
+        </ol>
+        <p class="why">背景の色、タイトルの位置、飾り、イラストのタッチを表紙とそろえてくれます。1枚ずつ手で作ると何時間もかかるところを、種類を1か所書きかえるだけで進められます。</p>
+      </div>
+      <div class="block">
+        <h3><em>ページの種類</em></h3>
+        <ul class="checks">
+          <li><span>テキストだけ（タイトル＋大きな文章枠）</span></li>
+          <li><span>ポイント3つ（丸アイコン＋見出し＋説明）</span></li>
+          <li><span>3ステップ（STEP01→02→03）＋POINT欄</span></li>
+          <li><span>3つの要素の重なり図</span></li>
+          <li><span>テキスト＋写真を入れる枠</span></li>
+          <li><span>番号つきリスト5項目</span></li>
+          <li><span>4分割（見出し＋説明）＋メモ欄</span></li>
+          <li><span>チェックリスト5項目</span></li>
+          <li><span>Before／After比較</span></li>
+          <li><span>番号つき3項目（横長の枠）</span></li>
+          <li><span>締めのページ（いいね・保存・シェアのお願い）</span></li>
+        </ul>
+        <p class="why">動画では、表紙＋「ポイント3つ」「チェックリスト」「3ステップ」「Before／After比較」「締めのページ」の6枚で作りました。実際に売るなら12枚や20枚のセットのほうが選んでもらいやすいので、慣れてきたら枚数を増やしてみてください。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで、ページの種類を入れかえながら送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 03｜残りのページを作る</span><button class="copy" type="button" data-target="text-p3">コピーする</button></div>
+          <pre id="text-p3" tabindex="0">添付画像（または上の表紙）と同じシリーズに見える、
+別レイアウトのページを画像で1枚作ってください。
+
+・ページの種類：{ここを入れ替える}
+・サイズ：縦長4:5
+・色、タイトルの位置と装飾、イラストのタッチは表紙と揃える
+・文字はすべて「タイトルが入ります」「ここにテキストが入ります」のような仮の文にする
+・文字を入れるスペースを広く取り、挿絵は端に小さく</pre>
+        </div>
+        <p class="toast" id="toast-p3" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r3">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="canva" aria-labelledby="canva-title">
+    <p class="section-label">ステップ4　Canvaで仕上げる</p>
+    <h2 id="canva-title">1枚の画像を、編集できるテンプレートに変える</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 190" role="img" aria-label="画像を入れてページいっぱいに広げる、編集からマジックレイヤーを押す、文字とイラストが分かれて打ちかえられる">
+          <rect class="bx" x="6" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="24" y="52">1　入れる</text>
+          <text class="t" x="24" y="80">画像をアップロード</text>
+          <text class="s" x="24" y="104">クリックで置いて</text>
+          <text class="s" x="24" y="124">ページいっぱいに広げる</text>
+          <path class="ar" d="M216 94 H234"/><path class="arh" d="M234 89 L243 94 L234 99 Z"/>
+          <rect class="bx-on" x="248" y="24" width="206" height="140" rx="3"/>
+          <text class="n" x="266" y="52">2　分ける</text>
+          <text class="t" x="266" y="80">マジックレイヤー</text>
+          <text class="s" x="266" y="104">画像を選んで「編集」</text>
+          <text class="s" x="266" y="124">30秒ほど待つ</text>
+          <path class="ar" d="M458 94 H476"/><path class="arh" d="M476 89 L485 94 L476 99 Z"/>
+          <rect class="bx" x="490" y="24" width="204" height="140" rx="3"/>
+          <text class="n" x="508" y="52">3　直す</text>
+          <text class="t" x="508" y="80">文字を打ちかえる</text>
+          <text class="s" x="508" y="104">イラストも1つずつ</text>
+          <text class="s" x="508" y="124">動かせるようになる</text>
+      </svg>
+      <figcaption>ChatGPTとCanvaをつなぐ設定はいりません。画像を入れるだけです。</figcaption>
+    </figure>
+    <ol class="method">
+      <li><span>Canvaのホーム画面で「カスタムサイズ」を押し、幅1080・高さ1350で新しいデザインを作ります。</span></li>
+      <li><span>左の「アップロード」→「ファイルをアップロード」で、ダウンロードした画像をまとめて入れます。</span></li>
+      <li><span>画像をクリックしてページに置き、角の丸をつかんでページいっぱいまで広げます。</span></li>
+      <li><span>画像を選んだまま、上の「編集」→ツールの「マジックレイヤー」を押します。</span></li>
+      <li><span>30秒ほどで、文字・イラスト・背景に分かれます。文字をダブルクリックすると打ちかえられます。</span></li>
+      <li><span>下の「ページを追加」を押して、次の画像でも同じことをくり返します。</span></li>
+    </ol>
+    <p class="section-label">仕上げの小ワザ</p>
+    <ul class="checks">
+      <li><span>フォントをまとめて変える：文字を1つ選び、Shiftキーを押しながらほかの文字もクリック。そのままフォントを変えると全部いっぺんに変わります。フォントは2種類までにしぼるとまとまって見えます。</span></li>
+      <li><span>袋文字：文字が読みにくいときは、文字を選んで「エフェクト」→「袋文字」。色を白にして太さを上げると、くっきり読めます。</span></li>
+      <li><span>フレーム：「素材」で「フレーム」と検索して置いておくと、買った人が写真をドラッグするだけで枠の形に入ります。</span></li>
+      <li><span>王冠マークの確認：フォントや素材に王冠がついていたら、ついていないものに変えます。無料プランで使う人が困らないようにするためです。</span></li>
+    </ul>
+    <p class="why">動かしているときに出る線は、「まん中です」「となりとそろっています」と教えてくれる目印です。この線に合わせて置くだけで、位置がきれいにそろいます。</p>
+  </section>
+
+  <!-- RECIPE 04 -->
+  <article class="recipe" id="r4" aria-labelledby="r4-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>04</strong></div>
+      <div>
+        <h2 id="r4-title">買ってくれた人に渡すページを作る</h2>
+        <span class="when">ステップ5　渡す準備</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>先に、Canvaでテンプレートの右上「共有」を押し、「リンクを知っている全員」「表示」にして「リンクをコピー」を押します。</span></li>
+          <li><span>下の「コピーする」を押して、ChatGPTの同じチャットで送ります。お渡しページの画像ができます。</span></li>
+          <li><span>画像をCanvaの新しいデザインに入れて、マジックレイヤーをかけます。</span></li>
+          <li><span>まん中のボタンを選んで右クリック→「リンク」を押し、コピーしておいたリンクを貼ります。</span></li>
+          <li><span>右上の「共有」→「ダウンロード」→「PDF（標準）」でダウンロードします。買ってくれた人に送るのは、このPDF1つです。</span></li>
+        </ol>
+        <p class="why">共有の設定は必ず「表示」にしてください。「編集」のままだと、買った人が元のデータを直接さわれてしまいます。買った人は、リンクを開いて左上の「ファイル」→「コピーを作成」を押すと、自分のCanvaで編集できるようになります。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 04｜お渡しページを作る</span><button class="copy" type="button" data-target="text-p4">コピーする</button></div>
+          <pre id="text-p4" tabindex="0">同じシリーズのデザインで、購入者に渡す「ダウンロード案内ページ」を画像で1枚作ってください。
+
+・サイズ：縦長4:5
+・上に「Thank you」
+・中央に大きなボタン風の枠（文字は「テンプレートを受け取る」）
+・その下に「真ん中のボタンをクリックして受け取れます」
+・一番下に小さく「開いたら左上のファイル→コピーを作成を押してください」
+・色とイラストのタッチは表紙と揃える</pre>
+        </div>
+        <p class="toast" id="toast-p4" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r4">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 05 -->
+  <article class="recipe" id="r5" aria-labelledby="r5-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>05</strong></div>
+      <div>
+        <h2 id="r5-title">出品に使う商品画像の土台を作る</h2>
+        <span class="when">ステップ5　渡す準備</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、同じチャットで送ります。「6デザイン」のところは、作った枚数に書きかえてください。</span></li>
+          <li><span>左側に商品名、右側が空いた土台の画像ができます。</span></li>
+          <li><span>Canvaに入れて、空いているところに、ダウンロードしておいたページの画像を並べます。</span></li>
+        </ol>
+        <p class="why">AIに全部のページが並んだ画像を丸ごと作らせると、ページ番号や文字がくずれやすくなります。土台だけ作ってもらい、実際のページを並べるほうが、買う人に「これが手に入る」と正しく伝わります。</p>
+      </div>
+
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 05｜商品画像の土台を作る</span><button class="copy" type="button" data-target="text-p5">コピーする</button></div>
+          <pre id="text-p5" tabindex="0">同じシリーズのデザインで、販売ページに載せる商品画像の「土台」を画像で1枚作ってください。
+
+・サイズ：正方形
+・左側に「Instagram投稿テンプレート」「6デザイン」（作った枚数に書きかえる）「Canvaで簡単編集」
+・右側の3分の2は、あとでページ画像を並べるので何も置かず空けておく
+・色とイラストのタッチは表紙と揃える</pre>
+        </div>
+        <p class="toast" id="toast-p5" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r5">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" aria-labelledby="rule">
+    <p class="section-label">出品する前に</p>
+    <h2 id="rule">AIで作って売るなら、守ってほしい3つ</h2>
+    <ul class="checks">
+      <li><span>ほかの人の作品をそのままAIに入れて「同じものを作って」と頼まない。作家さんやキャラクターの名前を入れて作らない。</span></li>
+      <li><span>商品の説明に「著作権フリー」と書かない。「Canvaで文字や色を変えて使えます」と、できることをそのまま書く。</span></li>
+      <li><span>色だけ変えたものを大量に並べない。次を作るなら、サロン向け・カフェ向けのように、使う人を変える。</span></li>
+    </ul>
+    <p class="why">出品するサイトごとに、AIで作ったものの扱いや手数料のルールがあります。出す前に、そのサイトの案内を一度読んでおいてください。</p>
+  </section>
+
+  <section class="today" aria-labelledby="today">
+    <p class="section-label">今日これだけは</p>
+    <h2 id="today">まずは「いいな」と思う画像を3枚、見つけるところまで</h2>
+    <ul class="checks">
+      <li><span>ChatGPTとCanvaに登録する</span></li>
+      <li><span>好みの雰囲気のデザインを3枚、スクリーンショットで撮る</span></li>
+      <li><span>RECIPE 01を貼って、好みを言葉にしてもらう</span></li>
+    </ul>
+    <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    <p class="why">ここまでなら5分ほどで終わります。好みが言葉になれば、表紙はもうすぐです。</p>
+  </section>
+
+  <section class="closing" aria-labelledby="bye">
+    <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
+    <p>このチャンネルでは、2児ママの私が実際にやっているAIの在宅副業を、画面ごとお見せしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
+    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
+      <span class="channel-name">ゆら<small>【在宅ワーク・AI副業でマイホームを目指す2児ママ】</small></span>
+      <span class="channel-go">YouTubeチャンネルを見る</span>
+    </a>
+    <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
+  </section>
+
+  <footer>YURA AI ZAITAKU</footer>
+</main>
+
+<script>
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-target');
+      var pre=document.getElementById(id);
+      var toast=document.getElementById(id.replace('text','toast'));
+      var msg=btn.getAttribute('data-toast')||'ChatGPTに貼り付けて送ってください。';
+      var text=pre.textContent;
+      function ok(){btn.textContent='コピーしました';toast.textContent=msg;setTimeout(function(){btn.textContent='コピーする';},2200);}
+      function ng(){selectText(pre);toast.textContent='自動でコピーできなかったので、選択した文字をコピーしてください。';}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,ng);}else{ng();}
+      }catch(e){ng();}
+    });
+  });
+
+  /* 「ここまでできた」のチェックを、このブラウザに覚えておく */
+  var KEY='yura-canva-recipe-done';
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function paint(){
+    document.querySelectorAll('.index a[data-key]').forEach(function(a){
+      a.classList.toggle('is-done',!!state[a.getAttribute('data-key')]);
+    });
+  }
+  document.querySelectorAll('.done input').forEach(function(cb){
+    var k=cb.getAttribute('data-key');
+    cb.checked=!!state[k];
+    cb.addEventListener('change',function(){
+      state[k]=cb.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+      paint();
+    });
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
