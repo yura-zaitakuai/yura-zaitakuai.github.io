@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マネするだけでOK「Claude Codeセットアップ完全マニュアル」｜ゆら</title>
+</head>
+<body>
+<style>
+  /* ============================================================
+     ゆらAI在宅CH「AI×Threads攻略」個別相談 特典④ セットアップ完全マニュアル
+     トンマナ：ゆら（ローズブラウン #B07A63 × #8f553f × ゴールド #b8801f）
+     CSSは全て #yura-tokuten 配下に閉じてあります
+     ============================================================ */
+  #yura-tokuten{ max-width:560px; margin:0 auto; padding:20px 20px 80px; font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; color:#3a3230; line-height:2.0; font-size:18.5px; background:#fff; -webkit-text-size-adjust:100%; word-break:auto-phrase; line-break:strict; }
+  #yura-tokuten p{ margin:1.7em 0; }
+  #yura-tokuten p br{ display:block; content:""; margin-top:0.55em; }
+  #yura-tokuten b{ font-weight:800; }
+  #yura-tokuten .red{ color:#e0001b; font-weight:700; }
+  #yura-tokuten .accent{ color:#8f553f; font-weight:700; }
+  #yura-tokuten .marker{ background:linear-gradient(transparent 55%, #ffe9a3 55%); font-weight:700; padding:0 .1em; }
+  #yura-tokuten .small{ font-size:.88em; color:#8b8078; }
+  #yura-tokuten h1.title{ font-size:1.28em; font-weight:800; line-height:1.6; margin:0 0 1.2em; }
+  #yura-tokuten .badge{ display:inline-block; background:#8f553f; color:#fff; font-size:.72em; font-weight:800; padding:.15em .8em; border-radius:999px; margin-bottom:.6em; }
+  #yura-tokuten h2.sec{ font-size:1.22em; font-weight:800; line-height:1.55; border-left:7px solid #B07A63; padding:.2em 0 .2em .6em; margin:2.6em 0 1em; }
+  #yura-tokuten .steps{ border:2px solid #e8cfc2; border-radius:12px; padding:1.1em 1.2em; margin:1.8em 0; background:#fdf6f2; font-weight:700; line-height:2.1; }
+  #yura-tokuten .tip{ background:#fffdf2; border-left:5px solid #e8c65a; padding:1em 1.1em; border-radius:6px; margin:1.8em 0; font-size:.92em; line-height:1.9; }
+  #yura-tokuten .tip b{ color:#b8801f; }
+  #yura-tokuten .memo{ background:#faf7f4; border-left:4px solid #d8c3ac; padding:.9em 1.1em; border-radius:4px; margin:1.4em 0; font-size:.93em; line-height:1.85; }
+  #yura-tokuten .copybox{ background:#faf8f6; border:2px solid #e2d8cf; border-radius:10px; padding:1.1em 1.2em; margin:1.4em 0; font-size:.88em; line-height:1.8; white-space:pre-wrap; }
+  #yura-tokuten .lpimg{ display:block; width:100%; height:auto; border-radius:10px; margin:1.6em 0; box-shadow:0 2px 10px rgba(0,0,0,.08); border:1px solid #eee; }
+  #yura-tokuten a{ color:#8f553f; text-decoration:underline; word-break:break-all; }
+
+  html,body{ margin:0; background:#fff; }
+  .yura-banner{ display:block; width:100%; max-width:560px; height:auto; margin:0 auto; }
+  #yura-tokuten h1.title, #yura-tokuten h2.sec, #yura-tokuten-index .lead{ font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Noto Serif JP",serif; }
+  #yura-tokuten h1.title{ color:#3a3230; }
+  .yura-back{ display:block; max-width:560px; margin:0 auto 40px; padding:0 20px; text-align:center; font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; }
+  .yura-back a{ color:#8f553f; font-weight:700; font-size:15px; }
+</style>
+
+<!-- ヘッダーバナー（LPの特典④バナーと同じ画像） -->
+<img src="img/Y05.jpg" class="yura-banner" alt="特典④ マネするだけでOK Claude Codeセットアップ完全マニュアル" style="display:block;width:100%;max-width:560px;height:auto;margin:0 auto;">
+
+<div id="yura-tokuten">
+
+<div class="badge">特典④</div>
+<h1 class="title">マネするだけでOK<br>「Claude Codeセットアップ完全マニュアル」</h1>
+
+<p>こんにちは、ゆらです。</p>
+
+<p>この特典では、あなたの<span class="marker">「専属AIライター」</span>を用意する手順を<br><b>画像付きで一つ残らず</b>解説していきます。</p>
+
+<p>先に言っておくと、やることは4つだけです。</p>
+
+<div class="steps">
+①Claudeのアカウントを作る<br>
+②Claude Codeを入れる<br>
+③専属ライターの「仕事部屋」フォルダを作る<br>
+④設定文をコピペして送る
+</div>
+
+<p>4つだけ。<br>もう一度言いますね、<span class="red">4つだけ</span>です。</p>
+
+<p>「AIの設定」って聞くと、<br>黒い画面にカタカタ…みたいなのを想像しますよね。</p>
+
+<p>私も最初はそうでした。<br>エンジニアでもなんでもない、<br>2人の男の子を育てながら在宅ワークをしてる、元・医療系の仕事のママなのでww</p>
+
+<p>でも実際にやってみたら「え、終わり？」でした。<br>マニュアル通りになぞるだけで、<br><span class="marker">今日中にあなたの専属ライターが誕生します。</span></p>
+
+<p>では、いきましょう。</p>
+
+<!-- ===================== STEP0 ===================== -->
+<h2 class="sec">STEP0｜始める前に（必要なもの）</h2>
+
+<p>・パソコン（MacでもWindowsでもOK）<br>・メールアドレス<br>・月額料金：Claudeの有料プラン（Pro）</p>
+
+<p>ここだけ正直に話させてください。</p>
+
+<p>Claude Codeを使うには、<br>月額20ドル<span class="small">（約3,000円）</span>のProプランが必要です。<br><span class="small">（※料金・プラン内容は変わることがあるので、公式ページで最新を確認してください）</span></p>
+
+<p>「無料で始められないのか…」と思うかもですが、</p>
+
+<p>毎日ネタを探して、文章を勉強して、<br>1時間かけて投稿を書く。</p>
+
+<p>その全部を肩代わりしてくれる<br>専属ライターの人件費が、月3,000円です。</p>
+
+<p>商品が1つ2つ売れれば回収できる金額なので、<br>ここは「経費」として割り切ってしまうのがおすすめです。</p>
+
+<div class="tip"><b>ヒント💡</b><br>スマホだけでもClaude自体は使えますが、「覚えたまま毎日働いてもらう」今回の使い方はパソコンが基本です。投稿の確認・Threadsへの貼り付けはスマホでOK。</div>
+
+<!-- ===================== STEP1 ===================== -->
+<h2 class="sec">STEP1｜Claudeのアカウントを作る</h2>
+
+<p>①公式サイトにアクセス<br>▷ <a href="https://claude.ai">https://claude.ai</a></p>
+
+<p>②「サインアップ」からメールアドレスで登録</p>
+
+<p>③届いた認証メールのリンクを踏んで登録完了</p>
+
+<p>④Proプランにアップグレード<br>画面の案内に従って、Proプランを選択します。</p>
+
+<!-- 画像：Claudeのサインアップ画面（ちこ版の画像をそのまま流用） -->
+<img class="lpimg" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/vgH8c8wOcMXn/EYPL6ZG2LnrP.png" alt="Claudeのサインアップ画面">
+
+<p>これでアカウントは完成です。</p>
+
+<!-- ===================== STEP2 ===================== -->
+<h2 class="sec">STEP2｜Claude Codeを入れる</h2>
+
+<p>①公式のダウンロードページからアプリをダウンロード<br>▷ <a href="https://claude.com/claude-code">https://claude.com/claude-code</a></p>
+
+<p>②ダウンロードしたファイルを開いてインストール<br><span class="small">（Macなら「アプリケーションフォルダに入れる」、Windowsなら「次へ」を押していくだけです）</span></p>
+
+<p>③Claude Codeを起動して、STEP1で作ったアカウントでログイン</p>
+
+<!-- 画像：Claude Codeのダウンロードページ（流用） -->
+<img class="lpimg" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/vgH8c8wOcMXn/rVS3xWiHC1Fe.png" alt="Claude Codeのダウンロードページ">
+
+<p>ここまでで、AIそのものの準備は完了です。<br>あと2ステップで「あなた専用」になります。</p>
+
+<!-- ===================== STEP3 ===================== -->
+<h2 class="sec">STEP3｜専属ライターの「仕事部屋」フォルダを作る</h2>
+
+<p>デスクトップに、新しいフォルダを1つ作ってください。<br>名前はなんでもいいですが、迷ったらこれで👇</p>
+
+<div class="steps">「Threads投稿」</div>
+
+<p>そして、Claude Codeでこのフォルダを開きます。</p>
+
+<!-- 画像：フォルダを開いた画面（流用） -->
+<img class="lpimg" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/vgH8c8wOcMXn/Q0crjcfjlu9m.png" alt="Claude Codeでフォルダを開いた画面">
+
+<div class="tip"><b>ヒント💡 なんでフォルダを作るの？</b><br>Claude Codeは「開いたフォルダの中」に記憶を残していきます。あなたのジャンル・言葉のクセ・バズった型が、このフォルダにどんどん貯まっていく。つまりこのフォルダが、専属ライターの「頭の中」になります。</div>
+
+<!-- ===================== STEP4 ===================== -->
+<h2 class="sec">STEP4｜設定文をコピペして送る（ここが本体）</h2>
+
+<p>いよいよ仕上げです。</p>
+
+<p>下の設定文を全部コピーして、<br>Claude Codeのチャット欄に貼り付けて送信してください。</p>
+
+<p>送る前に、あなた用に書き換えるのは<span class="red">3ヶ所だけ</span>👇</p>
+
+<div class="steps">
+・ジャンル（例：美容、暮らし、料理、節約）<br>
+・あなたの属性（例：30代会社員、地方在住のパート主婦）<br>
+・口調の希望（例：ですます調で親しみやすく）
+</div>
+
+<p class="accent" style="text-align:center;">👇ここから下を全部コピー👇</p>
+
+<div class="copybox">これからあなたには、私のThreads専属ライターになってもらいます。
+まず、以下の内容をCLAUDE.mdという設定ファイルに保存して、今後ずっと覚えていてください。
+
+【発信者情報】
+・ジャンル：◯◯◯（←ここを書き換え）
+・属性：◯◯◯（←ここを書き換え）
+・口調：◯◯◯（←ここを書き換え）
+
+【あなたの毎日の仕事】
+私が寝る前に「今日あったこと」を短く報告します。
+それを素材にして、翌朝までにThreads投稿を3案作ってください。
+
+【投稿のルール】
+・1行目は続きが読みたくなるフックにする（結論を全部言わない）
+・1投稿は全角500字以内
+・箇条書きには句読点を付けない
+・絵文字は1投稿に0〜2個まで
+・商品名・数字は私が報告した通りに書く。盛らない・作らない
+・私が体験していないことを体験したように書かない
+・専門用語より、生活の言葉を使う
+
+【バズの型】
+投稿を作るときは、以下の型から素材に合うものを選んでください。
+・常識裏切り型（みんなが信じてることの逆を言う）
+・正直告白型（本音・失敗をそのまま出す）
+・数字断言型（具体的な数字で言い切る）
+・ビフォーアフター型（使う前→使った後の変化）
+・質問投げ型（読者に問いかけて終わる）
+
+【学習ルール】
+私が「この投稿伸びた」と報告したら、その投稿の型と書き方を記録して、
+次からその型を優先して使ってください。
+逆に「これは伸びなかった」と報告したら、その理由を分析して避けてください。
+
+保存できたら「設定完了しました。今夜から報告をどうぞ」と返事してください。</div>
+
+<p class="accent" style="text-align:center;">👆ここまでコピー👆</p>
+
+<!-- 画像：設定完了の返事が返ってきた画面（流用） -->
+<img class="lpimg" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/vgH8c8wOcMXn/aZNzCcdqBq6g.png" alt="設定完了しました、と返ってきた画面">
+
+<p>送信すると、AIが自分で設定ファイルを作って<br>「設定完了しました」と返してきます。</p>
+
+<p><span class="marker">これで、あなたの専属ライターの誕生です。</span></p>
+
+<!-- ===================== STEP5 ===================== -->
+<h2 class="sec">STEP5｜動作テスト（初めての報告を投げてみる）</h2>
+
+<p>せっかくなので、今すぐ1回試してみましょう。</p>
+
+<p>今日あったことを、1〜2行で投げるだけです。<br><b>上手く書こうとしないでください。</b><br>たとえばこれくらい雑でOK👇</p>
+
+<div class="memo">今日はじめてメラノCCの美容液使った。<br>思ったよりベタつかなくてめっちゃよかった。</div>
+
+<!-- 画像：AIが投稿案を3つ返してきた画面（流用） -->
+<img class="lpimg" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/vgH8c8wOcMXn/rovspOd4pp6P.jpg" alt="AIが投稿案を3つ返してきた画面">
+
+<p>数十秒で、投稿案が3つ返ってきます。<br>一番いいなと思ったものを選んで、Threadsに貼るだけです。</p>
+
+<p>初日はここまでできれば<span class="red">100点</span>です。</p>
+
+<!-- ===================== Q&A ===================== -->
+<h2 class="sec">よくあるつまずきQ&amp;A</h2>
+
+<p><b>Q. 途中で英語の画面が出てきた</b><br>A. そのままで大丈夫です。チャット欄に日本語で「日本語で答えて」と送れば、以降ずっと日本語で返してくれます。</p>
+
+<p><b>Q. 昨日の設定を覚えてない気がする</b><br>A. STEP3で作ったフォルダを開き直しているか確認してください。別のフォルダを開くと、別の「仕事部屋」になってしまいます。</p>
+
+<p><b>Q. 投稿案がしっくりこない</b><br>A. 遠慮なくダメ出ししてください。「もっと口語っぽく」「1行目を疑問形に」と送れば、その場で直ります。しかもそのダメ出し自体を学習して、翌日から反映されます。</p>
+
+<!-- ===================== さいごに ===================== -->
+<h2 class="sec">さいごに</h2>
+
+<p>設定は今日の1回だけ。<br>明日からあなたがやるのは、<span class="marker">寝る前の15分報告だけ</span>です。</p>
+
+<p>私も最初は「パソコンで設定」と聞いた時点で身構えました。<br>でも、やってみたら本当にこれだけでした。</p>
+
+<p><b>セットアップ、今日中に終わらせてしまってください！</b></p>
+
+</div>
+<p class="yura-back"><a href="./">▶ 4大特典の一覧にもどる</a></p>
+</body>
+</html>
