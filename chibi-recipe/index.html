@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゆらのちびキャラ副業レシピ｜ゆらAI在宅</title>
+<meta name="description" content="ちびキャラを1体作って、ステッカー・LINEスタンプ・スライド制作に使い回すための指示文を、6つのレシピにまとめました。">
+<meta property="og:title" content="ゆらのちびキャラ副業レシピ｜ゆらAI在宅">
+<meta property="og:description" content="動画で使った指示文を、上から順にコピーして使えるようにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yura-zaitakuai.github.io/chibi-recipe/img/yura_chibi_05_family.webp">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF;
+  --paper:#FFFFFF;
+  --ink:#4A3426;
+  --muted:#8A7163;
+  --cocoa:#B07A63;
+  --cocoa-deep:#8E5A45;
+  --cocoa-ink:#FFFFFF;
+  --sage:#C6A15B;
+  --sage-soft:#F7EEE8;
+  --band:#E9D5CA;
+  --rule:#EFE3DA;
+  --rule-strong:#E0CBBE;
+  --box:#FFFCFA;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;padding:0 16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto;padding-block:44px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+
+/* 表紙 */
+.cover{position:relative;border:1px solid var(--sage);outline:1px solid var(--rule-strong);outline-offset:5px;border-radius:4px;padding:28px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:end;background:radial-gradient(120% 90% at 85% 10%,#F6E9DE 0%,#FFFFFF 62%)}
+.cover>*{grid-column:1}
+.cover .chibi-hero{grid-column:2;grid-row:1 / span 3;align-self:end;width:clamp(110px,24vw,170px)}
+.cover .index{grid-column:1 / -1}
+@media (max-width:560px){.cover{grid-template-columns:1fr}.cover .chibi-hero{grid-column:1;grid-row:auto;justify-self:end;width:120px;margin-top:-8px}}
+.cover .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.cover h1{font-size:clamp(28px,6vw,44px);letter-spacing:.02em;color:var(--ink)}
+.cover h1 .grad{background:linear-gradient(180deg,#C99A83 0%,#9A624C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover h1 small{display:block;font-size:.5em;letter-spacing:.08em;color:var(--cocoa);margin-bottom:6px}
+.cover .lead{max-width:34em;color:var(--muted)}
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+.index a{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:var(--ink);border:1px solid var(--rule-strong);border-radius:999px;padding:9px 18px;background:#FFFFFF}
+.index a:hover{border-color:var(--cocoa)}
+.index a:focus-visible{outline:3px solid var(--cocoa);outline-offset:2px}
+.index b{font-family:var(--display);color:var(--cocoa);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.index a.is-done{background:var(--sage-soft);border-color:var(--sage)}
+.index a.is-done span::after{content:"　済";color:var(--sage);font-weight:700;font-size:13px}
+
+/* ひとこと */
+.note{display:grid;grid-template-columns:4px 1fr;gap:16px}
+.note::before{content:"";background:var(--sage)}
+.note p+p{margin-top:8px}
+.note .who{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* 全体図 */
+.section-label{font-size:12.5px;letter-spacing:.2em;color:var(--sage);font-weight:700}
+.overview{display:flex;flex-direction:column;gap:12px}
+.overview h2{font-size:22px}
+.fig{border:1px solid var(--rule-strong);background:var(--paper);padding:14px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:540px}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figure{margin:0}
+svg .bx{fill:var(--box);stroke:var(--rule-strong);stroke-width:1.2}
+svg .bx-on{fill:var(--sage-soft);stroke:var(--sage);stroke-width:1.6}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:700}
+svg .s{fill:var(--muted);font-family:var(--body);font-size:12.5px}
+svg .n{fill:var(--cocoa);font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.08em}
+svg .ar{stroke:var(--cocoa);stroke-width:1.6;fill:none}
+svg .arh{fill:var(--cocoa)}
+svg .pill{fill:var(--cocoa)}
+svg .pt{fill:var(--cocoa-ink);font-family:var(--body);font-size:12px;font-weight:700}
+
+/* 準備 */
+.prep{border:1px solid var(--rule-strong);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:flex;flex-direction:column;gap:14px;background:var(--box)}
+.prep h2{font-size:20px}
+
+/* レシピカード */
+.recipe{background:var(--paper);border:1px solid var(--rule-strong);border-radius:4px;position:relative;overflow:hidden}
+.recipe-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px clamp(18px,4vw,34px);background:linear-gradient(90deg,#EBD8CD,#F4E7DF);border-bottom:1px solid var(--sage)}
+.recipe-head .chibi-side{width:clamp(76px,16vw,110px);margin-block:-6px -18px}
+@media (max-width:480px){.recipe-head{grid-template-columns:auto 1fr}.recipe-head .chibi-side{display:none}}
+.num{font-family:var(--display);color:var(--cocoa-deep);text-align:center;line-height:1.1;border-right:1px solid var(--sage);padding-right:18px}
+.num span{display:block;font-size:11px;letter-spacing:.2em}
+.num strong{display:block;font-size:40px}
+.recipe-head h2{font-size:clamp(21px,4vw,27px)}
+.recipe-head .when{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage);letter-spacing:.06em}
+.recipe-body{padding:24px clamp(18px,4vw,34px) 28px;display:flex;flex-direction:column;gap:24px}
+.block{display:flex;flex-direction:column;gap:12px}
+.block+.block{border-top:1px dashed var(--rule-strong);padding-top:22px}
+h3{font-size:17px;letter-spacing:.06em;display:flex;gap:10px;align-items:baseline}
+h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--sage)}
+.ingredients li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule-strong);padding-block:6px}
+.ingredients li span:last-child{color:var(--muted);font-size:14px;text-align:right}
+.method{counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.method li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.method li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--cocoa);font-size:17px;line-height:1.9}
+.why{color:var(--muted);font-size:14.5px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.checks li::before{content:"";width:16px;height:16px;border:1.5px solid var(--cocoa);border-radius:3px;margin-top:7px}
+.caution{background:var(--sage-soft);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.caution strong{font-family:var(--display);font-size:16px}
+.caution li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.caution li::before{content:"―";color:var(--sage);font-weight:700}
+
+/* プロンプト枠 */
+.prompt{border:1.5px solid var(--rule-strong);border-radius:4px;background:var(--box)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 8px 14px;border-bottom:1.5px solid var(--rule-strong);background:#FBF3EE}
+.prompt-head span{font-size:13px;font-weight:700;letter-spacing:.06em}
+.copy{appearance:none;border:0;border-radius:999px;background:linear-gradient(180deg,#BE8B73,#9E6650);color:var(--cocoa-ink);font:700 14px var(--body);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{filter:brightness(1.08)}
+.copy:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.prompt pre{margin:0;padding:16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.85 var(--body);color:var(--ink)}
+.prompt pre:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.toast{font-size:13px;color:var(--cocoa);font-weight:700;min-height:1.2em}
+.small{font-size:13px;color:var(--muted)}
+.where{display:inline-block;align-self:flex-start;font-size:12.5px;font-weight:700;letter-spacing:.04em;border:1px solid var(--sage);color:var(--cocoa-deep);border-radius:999px;padding:2px 12px;background:#FFFFFF}
+.where.new{background:var(--cocoa);border-color:var(--cocoa);color:var(--cocoa-ink)}
+
+/* できたチェック */
+.done{display:flex;align-items:center;gap:10px;align-self:flex-start;cursor:pointer;font-weight:700;font-size:14.5px;border:1.5px solid var(--cocoa);border-radius:999px;padding:8px 20px 8px 14px;color:var(--cocoa-deep);background:#FFFFFF}
+.done input{width:18px;height:18px;accent-color:#9E6650;margin:0}
+.done:has(input:checked){background:var(--sage-soft);border-color:var(--sage)}
+.done:has(input:focus-visible){outline:3px solid var(--sage);outline-offset:2px}
+
+/* 今日これだけ・おわりに */
+.today{border:1px solid var(--sage);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:12px 18px;background:radial-gradient(100% 120% at 100% 100%,#F6E9DE 0%,#FFFFFF 60%)}
+.today>*{grid-column:1}.today .chibi-side{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(90px,18vw,130px)}
+@media (max-width:560px){.today{grid-template-columns:1fr}.today .chibi-side{grid-column:1;grid-row:auto;justify-self:end}}
+.today h2{font-size:22px}
+.closing{border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding-block:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.closing .chibi-family{align-self:center;width:min(360px,90%);margin-top:6px}
+.closing h2{font-size:20px}
+.chibi-hero,.chibi-side,.chibi-family{display:block;height:auto;max-width:100%}
+.channel{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--cocoa-ink);background:linear-gradient(180deg,#BE8B73,#9E6650);border-radius:999px;padding:14px 22px}
+.channel:hover{filter:brightness(1.06)}
+.channel:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.channel-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.04em;line-height:1.5;flex:1 1 16em}
+.channel-name small{font-size:14px;letter-spacing:0}
+.channel-go{font-weight:700;font-size:14.5px;background:#FFFFFF;color:var(--cocoa-deep);border-radius:999px;padding:6px 16px}
+footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.fig figcaption a,.checks a{color:var(--cocoa-deep);font-weight:700}
+</style>
+
+<main class="wrap">
+
+  <header class="cover">
+    <div class="meta"><span>ゆらAI在宅</span></div>
+    <h1><small>1体作ったら、3つの副業に使い回す</small>ゆらの<br><span class="grad">ちびキャラ<br>副業レシピ</span></h1>
+    <p class="lead">動画と同じ順番で、指示文（プロンプト）を6つのレシピにまとめました。上から順にコピーして、ChatGPTに貼って送るだけです。ChatGPTもCanvaも、無料のまま使えます。</p>
+    <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
+    <nav class="index" aria-label="このページのレシピ">
+      <a href="#r1" data-key="r1"><b>RECIPE 01</b><span>ちびキャラを作る</span></a>
+      <a href="#r2" data-key="r2"><b>RECIPE 02</b><span>ステッカーのポーズ</span></a>
+      <a href="#r3" data-key="r3"><b>RECIPE 03</b><span>スタンプのセリフ</span></a>
+      <a href="#r4" data-key="r4"><b>RECIPE 04</b><span>スタンプの絵</span></a>
+      <a href="#r5" data-key="r5"><b>RECIPE 05</b><span>スライドの中身</span></a>
+      <a href="#r6" data-key="r6"><b>RECIPE 06</b><span>商品名と説明文</span></a>
+    </nav>
+  </header>
+
+  <section class="note" aria-label="ゆらからのひとこと">
+    <div>
+      <p class="who">ゆらより</p>
+      <p>動画を見てくださって、ありがとうございます。コメントまでしてくれて、本当にうれしいです。</p>
+      <p>このページは、動画を横で流しながら、そのまま手を動かせるワークシートにしました。1つ終わるごとに「ここまでできた」にチェックを入れていくと、どこまで進んだかが分かります。</p>
+      <p>いちばん大事なのは、RECIPE 01のちびキャラです。ここで作った1体が、ステッカーにも、LINEスタンプにも、スライドにも出てきます。かっこの中を、自分の好きなモチーフに書きかえて作ってみてくださいね。</p>
+    </div>
+  </section>
+
+  <section class="overview" aria-labelledby="flow">
+    <p class="section-label">全体の地図</p>
+    <h2 id="flow">ちびキャラ1体を、3つの副業に使い回す流れ</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 120" role="img" aria-label="レシピ01でちびキャラを作り、02でステッカー、03と04でLINEスタンプ、05でスライド制作、06で商品名と説明文を作る">
+        <rect class="bx-on" x="6" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="18" y="42">01</text>
+        <text class="t" x="18" y="68">ちびキャラ</text>
+        <text class="s" x="18" y="88">最初に1体</text>
+        <path class="ar" d="M133 60 H136"/><path class="arh" d="M136 55 L143 60 L136 65 Z"/>
+        <rect class="bx" x="144" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="156" y="42">02</text>
+        <text class="t" x="156" y="68">ステッカー</text>
+        <text class="s" x="156" y="88">BOOTHで販売</text>
+        <path class="ar" d="M271 60 H274"/><path class="arh" d="M274 55 L281 60 L274 65 Z"/>
+        <rect class="bx" x="282" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="294" y="42">03・04</text>
+        <text class="t" x="294" y="68">LINEスタンプ</text>
+        <text class="s" x="294" y="88">ポーズを変える</text>
+        <path class="ar" d="M409 60 H412"/><path class="arh" d="M412 55 L419 60 L412 65 Z"/>
+        <rect class="bx" x="420" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="432" y="42">05</text>
+        <text class="t" x="432" y="68">スライド制作</text>
+        <text class="s" x="432" y="88">案内役に使う</text>
+        <path class="ar" d="M547 60 H550"/><path class="arh" d="M550 55 L557 60 L550 65 Z"/>
+        <rect class="bx" x="558" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="570" y="42">06</text>
+        <text class="t" x="570" y="68">商品名と説明</text>
+        <text class="s" x="570" y="88">出品の文章</text>
+      </svg>
+      <figcaption>01から06までは、ChatGPTの同じチャットで続けて送ります。同じチャットなら、キャラクターの顔や色を覚えたまま作ってくれます。</figcaption>
+    </figure>
+  </section>
+
+  <section class="prep" aria-labelledby="prep">
+    <p class="section-label">はじめる前に</p>
+    <h2 id="prep">用意するのは、この2つだけ</h2>
+    <ul class="ingredients">
+      <li><span>ChatGPT（チャットジーピーティー）</span><span>Googleアカウントで登録・無料版でOK</span></li>
+      <li><span>Canva（キャンバ）</span><span>Googleアカウントで登録・無料プランでOK</span></li>
+    </ul>
+    <ul class="checks">
+      <li><span>ChatGPTにログインして、文字を打ちこむ画面が出ている</span></li>
+      <li><span>Canvaにログインして、ホーム画面が出ている</span></li>
+    </ul>
+    <p class="why">指示文の中の{ }のところは、自分の内容に書きかえて使います。ChatGPTの無料版は、1日に作れる画像の枚数に上限があります。上限になったら、続きは次の日で大丈夫です。</p>
+  </section>
+
+  <!-- RECIPE 01 -->
+  <article class="recipe" id="r1" aria-labelledby="r1-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>01</strong></div>
+      <div>
+        <h2 id="r1-title">主役のちびキャラを1体作る</h2>
+        <span class="when">最初にやること</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、ChatGPTの新しいチャットに貼ります。</span></li>
+          <li><span>{ }の中のモチーフ・性格・色を、自分の好きなものに書きかえて送ります。</span></li>
+          <li><span>1分ほどでキャラクターができます。「耳をもう少し小さく」「色をうすく」のように、直したいところは言葉でそのまま伝えます。</span></li>
+          <li><span>気に入ったら、画像をダウンロードしておきます。このチャットは閉じずに、最後まで使います。</span></li>
+        </ol>
+        <p class="why">すでにある有名なキャラクターや、作家さんの名前を入れて作るのはやめましょう。販売できなくなります。色を3色までにしておくと、小さく印刷しても、スタンプにしても、見やすくなります。</p>
+      </div>
+      <div class="block">
+        <span class="where">新しいチャットで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 01｜ちびキャラを作る</span><button class="copy" type="button" data-target="text-p1">コピーする</button></div>
+          <pre id="text-p1" tabindex="0">オリジナルのちびキャラクターを1体、画像で作ってください。
+グッズやLINEスタンプにして販売するためのキャラクターです。
+
+・モチーフ：{白いくま}
+・性格や雰囲気：{のんびり屋で、いつも眠そう}
+・使う色：{白・うすい水色・こげ茶}の3色まで
+・2頭身で、線は太め。フラットでシンプルな塗り
+・正面を向いて立っている全身のポーズを1つ
+・文字は入れない
+・背景は透明にする（透過PNG）
+・すでにある有名なキャラクターや作品には似せない</pre>
+        </div>
+        <p class="toast" id="toast-p1" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r1">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 02 -->
+  <article class="recipe" id="r2" aria-labelledby="r2-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>02</strong></div>
+      <div>
+        <h2 id="r2-title">ステッカー用のポーズを作る</h2>
+        <span class="when">①ステッカー販売</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>先に、BOOTHで「ステッカー」と検索して、どんな使い道のものが人気かを見ておきます。</span></li>
+          <li><span>下の「コピーする」を押して、RECIPE 01と同じチャットに貼ります。</span></li>
+          <li><span>{ }のポーズを、ステッカーの使い道に合うものに書きかえて送ります。</span></li>
+          <li><span>できた画像をダウンロードします。</span></li>
+        </ol>
+        <p class="why">人気のステッカーは、絵の上手さよりも「何のために貼るか」がはっきりしています。文字はAIに入れてもらわず、あとからCanvaで入れます。言葉だけ変えた別の商品を、すぐ作れるようになるからです。</p>
+      </div>
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02｜ステッカー用のポーズ</span><button class="copy" type="button" data-target="text-p2">コピーする</button></div>
+          <pre id="text-p2" tabindex="0">さっきと同じキャラクターで、ステッカー用のイラストを1枚作ってください。
+顔・体の形・色は変えないでください。
+
+・ポーズ：{クッションを抱いて、すやすや眠っている}
+・正方形
+・文字は入れない
+・背景は透明にする（透過PNG）
+・小さく印刷しても分かるように、細かい飾りは入れない</pre>
+        </div>
+        <p class="toast" id="toast-p2" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r2">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="sticker" aria-labelledby="sticker-title">
+    <p class="section-label">①ステッカー販売　Canvaと出品</p>
+    <h2 id="sticker-title">Canvaで文字を入れて、BOOTHに出す</h2>
+    
+    <ol class="method">
+      <li><span>Canvaのホーム画面の「カスタムサイズ」で、正方形のデザインを作ります。大きさは、pixivFACTORYのステッカーのページに書いてある数字を入れます。</span></li>
+      <li><span>「素材」から丸い図形を選んで、画面いっぱいに広げます。うすい色にして、フチの線を太めにつけます。</span></li>
+      <li><span>「アップロード」からキャラクターの画像を入れて、丸の上のほうに置きます。</span></li>
+      <li><span>「テキスト」で、伝えたい言葉を入れます。大きい文字を1行、その下に小さい文字を1行です。</span></li>
+      <li><span>右上の「共有」→「ダウンロード」→「PNG」でダウンロードします。</span></li>
+      <li><span>pixivFACTORYで「ステッカー」を選び、素材とサイズを決めて画像をアップロードします。プレビューで形を確認して保存します。</span></li>
+      <li><span>「BOOTHで販売する」を押して、商品名・説明・自分の利益を入れて公開します。</span></li>
+    </ol>
+    <ul class="checks">
+      <li><span>画面を小さくしても、文字が読める</span></li>
+      <li><span>文字は2行まで、色は3色までにおさまっている</span></li>
+      <li><span>商品名に、買う人が検索しそうな言葉が入っている</span></li>
+    </ul>
+    <p class="why">手元に入るお金の目安：自分の利益を300円にすると、BOOTHの手数料（利益の5.6％＋1回の注文につき45円）を引いて、約240円です。手数料は2026年10月時点で調べたものなので、出品の前にBOOTHの案内で確認してください。</p>
+  </section>
+
+  <!-- RECIPE 03 -->
+  <article class="recipe" id="r3" aria-labelledby="r3-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>03</strong></div>
+      <div>
+        <h2 id="r3-title">スタンプのセリフとポーズを考えてもらう</h2>
+        <span class="when">②LINEスタンプ販売</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>先に、LINEのスタンプショップで、クリエイターズスタンプの人気ランキングを見ておきます。</span></li>
+          <li><span>下の「コピーする」を押して、同じチャットに貼ります。</span></li>
+          <li><span>{ }の「使う人」を書きかえて送ります。</span></li>
+          <li><span>8個のセリフとポーズが表で返ってきます。変えたいものがあれば「3番を別の言葉に」と伝えます。</span></li>
+        </ol>
+        <p class="why">使う人をはっきり決めると、その人が毎日送る言葉がそのままセリフになります。「見てね」と指さすポーズを1つ入れておくと、あとでスライドにも使えます。</p>
+      </div>
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 03｜スタンプのセリフとポーズ</span><button class="copy" type="button" data-target="text-p3">コピーする</button></div>
+          <pre id="text-p3" tabindex="0">このキャラクターでLINEスタンプを8個作ります。
+使う人は{保育園に子どもを通わせている、仕事をしているママ}です。
+その人が毎日のLINEでよく送る言葉を8個選んで、
+それぞれに合うポーズを考えてください。
+
+・セリフは10文字以内
+・「OK」「ありがとう」のような、どんな相手にも使える返事を2個入れる
+・「見てね」と何かを指さしているポーズを1個入れる
+・番号、セリフ、ポーズの順に、表にしてください</pre>
+        </div>
+        <p class="toast" id="toast-p3" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r3">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 04 -->
+  <article class="recipe" id="r4" aria-labelledby="r4-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>04</strong></div>
+      <div>
+        <h2 id="r4-title">スタンプの絵を、4つずつ作る</h2>
+        <span class="when">②LINEスタンプ販売</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、同じチャットで送ります。1枚の画像に、4つのポーズが並んで出てきます。</span></li>
+          <li><span>ダウンロードしたら、{1番〜4番}を{5番〜8番}に書きかえて、もう一度送ります。</span></li>
+          <li><span>2枚の画像で、8個ぶんの絵がそろいます。</span></li>
+        </ol>
+        <p class="why">1枚に4つ並べてもらうのは、無料版の枚数の上限を節約するためです。2回送るだけで、販売できるいちばん少ない数の8個がそろいます。顔が変わってしまったときは「RECIPE 01のキャラクターと同じ顔に直して」と伝えてください。</p>
+      </div>
+      <div class="block">
+        <span class="where">同じチャットで、番号を書きかえて2回送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 04｜スタンプの絵を作る</span><button class="copy" type="button" data-target="text-p4">コピーする</button></div>
+          <pre id="text-p4" tabindex="0">同じキャラクターで、LINEスタンプ用のイラストを作ってください。
+顔・体の形・色は変えないでください。
+
+・1枚の画像の中に、ちがうポーズを4つ（たて2つ×よこ2つ）並べる
+・ポーズ：さっきの表の{1番〜4番}
+・ポーズどうしの間を広くあける
+・文字は入れない（セリフはあとで自分で入れます）
+・背景は透明にする（透過PNG）</pre>
+        </div>
+        <p class="toast" id="toast-p4" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r4">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="stamp" aria-labelledby="stamp-title">
+    <p class="section-label">②LINEスタンプ販売　Canvaと申請</p>
+    <h2 id="stamp-title">Canvaでセリフを入れて、LINEに申請する</h2>
+    
+    <ol class="method">
+      <li><span>Canvaの「カスタムサイズ」で、幅370×高さ320ピクセルのデザインを作ります。</span></li>
+      <li><span>4つ並んだ画像をアップロードして置き、ダブルクリックして、ポーズが1つだけ映るように切り抜きます。</span></li>
+      <li><span>「テキスト」でセリフを入れます。文字は大きく、太くします。</span></li>
+      <li><span>ページを増やして、同じように8個作ります。</span></li>
+      <li><span>右上の「共有」→「ダウンロード」→「PNG」で、全部のページをダウンロードします。</span></li>
+      <li><span>背景が透明になっていないときは、Adobe Express（無料）の「背景を削除」に画像を入れて、透明にします。</span></li>
+      <li><span>LINE Creators Marketにログインして「新規登録」→「スタンプ」を選び、タイトル・説明・画像を入れて申請します。</span></li>
+    </ol>
+    <ul class="checks">
+      <li><span>スタンプの画像：幅370×高さ320ピクセル以内、背景は透明のPNG、8個から</span></li>
+      <li><span>メイン画像：240×240ピクセル（8個の中から1つ選んで、サイズを変えて書き出す）</span></li>
+      <li><span>トークルームタブ画像：幅96×高さ74ピクセル</span></li>
+      <li><span>申請の画面で、AIを使ったかどうかを正しく選ぶ</span></li>
+    </ul>
+    <p class="why">LINEスタンプは1セット120円から販売できて、作った人に入るのはそのうち35％ほどです。1セットで大きく稼ぐものではないので、ステッカーと同じ「置いておく収入」として育てていきます。サイズや決まりは変わることがあるので、申請の前にLINE Creators Marketの案内で確認してください。</p>
+  </section>
+
+  <!-- RECIPE 05 -->
+  <article class="recipe" id="r5" aria-labelledby="r5-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>05</strong></div>
+      <div>
+        <h2 id="r5-title">スライドの中身を、先に決めてもらう</h2>
+        <span class="when">③スライド制作</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>先に、ココナラで「スライド作成 Canva」と検索して、実績の多い方の見本を見ておきます。</span></li>
+          <li><span>下の「コピーする」を押して、ChatGPTに貼ります。</span></li>
+          <li><span>{ }の中を、作りたい資料の内容に書きかえて送ります。お客さんからもらった文章を、そのまま貼っても大丈夫です。</span></li>
+          <li><span>8ページぶんの見出しと本文が返ってきます。まるごとコピーします。</span></li>
+        </ol>
+        <p class="why">いきなりCanvaを開かず、中身を先に決めます。「1ページに伝えることは1つだけ」と書いておくと、文字がぎっしり詰まったスライドになりません。</p>
+      </div>
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 05｜スライドの中身</span><button class="copy" type="button" data-target="text-p5">コピーする</button></div>
+          <pre id="text-p5" tabindex="0">スライド資料の構成を作ってください。
+
+・何の資料か：{ピラティス教室の体験レッスンの案内}
+・読む人：{運動が苦手な30〜40代の女性}
+・伝えたいこと：{初心者でも安心／少人数／体験は1回1,000円}
+・ページ数：8ページ
+・1ページに伝えることは1つだけ
+・ページごとに「見出し」と「本文（40文字まで）」を書く
+・表やかざりの記号は使わず、そのままコピーできる文章にする</pre>
+        </div>
+        <p class="toast" id="toast-p5" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r5">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="slide" aria-labelledby="slide-title">
+    <p class="section-label">③スライド制作　Canvaで仕上げる</p>
+    <h2 id="slide-title">Canva AIで形にして、3か所だけ手直しする</h2>
+    
+    <ol class="method">
+      <li><span>Canvaの左のメニューから「Canva AI」を開き、「デザイン」→「プレゼンテーション」を選びます。</span></li>
+      <li><span>RECIPE 05でコピーした文章を貼りつけて送ります。数分で、8ページのスライドができます。</span></li>
+      <li><span>手直し1：色を、お店のイメージの色に変えます。</span></li>
+      <li><span>手直し2：見出しの文字を大きくします。</span></li>
+      <li><span>手直し3：写真を、お店に合うものに差しかえます。</span></li>
+      <li><span>ポップにしたいときは、RECIPE 04で作ったちびキャラの「指さし」や「OK」のポーズを、ページのすみに置きます。</span></li>
+      <li><span>右上の「共有」→「ダウンロード」で、PDFかPowerPointの形式を選びます。</span></li>
+    </ol>
+    <ul class="checks">
+      <li><span>1ページの文字が少なく、ぱっと見て意味が分かる</span></li>
+      <li><span>色は2色か3色にしぼっている</span></li>
+      <li><span>ちびキャラは、表紙・大事なページ・最後のページの3か所くらいにしておく</span></li>
+    </ul>
+    <p class="why">お仕事は、ココナラに出品して待つ方法と、クラウドワークスで「スライド作成」「資料作成」「Canva」と検索して応募する方法があります。始める前に、教室・サロン・会社紹介の見本を3つ作っておくと、応募のときに一緒に送れます。</p>
+  </section>
+
+  <!-- RECIPE 06 -->
+  <article class="recipe" id="r6" aria-labelledby="r6-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>06</strong></div>
+      <div>
+        <h2 id="r6-title">商品名と説明文を作ってもらう</h2>
+        <span class="when">出品するとき</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、同じチャットに貼ります。</span></li>
+          <li><span>{ }の中を、売る場所と商品の内容に書きかえて送ります。</span></li>
+          <li><span>返ってきた商品名と説明文を、出品の画面に貼ります。自分の言葉に直したいところは、直して使います。</span></li>
+        </ol>
+        <p class="why">商品名は、買う人が検索しそうな言葉を前に並べるのがコツです。「著作権フリー」のような、言い切れない言葉は入れないでください。</p>
+      </div>
+      <div class="block">
+        <span class="where">同じチャットで続けて送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 06｜商品名と説明文</span><button class="copy" type="button" data-target="text-p6">コピーする</button></div>
+          <pre id="text-p6" tabindex="0">次の商品を{BOOTH}で販売します。商品名と説明文を作ってください。
+
+・商品：{「赤ちゃんが寝ています」と書いた、玄関用のステッカー}
+・買ってほしい人：{赤ちゃんのお昼寝中にインターホンで起こされて困っている人}
+・商品名は、買う人が検索しそうな言葉を前に並べて、30文字以内
+・説明文は、使う場面→サイズや素材→注意、の順で200文字くらい
+・「著作権フリー」「必ず」「絶対」のような言葉は使わない</pre>
+        </div>
+        <p class="toast" id="toast-p6" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r6">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" aria-labelledby="rule">
+    <p class="section-label">出品する前に</p>
+    <h2 id="rule">AIで作って売るなら、守ってほしい4つ</h2>
+    <ul class="checks">
+      <li><span>すでにあるキャラクターや、作家さんの名前を入れて作らない。似てしまったときは、モチーフや色を変えて作り直す。</span></li>
+      <li><span>色だけ変えたものを大量に並べない。増やすときは、言葉や使い道を変える。</span></li>
+      <li><span>LINEスタンプの申請では、AIを使ったことを正直に選ぶ。</span></li>
+      <li><span>商品の説明に「著作権フリー」と書かない。</span></li>
+    </ul>
+    <p class="why">副業の収入が増えたら、確定申告のときに住民税の納め方を「自分で納付」にしておくと、副業のぶんのお知らせが自宅に届きます。市区町村によって扱いが違うことがあるので、心配な方は申告の前に役所に確認してください。会社の副業のルールも、始める前に一度見ておきましょう。</p>
+  </section>
+
+  <section class="today" aria-labelledby="today">
+    <p class="section-label">今日これだけは</p>
+    <h2 id="today">まずは、ちびキャラを1体作るところまで</h2>
+    <ul class="checks">
+      <li><span>ChatGPTとCanvaに登録する</span></li>
+      <li><span>RECIPE 01のモチーフ・性格・色を書きかえて送る</span></li>
+      <li><span>できたキャラクターをダウンロードする</span></li>
+    </ul>
+    <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    <p class="why">ここまでなら5分ほどで終わります。キャラクターが1体できれば、ステッカーもスタンプも、ポーズを変えるだけです。</p>
+  </section>
+
+  <section class="closing" aria-labelledby="bye">
+    <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
+    <p>このチャンネルでは、2児ママの私が実際にやっているAIの在宅副業を、画面ごとお見せしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
+    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
+      <span class="channel-name">ゆら<small>【在宅ワーク・AI副業でマイホームを目指す2児ママ】</small></span>
+      <span class="channel-go">YouTubeチャンネルを見る</span>
+    </a>
+    <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
+  </section>
+
+  <footer>YURA AI ZAITAKU</footer>
+</main>
+
+<script>
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-target');
+      var pre=document.getElementById(id);
+      var toast=document.getElementById(id.replace('text','toast'));
+      var msg=btn.getAttribute('data-toast')||'ChatGPTに貼り付けて送ってください。';
+      var text=pre.textContent;
+      function ok(){btn.textContent='コピーしました';toast.textContent=msg;setTimeout(function(){btn.textContent='コピーする';},2200);}
+      function ng(){selectText(pre);toast.textContent='自動でコピーできなかったので、選択した文字をコピーしてください。';}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,ng);}else{ng();}
+      }catch(e){ng();}
+    });
+  });
+
+  /* 「ここまでできた」のチェックを、このブラウザに覚えておく */
+  var KEY='yura-chibi-recipe-done';
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function paint(){
+    document.querySelectorAll('.index a[data-key]').forEach(function(a){
+      a.classList.toggle('is-done',!!state[a.getAttribute('data-key')]);
+    });
+  }
+  document.querySelectorAll('.done input').forEach(function(cb){
+    var k=cb.getAttribute('data-key');
+    cb.checked=!!state[k];
+    cb.addEventListener('change',function(){
+      state[k]=cb.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+      paint();
+    });
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
