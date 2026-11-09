@@ -583,5 +583,50 @@ footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
 })();
 </script>
 
+<!-- checklist-tap:start -->
+<style>
+.check li[data-ck],.checks li[data-ck]{cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+.check li[data-ck]::before,.checks li[data-ck]::before{transition:background-color .15s}
+.check li.is-done::before,.checks li.is-done::before{background-color:var(--ck-color,#F4B400)!important;border-color:var(--ck-color,#F4B400)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:85%!important}
+.check li.is-done > b,.check li.is-done > strong,.checks li.is-done > b,.checks li.is-done > strong{opacity:.7}
+.check li[data-ck]:focus-visible,.checks li[data-ck]:focus-visible{outline:2px solid var(--ck-color,#F4B400);outline-offset:3px;border-radius:6px}
+</style>
+<script>
+(function(){
+  var KEY = "ck:" + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} }
+  var items = document.querySelectorAll(".check li, .checks li");
+  Array.prototype.forEach.call(items, function(li, i){
+    if (li.querySelector("input")) return;
+    var id = String(i);
+    li.setAttribute("data-ck", id);
+    li.setAttribute("role", "checkbox");
+    li.setAttribute("tabindex", "0");
+    try {
+      var c = getComputedStyle(li, "::before").borderTopColor;
+      if (c && c !== "rgba(0, 0, 0, 0)") li.style.setProperty("--ck-color", c);
+    } catch (e) {}
+    function render(){
+      var on = !!saved[id];
+      li.classList.toggle("is-done", on);
+      li.setAttribute("aria-checked", on ? "true" : "false");
+    }
+    function toggle(ev){
+      if (ev && ev.target && ev.target.closest && ev.target.closest("a,button,input")) return;
+      saved[id] = !saved[id];
+      if (!saved[id]) delete saved[id];
+      save(); render();
+    }
+    li.addEventListener("click", toggle);
+    li.addEventListener("keydown", function(ev){
+      if (ev.key === " " || ev.key === "Enter") { ev.preventDefault(); toggle(ev); }
+    });
+    render();
+  });
+})();
+</script>
+<!-- checklist-tap:end -->
 </body>
 </html>
