@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ゆらのClaude Codeスタートレシピ｜ゆらAI在宅</title>
+<meta name="description" content="Claude Codeを使い始める設定と、スレッズ・note・記事の画像づくりに使うプロンプトを、7つのレシピにまとめました。">
+<meta property="og:title" content="ゆらのClaude Codeスタートレシピ｜ゆらAI在宅">
+<meta property="og:description" content="動画で紹介したClaude Codeの使い方を、上から順にコピーして使えるようにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yura-zaitakuai.github.io/claudecode-recipe/img/yura_chibi_05_family.webp">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF;
+  --paper:#FFFFFF;
+  --ink:#4A3426;
+  --muted:#8A7163;
+  --cocoa:#B07A63;
+  --cocoa-deep:#8E5A45;
+  --cocoa-ink:#FFFFFF;
+  --sage:#C6A15B;
+  --sage-soft:#F7EEE8;
+  --band:#E9D5CA;
+  --rule:#EFE3DA;
+  --rule-strong:#E0CBBE;
+  --box:#FFFCFA;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;padding:0 16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:740px;margin:0 auto;padding-block:44px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+
+/* 表紙 */
+.cover{position:relative;border:1px solid var(--sage);outline:1px solid var(--rule-strong);outline-offset:5px;border-radius:4px;padding:28px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:end;background:radial-gradient(120% 90% at 85% 10%,#F6E9DE 0%,#FFFFFF 62%)}
+.cover>*{grid-column:1}
+.cover .chibi-hero{grid-column:2;grid-row:1 / span 3;align-self:end;width:clamp(110px,24vw,170px)}
+.cover .index{grid-column:1 / -1}
+@media (max-width:560px){.cover{grid-template-columns:1fr}.cover .chibi-hero{grid-column:1;grid-row:auto;justify-self:end;width:120px;margin-top:-8px}}
+.cover .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.cover h1{font-size:clamp(28px,6vw,44px);letter-spacing:.02em;color:var(--ink)}
+.cover h1 .grad{background:linear-gradient(180deg,#C99A83 0%,#9A624C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover h1 small{display:block;font-size:.5em;letter-spacing:.08em;color:var(--cocoa);margin-bottom:6px}
+.cover .lead{max-width:34em;color:var(--muted)}
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+.index a{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:var(--ink);border:1px solid var(--rule-strong);border-radius:999px;padding:9px 18px;background:#FFFFFF}
+.index a:hover{border-color:var(--cocoa)}
+.index a:focus-visible{outline:3px solid var(--cocoa);outline-offset:2px}
+.index b{font-family:var(--display);color:var(--cocoa);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.index a.is-done{background:var(--sage-soft);border-color:var(--sage)}
+.index a.is-done span::after{content:"　済";color:var(--sage);font-weight:700;font-size:13px}
+
+/* ひとこと */
+.note{display:grid;grid-template-columns:4px 1fr;gap:16px}
+.note::before{content:"";background:var(--sage)}
+.note p+p{margin-top:8px}
+.note .who{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* 全体図 */
+.section-label{font-size:12.5px;letter-spacing:.2em;color:var(--sage);font-weight:700}
+.overview{display:flex;flex-direction:column;gap:12px}
+.overview h2{font-size:22px}
+.fig{border:1px solid var(--rule-strong);background:var(--paper);padding:14px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:540px}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figure{margin:0}
+svg .bx{fill:var(--box);stroke:var(--rule-strong);stroke-width:1.2}
+svg .bx-on{fill:var(--sage-soft);stroke:var(--sage);stroke-width:1.6}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:700}
+svg .s{fill:var(--muted);font-family:var(--body);font-size:12.5px}
+svg .n{fill:var(--cocoa);font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.08em}
+svg .ar{stroke:var(--cocoa);stroke-width:1.6;fill:none}
+svg .arh{fill:var(--cocoa)}
+svg .pill{fill:var(--cocoa)}
+svg .pt{fill:var(--cocoa-ink);font-family:var(--body);font-size:12px;font-weight:700}
+
+/* 準備 */
+.prep{border:1px solid var(--rule-strong);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:flex;flex-direction:column;gap:14px;background:var(--box)}
+.prep h2{font-size:20px}
+
+/* レシピカード */
+.recipe{background:var(--paper);border:1px solid var(--rule-strong);border-radius:4px;position:relative;overflow:hidden}
+.recipe-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px clamp(18px,4vw,34px);background:linear-gradient(90deg,#EBD8CD,#F4E7DF);border-bottom:1px solid var(--sage)}
+.recipe-head .chibi-side{width:clamp(76px,16vw,110px);margin-block:-6px -18px}
+@media (max-width:480px){.recipe-head{grid-template-columns:auto 1fr}.recipe-head .chibi-side{display:none}}
+.num{font-family:var(--display);color:var(--cocoa-deep);text-align:center;line-height:1.1;border-right:1px solid var(--sage);padding-right:18px}
+.num span{display:block;font-size:11px;letter-spacing:.2em}
+.num strong{display:block;font-size:40px}
+.recipe-head h2{font-size:clamp(21px,4vw,27px)}
+.recipe-head .when{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage);letter-spacing:.06em}
+.recipe-body{padding:24px clamp(18px,4vw,34px) 28px;display:flex;flex-direction:column;gap:24px}
+.block{display:flex;flex-direction:column;gap:12px}
+.block+.block{border-top:1px dashed var(--rule-strong);padding-top:22px}
+h3{font-size:17px;letter-spacing:.06em;display:flex;gap:10px;align-items:baseline}
+h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--sage)}
+.ingredients li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--rule-strong);padding-block:6px}
+.ingredients li span:last-child{color:var(--muted);font-size:14px;text-align:right}
+.method{counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.method li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.method li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--cocoa);font-size:17px;line-height:1.9}
+.why{color:var(--muted);font-size:14.5px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.checks li::before{content:"";width:16px;height:16px;border:1.5px solid var(--cocoa);border-radius:3px;margin-top:7px}
+.caution{background:var(--sage-soft);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.caution strong{font-family:var(--display);font-size:16px}
+.caution li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.caution li::before{content:"―";color:var(--sage);font-weight:700}
+
+/* プロンプト枠 */
+.prompt{border:1.5px solid var(--rule-strong);border-radius:4px;background:var(--box)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 8px 14px;border-bottom:1.5px solid var(--rule-strong);background:#FBF3EE}
+.prompt-head span{font-size:13px;font-weight:700;letter-spacing:.06em}
+.copy{appearance:none;border:0;border-radius:999px;background:linear-gradient(180deg,#BE8B73,#9E6650);color:var(--cocoa-ink);font:700 14px var(--body);padding:8px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{filter:brightness(1.08)}
+.copy:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.prompt pre{margin:0;padding:16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.85 var(--body);color:var(--ink)}
+.prompt pre:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.toast{font-size:13px;color:var(--cocoa);font-weight:700;min-height:1.2em}
+.small{font-size:13px;color:var(--muted)}
+.where{display:inline-block;align-self:flex-start;font-size:12.5px;font-weight:700;letter-spacing:.04em;border:1px solid var(--sage);color:var(--cocoa-deep);border-radius:999px;padding:2px 12px;background:#FFFFFF}
+.where.new{background:var(--cocoa);border-color:var(--cocoa);color:var(--cocoa-ink)}
+
+/* できたチェック */
+.done{display:flex;align-items:center;gap:10px;align-self:flex-start;cursor:pointer;font-weight:700;font-size:14.5px;border:1.5px solid var(--cocoa);border-radius:999px;padding:8px 20px 8px 14px;color:var(--cocoa-deep);background:#FFFFFF}
+.done input{width:18px;height:18px;accent-color:#9E6650;margin:0}
+.done:has(input:checked){background:var(--sage-soft);border-color:var(--sage)}
+.done:has(input:focus-visible){outline:3px solid var(--sage);outline-offset:2px}
+
+/* 今日これだけ・おわりに */
+.today{border:1px solid var(--sage);border-radius:4px;padding:22px clamp(18px,4vw,34px);display:grid;grid-template-columns:1fr auto;gap:12px 18px;background:radial-gradient(100% 120% at 100% 100%,#F6E9DE 0%,#FFFFFF 60%)}
+.today>*{grid-column:1}.today .chibi-side{grid-column:2;grid-row:1 / span 4;align-self:end;width:clamp(90px,18vw,130px)}
+@media (max-width:560px){.today{grid-template-columns:1fr}.today .chibi-side{grid-column:1;grid-row:auto;justify-self:end}}
+.today h2{font-size:22px}
+.closing{border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding-block:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.closing .chibi-family{align-self:center;width:min(360px,90%);margin-top:6px}
+.closing h2{font-size:20px}
+.chibi-hero,.chibi-side,.chibi-family{display:block;height:auto;max-width:100%}
+.channel{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--cocoa-ink);background:linear-gradient(180deg,#BE8B73,#9E6650);border-radius:999px;padding:14px 22px}
+.channel:hover{filter:brightness(1.06)}
+.channel:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.channel-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.04em;line-height:1.5;flex:1 1 16em}
+.channel-name small{font-size:14px;letter-spacing:0}
+.channel-go{font-weight:700;font-size:14.5px;background:#FFFFFF;color:var(--cocoa-deep);border-radius:999px;padding:6px 16px}
+footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.fig figcaption a,.checks a{color:var(--cocoa-deep);font-weight:700}
+</style>
+
+<main class="wrap">
+
+  <header class="cover">
+    <div class="meta"><span>ゆらAI在宅</span></div>
+    <h1><small>作業の9割を、AIにおまかせする準備</small>ゆらの<br><span class="grad">Claude Code<br>スタートレシピ</span></h1>
+    <p class="lead">動画でお見せしたClaude Codeの使い方を、7つのレシピにまとめました。最初の設定から、スレッズ・note・記事の画像づくりまで、上から順にコピーして、Claude Codeに貼って送るだけです。</p>
+    <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
+    <nav class="index" aria-label="このページのレシピ">
+      <a href="#r0" data-key="r0"><b>RECIPE 00</b><span>はじめの設定</span></a>
+      <a href="#r1" data-key="r1"><b>RECIPE 01</b><span>スレッズのリサーチ</span></a>
+      <a href="#r2" data-key="r2"><b>RECIPE 02</b><span>楽天つきの投稿</span></a>
+      <a href="#r3" data-key="r3"><b>RECIPE 03</b><span>noteのリサーチ</span></a>
+      <a href="#r4" data-key="r4"><b>RECIPE 04</b><span>noteの記事</span></a>
+      <a href="#r5" data-key="r5"><b>RECIPE 05</b><span>画像をAPIで作る</span></a>
+      <a href="#r6" data-key="r6"><b>RECIPE 06</b><span>画像のプロンプト</span></a>
+      <a href="#r7"><b>RECIPE 07</b><span>インスタ（準備中）</span></a>
+    </nav>
+  </header>
+
+  <section class="note" aria-label="ゆらからのひとこと">
+    <div>
+      <p class="who">ゆらより</p>
+      <p>動画を見てくださって、ありがとうございます。公式LINEにも登録してくれて、本当にうれしいです。</p>
+      <p>Claude Codeは、教えたことや作ったものを、パソコンのフォルダに残して覚えておいてくれるAIです。私もこれを使い始めてから、リサーチと投稿づくりの時間が半分以下になりました。</p>
+      <p>いちばん大事なのは、RECIPE 00の「はじめの設定」です。ここで作るフォルダが、あなた専用のAIの「頭の中」になります。1つ終わるごとに「ここまでできた」にチェックを入れながら、進めてみてくださいね。</p>
+    </div>
+  </section>
+
+  <section class="overview" aria-labelledby="flow">
+    <p class="section-label">全体の地図</p>
+    <h2 id="flow">設定を1回したら、あとは3つの副業に使い回す</h2>
+    <figure class="fig">
+      <svg viewBox="0 0 700 120" role="img" aria-label="レシピ00で作業場所を作り、01と02でスレッズ、03と04でnote、05と06で記事の画像、07でインスタ（準備中）">
+        <rect class="bx-on" x="6" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="18" y="42">00</text>
+        <text class="t" x="18" y="68">はじめの設定</text>
+        <text class="s" x="18" y="88">最初に1回だけ</text>
+        <path class="ar" d="M133 60 H136"/><path class="arh" d="M136 55 L143 60 L136 65 Z"/>
+        <rect class="bx" x="144" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="156" y="42">01・02</text>
+        <text class="t" x="156" y="68">スレッズ</text>
+        <text class="s" x="156" y="88">リサーチ→投稿</text>
+        <path class="ar" d="M271 60 H274"/><path class="arh" d="M274 55 L281 60 L274 65 Z"/>
+        <rect class="bx" x="282" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="294" y="42">03・04</text>
+        <text class="t" x="294" y="68">note</text>
+        <text class="s" x="294" y="88">リサーチ→記事</text>
+        <path class="ar" d="M409 60 H412"/><path class="arh" d="M412 55 L419 60 L412 65 Z"/>
+        <rect class="bx" x="420" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="432" y="42">05・06</text>
+        <text class="t" x="432" y="68">記事の画像</text>
+        <text class="s" x="432" y="88">ChatGPTとつなぐ</text>
+        <path class="ar" d="M547 60 H550"/><path class="arh" d="M550 55 L557 60 L550 65 Z"/>
+        <rect class="bx" x="558" y="18" width="126" height="84" rx="3"/>
+        <text class="n" x="570" y="42">07</text>
+        <text class="t" x="570" y="68">インスタ</text>
+        <text class="s" x="570" y="88">準備中</text>
+      </svg>
+      <figcaption>全部、同じフォルダを開いたClaude Codeで送ります。リサーチ結果や作ったものがフォルダにたまっていくので、使うほど自分に合ったものが出てくるようになります。</figcaption>
+    </figure>
+  </section>
+
+  <section class="prep" id="prep" aria-labelledby="prep-title">
+    <p class="section-label">はじめる前に</p>
+    <h2 id="prep-title">Claude Codeを、パソコンに入れる</h2>
+    
+    <ol class="method">
+      <li><span>claude.com を開いて、メールアドレスかGoogleアカウントでアカウントを作ります。</span></li>
+      <li><span>料金ページ（claude.com/pricing）で「Pro」を選んで、登録します。Claude Codeは無料プランでは使えません。</span></li>
+      <li><span>claude.com/download から、自分のパソコン（WindowsかMac）用のアプリをダウンロードして、インストールします。</span></li>
+      <li><span>アプリを開いてログインし、画面の左上にある「Code」をクリックします。</span></li>
+      <li><span>パソコンの「ドキュメント」の中に、新しいフォルダを1つ作ります。名前は「在宅ワーク」など、なんでも大丈夫です。</span></li>
+      <li><span>Codeの画面で、入力欄の下から「ローカル（Local）」を選び、「フォルダを開く」から、さっき作ったフォルダを選びます。</span></li>
+    </ol>
+    <ul class="checks">
+      <li><span>パソコン（Windows 10以降かMac）がある。スマホだけでは使えません</span></li>
+      <li><span>Claudeの有料プラン（Pro）に登録した</span></li>
+      <li><span>アプリの「Code」の画面で、作ったフォルダを開いた</span></li>
+    </ul>
+    <p class="why">料金の目安：いちばん安いProプランで月20ドル（日本円で3,000円くらい）。年払いにすると少し安くなります。2026年11月時点の金額なので、登録するときに公式ページでも確認してください。黒い画面（ターミナル）は使わなくて大丈夫です。</p>
+  </section>
+
+  <!-- RECIPE 00 -->
+  <article class="recipe" id="r0" aria-labelledby="r0-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>00</strong></div>
+      <div>
+        <h2 id="r0-title">作業場所と、あなたのことを覚えてもらう</h2>
+        <span class="when">最初に1回だけ</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、フォルダを開いたClaude Codeの入力欄に貼ります。</span></li>
+          <li><span>{ }の中の、家族・使える時間・ジャンルを、自分のことに書きかえて送ります。</span></li>
+          <li><span>「ファイルを作っていいですか？」と聞かれたら、内容を見て許可します。</span></li>
+          <li><span>できあがった「わたしのこと」フォルダのエピソード.mdを開いて、見出しの下に自分のことを書いておきます。箇条書きで大丈夫です。</span></li>
+        </ol>
+        <p class="why">エピソード.mdは、RECIPE 04でnoteの記事を書くときの材料になります。AIは体験談や数字を作れないので、ここだけは自分で書いておくのがポイントです。慣れるまでは、ファイルを作る前に確認してくれるモードのまま使ってください。</p>
+        <p class="why"><b>ゆらの本音</b><br>ちゃんと自分の言葉で書いてほしいのですが、CLAUDE.mdの中身は書き方の見本として活用してください。ここに「私が体験していないことを書かない」と入れておくだけで、出てくる文章の安心感がぜんぜん変わります。</p>
+      </div>
+      <div class="block">
+        <span class="where">フォルダを開いたClaude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 00｜はじめの設定</span><button class="copy" type="button" data-target="text-p0">コピーする</button></div>
+          <pre id="text-p0" tabindex="0">このフォルダを、私の在宅ワークの作業場所にしたいです。
+次の3つをやってください。
+
+1. このフォルダの中に「スレッズ」「note」「インスタ」「わたしのこと」「トンマナ参考」の5つのフォルダを作る
+2. 「わたしのこと」フォルダに「エピソード.md」を作り、下の見出しだけを書いておく（中身は私があとで書きます）
+   ・家族のこと
+   ・今の働き方と、使える時間
+   ・子育てで大変だったこと
+   ・副業や仕事でうまくいかなかったこと
+   ・うまくいったこと、うれしかったこと
+3. このフォルダに CLAUDE.md を作り、下の内容を書き込む
+
+---ここから CLAUDE.md の内容---
+# このフォルダについて
+スレッズ×楽天アフィリエイト、note、インスタの作業場所です。
+
+# 私について
+- 家族：{例：4歳と2歳の男の子のママ}
+- 副業に使える時間：{例：平日は子どもが寝たあとの30分}
+- スレッズのジャンル：{例：暮らし・家事がラクになるもの}
+- noteのジャンル：{例：育児}
+
+# 書き方のルール
+- 一文は短く。むずかしい言葉は使わない
+- 私が体験していないことを、体験したように書かない
+- 実績・数字・体験談は作らない。分からないところは空けておいて、私に聞く
+- 使っていない商品を「使ってよかった」と書かない
+- 商品を紹介する投稿には、必ず「#PR」を入れる
+- 「絶対」「誰でも」「必ず稼げる」は使わない
+
+# 作業のしかた
+- 作業を始める前に、何をするかを短く説明してから進める
+- 何かを作るときは、先に「わたしのこと」と、そのジャンルのフォルダにあるリサーチ結果を読む
+- 作ったものとリサーチ結果は、それぞれのフォルダに日付をつけて保存する
+---ここまで---</pre>
+        </div>
+        <p class="toast" id="toast-p0" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r0">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 01 -->
+  <article class="recipe" id="r1" aria-labelledby="r1-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>01</strong></div>
+      <div>
+        <h2 id="r1-title">スレッズで伸びている投稿をリサーチする</h2>
+        <span class="when">①スレッズ×楽天アフィリエイト</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、Claude Codeに貼ります。</span></li>
+          <li><span>{ }のジャンルを書きかえて送ります。今回の例は「暮らし・家事がラクになるもの」です。</span></li>
+          <li><span>Claude Codeがスレッズを見て、表にまとめてくれます。そのあいだは待っているだけで大丈夫です。</span></li>
+          <li><span>うまく見られなかったときは、自分で「伸びているな」と思った投稿のスクショを「スレッズ」フォルダに入れて、「この投稿が伸びている理由を分析して保存して」と送ります。</span></li>
+        </ol>
+        <p class="why">見てほしいのは、表示回数がフォロワー数の何倍になっているかです。フォロワーが少ないのに見られている投稿は、中身そのもので伸びているので、マネする価値があります。</p>
+        <p class="why"><b>ゆらの本音</b><br>私も、このリサーチを自分の手でやっていたころは、ここだけで何十分もかかっていました。今は毎朝、伸びている投稿の一覧が届くようにしています。慣れてきたら「毎朝このリサーチをして」とお願いしてみてください。</p>
+      </div>
+      <div class="block">
+        <span class="where">Claude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 01｜スレッズのリサーチ</span><button class="copy" type="button" data-target="text-p1">コピーする</button></div>
+          <pre id="text-p1" tabindex="0">スレッズで、{暮らし・家事がラクになるもの}のジャンルの投稿の中から、
+フォロワー数よりも表示回数がずっと多い投稿を10件探して、表にまとめてください。
+
+表に入れるもの：
+・投稿の書き出し（最初の1〜2行）
+・表示回数、いいねの数、フォロワー数
+・表示回数がフォロワー数の何倍か
+・どんな型の投稿か（質問型／体験談型／比較型／まとめ型 など）
+
+表のあとに、伸びている投稿の共通点を3つまとめてください。
+できたものは「スレッズ」フォルダに「リサーチ_今日の日付」という名前で保存してください。
+スレッズの画面がうまく見られないときは、無理に進めずに私に教えてください。</pre>
+        </div>
+        <p class="toast" id="toast-p1" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r1">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 02 -->
+  <article class="recipe" id="r2" aria-labelledby="r2-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>02</strong></div>
+      <div>
+        <h2 id="r2-title">リサーチをもとに、楽天の商品つきで投稿を作る</h2>
+        <span class="when">①スレッズ×楽天アフィリエイト</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>RECIPE 01のあと、同じClaude Codeで送ります。</span></li>
+          <li><span>{ }に、紹介したい商品のジャンルを書きます。</span></li>
+          <li><span>3パターンの投稿と、おすすめの楽天市場の商品が出てきます。</span></li>
+          <li><span>使う投稿を1つ選んで、自分の言葉に直します。</span></li>
+          <li><span>商品のリンクは、楽天アフィリエイトのページで作った「自分用のリンク」に差しかえて、リプに貼ります。</span></li>
+        </ol>
+        <p class="why">Claude Codeが出してくれるのは、ふつうの商品ページのURLです。そのまま貼っても報酬にはならないので、必ず楽天アフィリエイトで自分用のリンクを作ってください。楽天アフィリエイトの登録とリンクの作り方は、チャンネルの1本目の動画で画面を見せながらお話ししています。</p>
+        <p class="why"><b>ゆらの本音</b><br>最初から完璧な投稿は出てきません。伸びた投稿を「スレッズ」フォルダに入れて「これが伸びた」と伝えていくと、だんだん自分のアカウントに合った投稿が出てくるようになります。</p>
+      </div>
+      <div class="block">
+        <span class="where">RECIPE 01と同じClaude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 02｜楽天つきの投稿</span><button class="copy" type="button" data-target="text-p2">コピーする</button></div>
+          <pre id="text-p2" tabindex="0">「スレッズ」フォルダにある、いちばん新しいリサーチ結果を読んでください。
+その中でいちばん伸びていた型を使って、楽天市場で買える{家事がラクになるキッチングッズ}を紹介するスレッズの投稿を、3パターン作ってください。
+
+作り方のルール：
+・本投稿は500字以内。1行目は、続きが読みたくなる言葉にする
+・本投稿では商品名を出さずに、自分の返信（リプ）で商品を紹介する
+・リプには必ず「#PR」を入れる
+・「わたしのこと」と、これまで保存した投稿の書き方に合わせる
+・私が使っていない商品は「気になっている」「調べたら見つけた」という書き方にする
+
+おすすめする楽天市場の商品は、1パターンにつき1つ選んで、
+商品名・ショップ名・値段・レビューの数と点数・商品ページのURL・選んだ理由を、一緒に出してください。
+レビューが少ないものや、相場より極端に安いものは選ばないでください。
+
+できた投稿は「スレッズ」フォルダに「投稿_今日の日付」という名前で保存してください。</pre>
+        </div>
+        <p class="toast" id="toast-p2" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r2">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="threads-check" aria-labelledby="threads-check-title">
+    <p class="section-label">①スレッズ　投稿する前に</p>
+    <h2 id="threads-check-title">この5つを確かめてから投稿する</h2>
+    
+    <ol class="method">
+      <li><span>投稿を1つ選んで、スレッズに貼ります。</span></li>
+      <li><span>商品を紹介するリプに、自分用の楽天のリンクを貼ります。</span></li>
+      <li><span>伸びたら、その投稿の文章と表示回数を「スレッズ」フォルダに入れておきます。</span></li>
+    </ol>
+    <ul class="checks">
+      <li><span>リプに「#PR」が入っている</span></li>
+      <li><span>使ったことのない商品なのに「使ってよかった」と書いていない</span></li>
+      <li><span>値段やレビューの数を、楽天のページで自分の目で確かめた</span></li>
+      <li><span>リンクを、自分用のアフィリエイトリンクに差しかえた</span></li>
+      <li><span>楽天アフィリエイトの「サイト情報」に、自分のスレッズを登録した</span></li>
+    </ul>
+    <p class="why">楽天アフィリエイトは、1件売れて入るのが数十円から100円くらいのことが多いです。だからこそ、投稿の量を出すところをAIに任せるのがおすすめなんです。</p>
+  </section>
+
+  <!-- RECIPE 03 -->
+  <article class="recipe" id="r3" aria-labelledby="r3-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>03</strong></div>
+      <div>
+        <h2 id="r3-title">noteで読まれている育児の記事をリサーチする</h2>
+        <span class="when">②note</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、Claude Codeに貼ります。</span></li>
+          <li><span>{ }のジャンルは、今回の例では「育児」です。自分が書きたいジャンルに変えても大丈夫です。</span></li>
+          <li><span>表と、読まれている記事の共通点、まだ少ないテーマが返ってきます。</span></li>
+        </ol>
+        <p class="why">いちばん使えるのは「まだ少ないテーマ」です。読まれている型で、まだ書かれていないテーマを書くと、ほかの記事と比べられにくくなります。ほかの人の文章をそのまま使うのはNGです。</p>
+      </div>
+      <div class="block">
+        <span class="where">Claude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 03｜noteのリサーチ</span><button class="copy" type="button" data-target="text-p3">コピーする</button></div>
+          <pre id="text-p3" tabindex="0">noteで、{育児}のジャンルで今読まれている記事を10本探して、表にまとめてください。
+noteの検索・ハッシュタグ・おすすめに出ている記事の中から、スキの数が多いものを選んでください。
+
+表に入れるもの：
+・タイトル、スキの数、有料か無料か（有料なら値段）
+・どんな悩みに答えている記事か
+・タイトルの付け方の型（数字入り／体験談／ビフォーアフター など）
+・見出しの流れ（ざっくりでOK）
+
+表のあとに、次の2つをまとめてください。
+・読まれている記事の共通点を3つ
+・まだ書かれていない、または少ないテーマを3つ
+
+記事の文章をそのまま写すことはせず、型と共通点だけを書いてください。
+できたものは「note」フォルダに「リサーチ_今日の日付」という名前で保存してください。</pre>
+        </div>
+        <p class="toast" id="toast-p3" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r3">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 04 -->
+  <article class="recipe" id="r4" aria-labelledby="r4-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>04</strong></div>
+      <div>
+        <h2 id="r4-title">リサーチと自分のエピソードで、記事を書く</h2>
+        <span class="when">②note</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_03_idea.webp" alt="ノートパソコンを持ってひらめくゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>先に、「わたしのこと」フォルダのエピソード.mdに、自分のことを書いておきます。</span></li>
+          <li><span>下の「コピーする」を押して、Claude Codeに貼ります。</span></li>
+          <li><span>{ }のテーマと、読んでほしい人を書きかえて送ります。</span></li>
+          <li><span>記事と、最後に「聞きたいこと」が出てきます。答えを送ると、空いていたところを埋めてくれます。</span></li>
+          <li><span>最後は自分で読み直して、自分の言葉に直してから、noteに貼ります。</span></li>
+        </ol>
+        <p class="why">記事の中心は、AIではなくあなたのエピソードです。AIには、型と書き方を手伝ってもらいます。エピソード.mdに書いたことが増えるほど、あなたらしい記事になっていきます。</p>
+        <p class="why"><b>ゆらの本音</b><br>noteは、値段を自分で決められるのがいちばんの強みです。最初の1本が売れるまでは時間がかかることもあるので、まずは無料の記事を何本か出して、読んでくれる人を増やしていくのがおすすめです。</p>
+      </div>
+      <div class="block">
+        <span class="where">RECIPE 03と同じClaude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 04｜noteの記事</span><button class="copy" type="button" data-target="text-p4">コピーする</button></div>
+          <pre id="text-p4" tabindex="0">「note」フォルダのいちばん新しいリサーチ結果と、「わたしのこと」フォルダのエピソード.mdを読んでください。
+そのうえで、私のエピソードを中心にしたnoteの記事を1本書いてください。
+
+テーマ：{リサーチで出てきた「まだ少ないテーマ」の1つ目}
+読んでほしい人：{例：保育園からの呼び出しで仕事を休むたびに、落ち込んでしまうママ}
+
+書き方のルール：
+・最初に、読んでほしい人の悩みを、場面が浮かぶように書く
+・真ん中は、私のエピソードと、そこから分かったことを書く
+・最後に、読んだ人が明日からできることを1つ書く
+・タイトル案を3つ。見出しは4〜6個
+・リサーチで分かった「読まれている記事の型」を使う。ただし、ほかの人の文章は写さない
+・エピソード.mdに書いていない出来事や数字は作らない。足りないところは【ここに〇〇のエピソード】と空けておく
+
+書き終わったら、私に聞きたいこと（エピソードの足りないところ）を、最後に3つまで書いてください。
+できた記事は「note」フォルダに「記事_今日の日付」という名前で保存してください。</pre>
+        </div>
+        <p class="toast" id="toast-p4" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r4">ここまでできた</label>
+    </div>
+  </article>
+
+  <!-- RECIPE 05 -->
+  <article class="recipe" id="r5" aria-labelledby="r5-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>05</strong></div>
+      <div>
+        <h2 id="r5-title">ChatGPTの画像生成とつないで、記事の画像を作る</h2>
+        <span class="when">②note　画像</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>下の「コピーする」を押して、Claude Codeに貼って送ります。</span></li>
+          <li><span>「参考の画像を送ってください」と言われたら、これまで自分が作ってきた画像（アイコン・見出し画像・投稿の画像など）を「トンマナ参考」フォルダに入れて、「入れました」と送ります。</span></li>
+          <li><span>トンマナ.md（色や雰囲気のまとめ）ができたら、中身を読んで、違うところがあれば伝えます。</span></li>
+          <li><span>OpenAIのサイト（platform.openai.com）でAPIキーを作り、Claude Codeが作った .env ファイルを自分で開いて、キーを貼って保存します。</span></li>
+          <li><span>「入れました」と送ると、見出し画像と図解を作って、「note」フォルダの「画像」フォルダに保存してくれます。</span></li>
+        </ol>
+        <p class="why">トンマナというのは、色やデザインの雰囲気のことです。自分が作ってきた画像を見本に渡すと、毎回同じ雰囲気の画像になるので、記事を並べたときに「この人の記事だ」と分かってもらいやすくなります。APIキーは、パスワードと同じくらい大事なものです。チャットに貼ったり、人に見せたりしないでください。</p>
+      </div>
+      <div class="block">
+        <span class="where">Claude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 05｜画像をAPIで作る</span><button class="copy" type="button" data-target="text-p5">コピーする</button></div>
+          <pre id="text-p5" tabindex="0">noteの記事に入れる画像を、ChatGPTと同じOpenAIの画像生成（API）を使って作れるようにしたいです。
+次の順番で、1つずつ進めてください。
+
+1. まず私に、トンマナ（色やデザインの雰囲気）の参考にしたい画像を送るように言ってください。
+   私がこれまでに作ってきた画像（アイコン、見出し画像、投稿の画像など）を「トンマナ参考」フォルダに入れるので、入れ終わったと私が言うまで待ってください。
+2. 入れ終わったら、その画像を見て、色・文字の雰囲気・イラストのタッチ・余白の取り方を、「トンマナ参考」フォルダの「トンマナ.md」にまとめてください。
+3. OpenAIの画像生成APIを使う準備をしてください。
+   ・使うモデルは、OpenAIの公式ドキュメントで、今いちばん新しい画像生成モデルを確かめて選ぶ
+   ・APIキーは私が自分で入れるので、入れる場所（.envファイル）だけを作って、入れ方を説明する。キーをこのチャットに貼るようには言わない
+4. 準備ができたら、「note」フォルダのいちばん新しい記事を読んで、
+   見出し画像を1枚と、記事の途中に入れる図解を2枚、トンマナ.mdに合わせて作り、「note」フォルダの中の「画像」フォルダに保存してください。
+5. 1枚作るごとに、だいたいいくらかかったかも教えてください。</pre>
+        </div>
+        <p class="toast" id="toast-p5" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r5">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="api-cost" aria-labelledby="api-cost-title">
+    <p class="section-label">②note　画像　お金のこと</p>
+    <h2 id="api-cost-title">APIの料金は、ChatGPTの月額とは別にかかります</h2>
+    
+    <ol class="method">
+      <li><span>OpenAIのAPIは、使った分だけ払うしくみです。先にチャージ（クレジットの購入）をしてから使います。</span></li>
+      <li><span>1枚あたりの金額は、画像の大きさや画質で変わります。RECIPE 05では、1枚作るごとに金額を教えてもらうようにしています。</span></li>
+      <li><span>まずは少しだけチャージして、何枚か作ってみてから続けるか決めるのがおすすめです。</span></li>
+    </ol>
+    <ul class="checks">
+      <li><span>ChatGPTの有料プランに入っていても、APIの料金は別にかかると分かった</span></li>
+      <li><span>使いすぎないように、チャージは少なめから始める</span></li>
+      <li><span>APIキーを、チャットや人に見せる場所に貼っていない</span></li>
+    </ul>
+    <p class="why">料金やモデルの名前は、よく変わります（2026年11月時点）。使う前に、OpenAIの公式の料金ページで確かめてください。お金をかけずに試したいときは、下のRECIPE 06を使ってください。</p>
+  </section>
+
+  <!-- RECIPE 06 -->
+  <article class="recipe" id="r6" aria-labelledby="r6-title">
+    <div class="recipe-head">
+      <div class="num"><span>RECIPE</span><strong>06</strong></div>
+      <div>
+        <h2 id="r6-title">APIを使わずに、ChatGPTに貼るプロンプトを作ってもらう</h2>
+        <span class="when">②note　画像（お金をかけずに）</span>
+      </div>
+      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+    </div>
+    <div class="recipe-body">
+      <div class="block">
+        <h3><em>使い方</em></h3>
+        <ol class="method">
+          <li><span>RECIPE 05の1と2（トンマナ参考の画像を入れて、トンマナ.mdを作る）までは同じように進めます。</span></li>
+          <li><span>下の「コピーする」を押して、Claude Codeに貼って送ります。</span></li>
+          <li><span>出てきた3つのプロンプトを、1つずつChatGPTに貼って、画像を作ってもらいます。</span></li>
+          <li><span>できた画像を、noteの記事に入れます。</span></li>
+        </ol>
+        <p class="why">Claude Codeがトンマナに合わせたプロンプトを書いてくれるので、ChatGPTに毎回「こういう雰囲気で」と説明しなくて大丈夫です。ChatGPTの無料版は、1日に作れる画像の枚数に上限があります。</p>
+      </div>
+      <div class="block">
+        <span class="where">Claude Codeで送る</span>
+        <div class="prompt">
+          <div class="prompt-head"><span>RECIPE 06｜画像のプロンプト</span><button class="copy" type="button" data-target="text-p6">コピーする</button></div>
+          <pre id="text-p6" tabindex="0">「note」フォルダのいちばん新しい記事と、「トンマナ参考」フォルダのトンマナ.mdを読んでください。
+ChatGPTに貼って画像を作ってもらうためのプロンプトを、3つ書いてください（見出し画像を1枚、図解を2枚）。
+・トンマナ.mdの色と雰囲気に合わせる
+・画像の中に入れる文字は短くして、プロンプトの中にそのまま書く
+・見出し画像は横長（noteの見出し画像の比率）にする</pre>
+        </div>
+        <p class="toast" id="toast-p6" aria-live="polite"></p>
+      </div>
+
+      <label class="done"><input type="checkbox" data-key="r6">ここまでできた</label>
+    </div>
+  </article>
+
+  <section class="prep" id="r7" aria-labelledby="r7-title">
+    <p class="section-label">RECIPE 07　③インスタ</p>
+    <h2 id="r7-title">インスタの動画づくりのレシピは、ただいま準備中です</h2>
+    <p class="why">動画でお話ししたように、インスタは私がいちばんおすすめしている副業です。いちばんのハードルだった動画の編集まで、Claude Codeが手伝ってくれます。実際の画面に合わせて、受け取ってくれた方がそのまま使えるプロンプトを準備しています。できしだい、このページに追加しますね。</p>
+  </section>
+
+  <section class="prep" aria-labelledby="honest">
+    <p class="section-label">さいごに</p>
+    <h2 id="honest">最後に、正直にお伝えしたいところ</h2>
+    <p class="why">ここまでで、Claude Codeを動かす準備はそろいました。ただ、Claude Codeは、入れたばかりだと「何も知らない新人さん」です。最初に何を覚えさせるか、誰のやり方を入れておくかで、出てくるものがまったく変わります。</p>
+    <p class="why">このページのレシピは、その入口です。実際に私たちが使っているやり方や、あなたの生活や使える時間に合う組み合わせは、一人ひとり違います。それに、1人で続けるのは、思っている以上に大変なんですよね。</p>
+    <p class="why">そういうところを1対1でお話ししているのが、個別相談会です。本気でAI副業に取り組んでいきたい方は、公式LINEで「興味ある」をタップしてみてください。企画の詳しい内容をお送りします。</p>
+  </section>
+
+  <section class="today" aria-labelledby="today">
+    <p class="section-label">今日これだけは</p>
+    <h2 id="today">まずは、はじめの設定まで</h2>
+    <ul class="checks">
+      <li><span>Claudeのアプリを入れて、「Code」の画面でフォルダを開く</span></li>
+      <li><span>RECIPE 00を自分のことに書きかえて送る</span></li>
+      <li><span>エピソード.mdに、自分のことを3行だけ書く</span></li>
+    </ul>
+    <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="923">
+    <p class="why">ここまでできたら、あなた専用のAIの準備はできています。次の日に、RECIPE 01を送ってみてください。</p>
+  </section>
+
+  <section class="closing" aria-labelledby="bye">
+    <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
+    <p>このチャンネルでは、2児ママの私が実際にやっているAIの在宅副業を、画面ごとお見せしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
+    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
+      <span class="channel-name">ゆら<small>【在宅ワーク・AI副業でマイホームを目指す2児ママ】</small></span>
+      <span class="channel-go">YouTubeチャンネルを見る</span>
+    </a>
+    <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
+  </section>
+
+  <footer>YURA AI ZAITAKU</footer>
+</main>
+
+<script>
+(function(){
+  function selectText(el){
+    var r=document.createRange(); r.selectNodeContents(el);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-target');
+      var pre=document.getElementById(id);
+      var toast=document.getElementById(id.replace('text','toast'));
+      var msg=btn.getAttribute('data-toast')||'Claude Codeに貼り付けて送ってください。';
+      var text=pre.textContent;
+      function ok(){btn.textContent='コピーしました';toast.textContent=msg;setTimeout(function(){btn.textContent='コピーする';},2200);}
+      function ng(){selectText(pre);toast.textContent='自動でコピーできなかったので、選択した文字をコピーしてください。';}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,ng);}else{ng();}
+      }catch(e){ng();}
+    });
+  });
+
+  /* 「ここまでできた」のチェックを、このブラウザに覚えておく */
+  var KEY='yura-claudecode-recipe-done';
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function paint(){
+    document.querySelectorAll('.index a[data-key]').forEach(function(a){
+      a.classList.toggle('is-done',!!state[a.getAttribute('data-key')]);
+    });
+  }
+  document.querySelectorAll('.done input').forEach(function(cb){
+    var k=cb.getAttribute('data-key');
+    cb.checked=!!state[k];
+    cb.addEventListener('change',function(){
+      state[k]=cb.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+      paint();
+    });
+  });
+  paint();
+})();
+</script>
+<!-- checklist-tap:start -->
+<style>
+.check li[data-ck],.checks li[data-ck]{cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+.check li[data-ck]::before,.checks li[data-ck]::before{transition:background-color .15s}
+.check li.is-done::before,.checks li.is-done::before{background-color:var(--ck-color,#F4B400)!important;border-color:var(--ck-color,#F4B400)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:85%!important}
+.check li.is-done > b,.check li.is-done > strong,.checks li.is-done > b,.checks li.is-done > strong{opacity:.7}
+.check li[data-ck]:focus-visible,.checks li[data-ck]:focus-visible{outline:2px solid var(--ck-color,#F4B400);outline-offset:3px;border-radius:6px}
+</style>
+<script>
+(function(){
+  var KEY = "ck:" + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} }
+  var items = document.querySelectorAll(".check li, .checks li");
+  Array.prototype.forEach.call(items, function(li, i){
+    if (li.querySelector("input")) return;
+    var id = String(i);
+    li.setAttribute("data-ck", id);
+    li.setAttribute("role", "checkbox");
+    li.setAttribute("tabindex", "0");
+    try {
+      var c = getComputedStyle(li, "::before").borderTopColor;
+      if (c && c !== "rgba(0, 0, 0, 0)") li.style.setProperty("--ck-color", c);
+    } catch (e) {}
+    function render(){
+      var on = !!saved[id];
+      li.classList.toggle("is-done", on);
+      li.setAttribute("aria-checked", on ? "true" : "false");
+    }
+    function toggle(ev){
+      if (ev && ev.target && ev.target.closest && ev.target.closest("a,button,input")) return;
+      saved[id] = !saved[id];
+      if (!saved[id]) delete saved[id];
+      save(); render();
+    }
+    li.addEventListener("click", toggle);
+    li.addEventListener("keydown", function(ev){
+      if (ev.key === " " || ev.key === "Enter") { ev.preventDefault(); toggle(ev); }
+    });
+    render();
+  });
+})();
+</script>
+<!-- checklist-tap:end -->
+</body>
+</html>
