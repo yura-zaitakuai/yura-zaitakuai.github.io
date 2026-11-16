@@ -153,6 +153,17 @@ h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700
 footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 .fig figcaption a,.checks a{color:var(--cocoa-deep);font-weight:700}
+
+/* line-cta:start */
+.line-cta{align-self:stretch;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.line-cta .line-banner{display:block;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(80,50,40,.14);transition:transform .15s}
+.line-cta .line-banner:hover{transform:translateY(-2px)}
+.line-cta .line-banner img{display:block;width:100%;height:auto}
+.line-cta .line-btn{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:17px;letter-spacing:.04em;color:#fff;background:#06C755;border-radius:999px;padding:15px 20px;box-shadow:0 3px 0 #04983F}
+.line-cta .line-btn:hover{filter:brightness(1.05)}
+.line-cta .line-btn:focus-visible,.line-cta .line-banner:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.line-cta .arrow{text-align:center;font-size:22px;color:var(--cocoa-deep,#9E6650);line-height:1;margin:0}
+/* line-cta:end */
 </style>
 
 <main class="wrap">
@@ -648,16 +659,23 @@ ChatGPTに貼って画像を作ってもらうためのプロンプトを、3つ
 
   <section class="closing" aria-labelledby="bye">
     <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
-    <p>このチャンネルでは、2児ママの私が実際にやっているAIの在宅副業を、画面ごとお見せしていきます。</p>
-    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。チャンネル登録もしてもらえたらうれしいです。</p>
-    <a class="channel" href="https://www.youtube.com/@yura-ai-zaitaku" target="_blank" rel="noopener">
-      <span class="channel-name">ゆら<small>【在宅ワーク・AI副業でマイホームを目指す2児ママ】</small></span>
-      <span class="channel-go">YouTubeチャンネルを見る</span>
-    </a>
+    <p>このチャンネルでは、2児ママの私がやってきた在宅副業や、AIを使って稼げる副業の最新情報をお届けしていきます。</p>
+    <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。</p>
+    <p>Claude Codeで作業を丸投げできるようになると、浮いた時間で「発信」を育てられるようになります。中でもインスタは、投稿の台本づくりや画像づくりまでAIに手伝ってもらえるので、AIを使いこなせる方ほど伸ばしやすいSNSです。</p>
+    <p>公式LINEで、この画像の「<b>こちらをタップ</b>」を押してみてくださいね！</p>
+    <div class="line-cta">
+      <a class="line-banner" href="https://utage-system.com/line/open/DiKlWtTBWHQ1?mtid=vOQH2rKXSEsv" target="_blank" rel="noopener"><img src="img/yura_line_insta_kyoumi.webp" alt="AI×インスタで収益化する方法 興味あります！こちらをタップ" width="781" height="390" loading="lazy"></a>
+      <p class="arrow" aria-hidden="true">▼</p>
+    </div>
+    <p><b>公式LINE限定</b>で、こちらの「<b>AI×インスタ ゼロからの完全ロードマップ</b>」の記事をプレゼントしています！</p>
+    <div class="line-cta">
+      <a class="line-banner" href="https://utage-system.com/line/open/DiKlWtTBWHQ1?mtid=vOQH2rKXSEsv" target="_blank" rel="noopener"><img src="img/yura_insta_roadmap.webp" alt="AI×インスタ ゼロからの完全ロードマップ" width="892" height="501" loading="lazy"></a>
+      <a class="line-btn" href="https://utage-system.com/line/open/DiKlWtTBWHQ1?mtid=vOQH2rKXSEsv" target="_blank" rel="noopener">公式LINEで受け取る</a>
+    </div>
     <img class="chibi-family" src="img/yura_chibi_05_family.webp" alt="手を振るゆらと息子2人" width="720">
   </section>
 
-  <footer>YURA AI ZAITAKU</footer>
+<footer>YURA AI ZAITAKU</footer>
 </main>
 
 <script>
