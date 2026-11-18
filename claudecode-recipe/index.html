@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ゆらのClaude Codeスタートレシピ｜ゆらAI在宅</title>
-<meta name="description" content="Claude Codeを使い始める設定と、スレッズ・note・記事の画像づくりに使うプロンプトを、7つのレシピにまとめました。">
+<meta name="description" content="Claude Codeを使い始める設定と、スレッズ・note・記事の画像づくりに使うプロンプトを、6つのレシピにまとめました。">
 <meta property="og:title" content="ゆらのClaude Codeスタートレシピ｜ゆらAI在宅">
 <meta property="og:description" content="動画で紹介したClaude Codeの使い方を、上から順にコピーして使えるようにまとめました。">
 <meta property="og:type" content="article">
@@ -171,7 +171,7 @@ footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
   <header class="cover">
     <div class="meta"><span>ゆらAI在宅</span></div>
     <h1><small>作業の9割を、AIにおまかせする準備</small>ゆらの<br><span class="grad">Claude Code<br>スタートレシピ</span></h1>
-    <p class="lead">動画でお見せしたClaude Codeの使い方を、7つのレシピにまとめました。最初の設定から、スレッズ・note・記事の画像づくりまで、上から順にコピーして、Claude Codeに貼って送るだけです。</p>
+    <p class="lead">動画でお見せしたClaude Codeの使い方を、7つのレシピにまとめました。最初の設定から、スレッズ・note・記事の画像・インスタのリールづくりまで、上から順にコピーして、Claude Codeに貼って送るだけです。</p>
     <img class="chibi-hero" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="945">
     <nav class="index" aria-label="このページのレシピ">
       <a href="#r0" data-key="r0"><b>RECIPE 00</b><span>はじめの設定</span></a>
@@ -179,9 +179,8 @@ footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
       <a href="#r2" data-key="r2"><b>RECIPE 02</b><span>楽天つきの投稿</span></a>
       <a href="#r3" data-key="r3"><b>RECIPE 03</b><span>noteのリサーチ</span></a>
       <a href="#r4" data-key="r4"><b>RECIPE 04</b><span>noteの記事</span></a>
-      <a href="#r5" data-key="r5"><b>RECIPE 05</b><span>画像をAPIで作る</span></a>
-      <a href="#r6" data-key="r6"><b>RECIPE 06</b><span>画像のプロンプト</span></a>
-      <a href="#r7"><b>RECIPE 07</b><span>インスタ（準備中）</span></a>
+      <a href="#r5" data-key="r5"><b>RECIPE 05</b><span>記事の画像</span></a>
+      <a href="#r6" data-key="r6"><b>RECIPE 06</b><span>インスタのリール</span></a>
     </nav>
   </header>
 
@@ -198,7 +197,7 @@ footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
     <p class="section-label">全体の地図</p>
     <h2 id="flow">設定を1回したら、あとは3つの副業に使い回す</h2>
     <figure class="fig">
-      <svg viewBox="0 0 700 120" role="img" aria-label="レシピ00で作業場所を作り、01と02でスレッズ、03と04でnote、05と06で記事の画像、07でインスタ（準備中）">
+      <svg viewBox="0 0 700 120" role="img" aria-label="レシピ00で作業場所を作り、01と02でスレッズ、03と04でnote、05で記事の画像、06でインスタのリール">
         <rect class="bx-on" x="6" y="18" width="126" height="84" rx="3"/>
         <text class="n" x="18" y="42">00</text>
         <text class="t" x="18" y="68">はじめの設定</text>
@@ -215,14 +214,14 @@ footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
         <text class="s" x="294" y="88">リサーチ→記事</text>
         <path class="ar" d="M409 60 H412"/><path class="arh" d="M412 55 L419 60 L412 65 Z"/>
         <rect class="bx" x="420" y="18" width="126" height="84" rx="3"/>
-        <text class="n" x="432" y="42">05・06</text>
+        <text class="n" x="432" y="42">05</text>
         <text class="t" x="432" y="68">記事の画像</text>
-        <text class="s" x="432" y="88">ChatGPTとつなぐ</text>
+        <text class="s" x="432" y="88">無料のChatGPTで</text>
         <path class="ar" d="M547 60 H550"/><path class="arh" d="M550 55 L557 60 L550 65 Z"/>
         <rect class="bx" x="558" y="18" width="126" height="84" rx="3"/>
-        <text class="n" x="570" y="42">07</text>
+        <text class="n" x="570" y="42">06</text>
         <text class="t" x="570" y="68">インスタ</text>
-        <text class="s" x="570" y="88">準備中</text>
+        <text class="s" x="570" y="88">リールを作る</text>
       </svg>
       <figcaption>全部、同じフォルダを開いたClaude Codeで送ります。リサーチ結果や作ったものがフォルダにたまっていくので、使うほど自分に合ったものが出てくるようになります。</figcaption>
     </figure>
@@ -351,6 +350,8 @@ footer{font-size:12px;letter-spacing:.2em;color:var(--muted);text-align:center}
 ・表示回数、いいねの数、フォロワー数
 ・表示回数がフォロワー数の何倍か
 ・どんな型の投稿か（質問型／体験談型／比較型／まとめ型 など）
+
+表示回数は、検索結果の一覧には出ていません。投稿を開いた詳しいページに出ているので、1件ずつ開いて確かめてください。
 
 表のあとに、伸びている投稿の共通点を3つまとめてください。
 できたものは「スレッズ」フォルダに「リサーチ_今日の日付」という名前で保存してください。
@@ -535,7 +536,7 @@ noteの検索・ハッシュタグ・おすすめに出ている記事の中か�
     <div class="recipe-head">
       <div class="num"><span>RECIPE</span><strong>05</strong></div>
       <div>
-        <h2 id="r5-title">ChatGPTの画像生成とつないで、記事の画像を作る</h2>
+        <h2 id="r5-title">記事に合う画像を、無料版のChatGPTで作る</h2>
         <span class="when">②note　画像</span>
       </div>
       <img class="chibi-side" src="img/yura_chibi_04_check.webp" alt="チェックリストを持ってグッドサインをするゆら" width="520" height="900">
@@ -546,28 +547,28 @@ noteの検索・ハッシュタグ・おすすめに出ている記事の中か�
         <ol class="method">
           <li><span>下の「コピーする」を押して、Claude Codeに貼って送ります。</span></li>
           <li><span>「参考の画像を送ってください」と言われたら、これまで自分が作ってきた画像（アイコン・見出し画像・投稿の画像など）を「トンマナ参考」フォルダに入れて、「入れました」と送ります。</span></li>
-          <li><span>トンマナ.md（色や雰囲気のまとめ）ができたら、中身を読んで、違うところがあれば伝えます。</span></li>
-          <li><span>OpenAIのサイト（platform.openai.com）でAPIキーを作り、Claude Codeが作った .env ファイルを自分で開いて、キーを貼って保存します。</span></li>
-          <li><span>「入れました」と送ると、見出し画像と図解を作って、「note」フォルダの「画像」フォルダに保存してくれます。</span></li>
+          <li><span>トンマナ.md（色や雰囲気のまとめ）と、画像用のプロンプトが3つできあがります。</span></li>
+          <li><span>ChatGPTを開いて、参考の画像を1枚添付してから、1つ目のプロンプトを貼って送ります。2つ目・3つ目も、同じチャットで続けて送ります。</span></li>
+          <li><span>できた画像をダウンロードして、noteの記事に入れます。</span></li>
         </ol>
-        <p class="why">トンマナというのは、色やデザインの雰囲気のことです。自分が作ってきた画像を見本に渡すと、毎回同じ雰囲気の画像になるので、記事を並べたときに「この人の記事だ」と分かってもらいやすくなります。APIキーは、パスワードと同じくらい大事なものです。チャットに貼ったり、人に見せたりしないでください。</p>
+        <p class="why">トンマナというのは、色やデザインの雰囲気のことです。自分が作ってきた画像を見本に渡すと、毎回同じ雰囲気の画像になるので、記事を並べたときに「この人の記事だ」と分かってもらいやすくなります。ChatGPTは無料版で大丈夫です。無料版は1日に作れる画像の枚数に上限があるので、作れなかったときは次の日に続きを作ってください。画像の中の文字は、まちがっていないか必ず確かめましょう。</p>
+        <p class="why"><b>ゆらの本音</b><br>動画では、Claude CodeとChatGPTをつないで、画像づくりからnoteの下書き保存まで半自動でやっている様子をお見せしました。でも、最初はプロンプトを無料版のChatGPTに貼るこのやり方で十分です。慣れてきたら、少しずつ任せる範囲を広げていけば大丈夫ですよ。</p>
       </div>
       <div class="block">
         <span class="where">Claude Codeで送る</span>
         <div class="prompt">
-          <div class="prompt-head"><span>RECIPE 05｜画像をAPIで作る</span><button class="copy" type="button" data-target="text-p5">コピーする</button></div>
-          <pre id="text-p5" tabindex="0">noteの記事に入れる画像を、ChatGPTと同じOpenAIの画像生成（API）を使って作れるようにしたいです。
+          <div class="prompt-head"><span>RECIPE 05｜記事の画像</span><button class="copy" type="button" data-target="text-p5">コピーする</button></div>
+          <pre id="text-p5" tabindex="0">「note」フォルダのいちばん新しい記事に入れる画像を、ChatGPTで作りたいです。
 次の順番で、1つずつ進めてください。
 
 1. まず私に、トンマナ（色やデザインの雰囲気）の参考にしたい画像を送るように言ってください。
    私がこれまでに作ってきた画像（アイコン、見出し画像、投稿の画像など）を「トンマナ参考」フォルダに入れるので、入れ終わったと私が言うまで待ってください。
 2. 入れ終わったら、その画像を見て、色・文字の雰囲気・イラストのタッチ・余白の取り方を、「トンマナ参考」フォルダの「トンマナ.md」にまとめてください。
-3. OpenAIの画像生成APIを使う準備をしてください。
-   ・使うモデルは、OpenAIの公式ドキュメントで、今いちばん新しい画像生成モデルを確かめて選ぶ
-   ・APIキーは私が自分で入れるので、入れる場所（.envファイル）だけを作って、入れ方を説明する。キーをこのチャットに貼るようには言わない
-4. 準備ができたら、「note」フォルダのいちばん新しい記事を読んで、
-   見出し画像を1枚と、記事の途中に入れる図解を2枚、トンマナ.mdに合わせて作り、「note」フォルダの中の「画像」フォルダに保存してください。
-5. 1枚作るごとに、だいたいいくらかかったかも教えてください。</pre>
+3. トンマナ.mdと記事を読んで、ChatGPTに貼って画像を作ってもらうためのプロンプトを、3つ書いてください（見出し画像を1枚、記事の途中に入れる図解を2枚）。
+   ・画像の中に入れる文字は短くして、プロンプトの中にそのまま書く
+   ・見出し画像は横長（noteの見出し画像の比率）にする
+   ・1つ目のプロンプトには「添付した画像と同じ雰囲気で」と入れて、参考の画像をいっしょに貼れば伝わるようにする
+4. 書いたプロンプトは、「note」フォルダに「画像プロンプト_今日の日付」という名前で保存してください。</pre>
         </div>
         <p class="toast" id="toast-p5" aria-live="polite"></p>
       </div>
@@ -576,53 +577,65 @@ noteの検索・ハッシュタグ・おすすめに出ている記事の中か�
     </div>
   </article>
 
-  <section class="prep" id="api-cost" aria-labelledby="api-cost-title">
-    <p class="section-label">②note　画像　お金のこと</p>
-    <h2 id="api-cost-title">APIの料金は、ChatGPTの月額とは別にかかります</h2>
-    
-    <ol class="method">
-      <li><span>OpenAIのAPIは、使った分だけ払うしくみです。先にチャージ（クレジットの購入）をしてから使います。</span></li>
-      <li><span>1枚あたりの金額は、画像の大きさや画質で変わります。RECIPE 05では、1枚作るごとに金額を教えてもらうようにしています。</span></li>
-      <li><span>まずは少しだけチャージして、何枚か作ってみてから続けるか決めるのがおすすめです。</span></li>
-    </ol>
-    <ul class="checks">
-      <li><span>ChatGPTの有料プランに入っていても、APIの料金は別にかかると分かった</span></li>
-      <li><span>使いすぎないように、チャージは少なめから始める</span></li>
-      <li><span>APIキーを、チャットや人に見せる場所に貼っていない</span></li>
-    </ul>
-    <p class="why">料金やモデルの名前は、よく変わります（2026年11月時点）。使う前に、OpenAIの公式の料金ページで確かめてください。お金をかけずに試したいときは、下のRECIPE 06を使ってください。</p>
-  </section>
 
   <!-- RECIPE 06 -->
   <article class="recipe" id="r6" aria-labelledby="r6-title">
     <div class="recipe-head">
       <div class="num"><span>RECIPE</span><strong>06</strong></div>
       <div>
-        <h2 id="r6-title">APIを使わずに、ChatGPTに貼るプロンプトを作ってもらう</h2>
-        <span class="when">②note　画像（お金をかけずに）</span>
+        <h2 id="r6-title">参考にしたいリールの型で、自分のリールを作る</h2>
+        <span class="when">③インスタ</span>
       </div>
-      <img class="chibi-side" src="img/yura_chibi_02_point.webp" alt="スマホの画面を指さすゆら" width="520" height="900">
+      <img class="chibi-side" src="img/yura_chibi_01_wave.webp" alt="スマホを持って手を振るゆら" width="520" height="900">
     </div>
     <div class="recipe-body">
       <div class="block">
         <h3><em>使い方</em></h3>
         <ol class="method">
-          <li><span>RECIPE 05の1と2（トンマナ参考の画像を入れて、トンマナ.mdを作る）までは同じように進めます。</span></li>
-          <li><span>下の「コピーする」を押して、Claude Codeに貼って送ります。</span></li>
-          <li><span>出てきた3つのプロンプトを、1つずつChatGPTに貼って、画像を作ってもらいます。</span></li>
-          <li><span>できた画像を、noteの記事に入れます。</span></li>
+          <li><span>インスタで「この型、伸びてるな」と思ったリールを見つけたら、リンクをコピーしておきます。</span></li>
+          <li><span>下の「コピーする」を押して、Claude Codeに貼り、{ }のところにリールのリンクを入れて送ります。</span></li>
+          <li><span>元の台本と、あなた向けに書き直した台本が並んで出てきます。「確かめてほしいところ」を読んで、自分として言っていい内容か確かめてから「OK」と送ります。</span></li>
+          <li><span>背景に使う動画を「インスタ」フォルダに入れて、3つの質問（背景・声・図解）に答えます。</span></li>
+          <li><span>あとは待つだけです。できあがったリールを見て、字幕や声を確かめてから投稿します。</span></li>
         </ol>
-        <p class="why">Claude Codeがトンマナに合わせたプロンプトを書いてくれるので、ChatGPTに毎回「こういう雰囲気で」と説明しなくて大丈夫です。ChatGPTの無料版は、1日に作れる画像の枚数に上限があります。</p>
+        <p class="why">まねするのは、話の順番や1行目の引きなどの「型」だけです。ほかの人の言葉をそのまま使ったり、体験していないことを話したりするのはNGです。背景の動画は、手元やカフェ、家事の様子など、顔が映らないものを撮りためておくと便利です。AI音声のサービスは、無料プランだと収益につながる使い方ができないものもあるので、投稿する前に条件を確かめてください。</p>
+        <p class="why"><b>ゆらの本音</b><br>私は何度も作ってもらううちに、このやり方をClaude Codeに覚えてもらって、「/ゆら」と打つだけで始まるようにしています。最後の手順で「リールの作り方.md」にまとめてもらうのは、そのための第一歩です。最初は自分の声をスマホで録音して使うのでも、まったく問題ありませんよ。</p>
       </div>
       <div class="block">
         <span class="where">Claude Codeで送る</span>
         <div class="prompt">
-          <div class="prompt-head"><span>RECIPE 06｜画像のプロンプト</span><button class="copy" type="button" data-target="text-p6">コピーする</button></div>
-          <pre id="text-p6" tabindex="0">「note」フォルダのいちばん新しい記事と、「トンマナ参考」フォルダのトンマナ.mdを読んでください。
-ChatGPTに貼って画像を作ってもらうためのプロンプトを、3つ書いてください（見出し画像を1枚、図解を2枚）。
-・トンマナ.mdの色と雰囲気に合わせる
-・画像の中に入れる文字は短くして、プロンプトの中にそのまま書く
-・見出し画像は横長（noteの見出し画像の比率）にする</pre>
+          <div class="prompt-head"><span>RECIPE 06｜インスタのリール</span><button class="copy" type="button" data-target="text-p6">コピーする</button></div>
+          <pre id="text-p6" tabindex="0">「インスタ」フォルダで、リールを1本作りたいです。次の順番で、1つずつ進めてください。
+
+1. 参考にしたいリールは、これです：{参考にしたいリールのURL}
+   リールを開いて、話している内容を文字に起こしてください。
+   声が入っていないところは、画面に出ている文字を読み取ってください。
+   リールがうまく開けないときは、無理に進めずに私に教えてください。私が文字を書き写して貼ります。
+
+2. 文字起こしをもとに、私のアカウント向けに台本を書き直してください。
+   ・まねするのは「型」（話の順番、1行目の引き、締め方）だけ。元のリールの文章はそのまま使わない
+   ・「わたしのこと」フォルダのエピソード.mdを読んで、私の体験に置き換える。書いていない出来事や数字は作らない
+   ・語尾や言い回しは、私が話すときの言い方に合わせる
+   ・元の台本と書き直した台本を並べて見せて、最後に「確かめてほしいところ」を書く
+   ・私が「OK」と言うまで、ここで止まる
+
+3. OKが出たら、動画を作る前に、次の3つを私に聞いてください。
+   ・背景に使う動画（私が「インスタ」フォルダに入れた動画から選ぶ。入れ終わったと私が言うまで待つ）
+   ・声は、私が録音した音声ファイルを使うか、AI音声にするか
+   ・動く図解（文字の札や図）を入れるか
+
+4. 答えをもとに、縦長（9:16）のリールを作ってください。
+   ・字幕は台本どおりに、1画面に1〜2行で、声に合わせて出す
+   ・図解を入れる場合は、台本のいちばん大事なところに合わせて出す
+   ・最後に「本文チェックしてね」などの締めの文字を入れる
+   ・動画を作るための道具が入っていなければ、何を入れるのかを説明して、私がいいと言ってから入れる
+   ・AI音声を使う場合は、使うサービスと、投稿して収益につながる使い方をしていいか（無料プランの条件）を先に私に伝える
+
+5. できあがったら、コマを何枚か切り出して、字幕の間違いや画面からのはみ出しがないか確かめてください。
+   気になるところや、耳で確かめてほしいところは、最後にまとめて教えてください。
+
+6. 完成した動画は「インスタ」フォルダに「リール_今日の日付」という名前で保存してください。
+   次からも同じ流れで作れるように、今回のやり方を「インスタ」フォルダの「リールの作り方.md」にまとめておいてください。</pre>
         </div>
         <p class="toast" id="toast-p6" aria-live="polite"></p>
       </div>
@@ -630,12 +643,6 @@ ChatGPTに貼って画像を作ってもらうためのプロンプトを、3つ
       <label class="done"><input type="checkbox" data-key="r6">ここまでできた</label>
     </div>
   </article>
-
-  <section class="prep" id="r7" aria-labelledby="r7-title">
-    <p class="section-label">RECIPE 07　③インスタ</p>
-    <h2 id="r7-title">インスタの動画づくりのレシピは、ただいま準備中です</h2>
-    <p class="why">動画でお話ししたように、インスタは私がいちばんおすすめしている副業です。いちばんのハードルだった動画の編集まで、Claude Codeが手伝ってくれます。実際の画面に合わせて、受け取ってくれた方がそのまま使えるプロンプトを準備しています。できしだい、このページに追加しますね。</p>
-  </section>
 
   <section class="prep" aria-labelledby="honest">
     <p class="section-label">さいごに</p>
@@ -661,7 +668,7 @@ ChatGPTに貼って画像を作ってもらうためのプロンプトを、3つ
     <h2 id="bye">最後まで見てくださって、ありがとうございます</h2>
     <p>このチャンネルでは、2児ママの私がやってきた在宅副業や、AIを使って稼げる副業の最新情報をお届けしていきます。</p>
     <p>使ってみた感想や、「ここが分からなかった」ということがあれば、ぜひ動画のコメント欄で教えてください。ひとつずつ読ませていただいています。</p>
-    <p>Claude Codeで作業を丸投げできるようになると、浮いた時間で「発信」を育てられるようになります。中でもインスタは、投稿の台本づくりや画像づくりまでAIに手伝ってもらえるので、AIを使いこなせる方ほど伸ばしやすいSNSです。</p>
+    <p>noteを売っていくには、まず記事を見つけてもらう「入り口」が必要です。インスタはその入り口にぴったりで、投稿で興味を持ってくれた方がnoteを読みに来てくれる流れができると、記事の売れ方がぐっと変わってきます。</p>
     <p>公式LINEで、この画像の「<b>こちらをタップ</b>」を押してみてくださいね！</p>
     <div class="line-cta">
       <a class="line-banner" href="https://utage-system.com/line/open/DiKlWtTBWHQ1?mtid=vOQH2rKXSEsv" target="_blank" rel="noopener"><img src="img/yura_line_insta_kyoumi.webp" alt="AI×インスタで収益化する方法 興味あります！こちらをタップ" width="781" height="390" loading="lazy"></a>
